@@ -25,8 +25,8 @@ export const controller = () => {
     return true;
   };
 
-  const setAutologout = (period) => {
-    settingsStore.setAutologout(period);
+  const setSettings = async (settings) => {
+    await setStorageItem("settings", settings);
   };
 
   const deleteAccount = (data) => {
@@ -44,7 +44,7 @@ export const controller = () => {
     "networks": networksController,
     createPassword,
     deleteAccount,
-    setAutologout,
+    setSettings,
     unlock,
     lock
   };

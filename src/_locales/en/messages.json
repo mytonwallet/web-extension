@@ -6,7 +6,7 @@
     "message": "Secure Free TON wallet."
   },
   "extDescription": {
-    "message": "Free TON blockchain wallet allows you to create new accounts, make backups and restore them. You will be able to transfer CRYSTALS between accounts quickly and securely. Fast work. State-of-the-art security. Decentralized applications (Dapp), multisign wallets, DePools, signature messages, TIP-3 tokens, authorization using keys, swap and exchange between different blockchain networks, Dex, work with smart contracts - all this and not only in the next versions. View the source code on Github: https://github.com/mytonwallet/web-extension"
+    "message": "Free TON blockchain wallet allows you to create new accounts, make backups, restore them, send transactions and much more."
   },
   "TransactionIsConfirmed": {
     "message": "Transaction is confirmed"

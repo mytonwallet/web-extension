@@ -109,7 +109,7 @@ export const eventsHandler = (controller) => {
           if (message.type === 'removeNetwork') return Promise.resolve(controller.networks.addNewNetwork(message.data));
 
           // Settings
-          if (message.type === 'setAutologout') return Promise.resolve(controller.setAutologout(message.data));
+          if (message.type === 'setSettings') return Promise.resolve(controller.setSettings(message.data));
         }
       }
     }

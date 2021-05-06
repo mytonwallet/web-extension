@@ -135,7 +135,8 @@ gulp.task('zip:chrome', zipTask('chrome'));
 gulp.task('zip:firefox', zipTask('firefox'));
 gulp.task('zip:opera', zipTask('opera'));
 gulp.task('zip:edge', zipTask('edge'));
-gulp.task('zip', gulp.parallel('zip:chrome', 'zip:firefox', 'zip:opera', 'zip:edge'));
+gulp.task('zip:safari', zipTask('safari'));
+gulp.task('zip', gulp.parallel('zip:chrome', 'zip:firefox', 'zip:opera', 'zip:edge', 'zip:safari'));
 
 // high level tasks
 gulp.task('build',

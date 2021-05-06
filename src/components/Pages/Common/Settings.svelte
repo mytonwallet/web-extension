@@ -29,9 +29,9 @@
         settingsStore.setAutologout(autologout.value);
 
         // need to change storage on background
-        browser.runtime.sendMessage({type: "setAutologout", data: autologout.value});
-
-        switchPage("AccountMain");
+        browser.runtime.sendMessage({type: "setSettings", data: $settingsStore}).then(() => {
+          switchPage("AccountMain");
+        });
       }
     } catch(e) {
       formObj.reportValidity();

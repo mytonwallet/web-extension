@@ -14,10 +14,10 @@ This repository contains source code for web-extension that allow interaction wi
 # Browser supporting
 
 * Chrome [install](here will be the link)
-* Firefox [install](here will be the link)
-* Edge [install](here will be the link)
-* Opera [install](here will be the link)
-* Safari [install](here will be the link)
+* Firefox [install](https://github.com/mytonwallet/web-extension/releases/download/1.0.1/ext-firefox-1.0.1.zip)
+* Edge [install](https://github.com/mytonwallet/web-extension/releases/download/1.0.1/ext-edge-1.0.1.zip)
+* Opera [install](https://github.com/mytonwallet/web-extension/releases/download/1.0.1/ext-opera-1.0.1.zip)
+* Safari [install](https://github.com/mytonwallet/web-extension/releases/download/1.0.1/ext-safari-1.0.1.zip)
 
 # Architecture
 
