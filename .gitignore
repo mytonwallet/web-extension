@@ -1,0 +1,8 @@
+node_modules
+builds
+dist
+secrets.*.js
+src/js/crypto/test.mjs
+npm-debug.log
+.DS_Store
+/dist
