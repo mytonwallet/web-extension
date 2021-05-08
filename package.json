@@ -1,6 +1,6 @@
 {
   "name": "mytonwallet",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "The browser extension for Free TON blockchain.",
   "author": "My TON wallet team <support@mytonwallet.com>",
   "license": "APACHE2.0",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mytonwallet/webextension.git"
+    "url": "https://github.com/mytonwallet/web-extension.git"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -14,10 +14,10 @@ This repository contains source code for web-extension that allow interaction wi
 # Browser supporting
 
 * Chrome [install](here will be the link)
-* Firefox [install](https://github.com/mytonwallet/web-extension/releases/download/1.0.1/ext-firefox-1.0.1.zip)
-* Edge [install](https://github.com/mytonwallet/web-extension/releases/download/1.0.1/ext-edge-1.0.1.zip)
-* Opera [install](https://github.com/mytonwallet/web-extension/releases/download/1.0.1/ext-opera-1.0.1.zip)
-* Safari [install](https://github.com/mytonwallet/web-extension/releases/download/1.0.1/ext-safari-1.0.1.zip)
+* Firefox [install](https://github.com/mytonwallet/web-extension/releases)
+* Edge [install](https://github.com/mytonwallet/web-extension/releases)
+* Opera [install](https://github.com/mytonwallet/web-extension/releases)
+* Safari [install](https://github.com/mytonwallet/web-extension/releases)
 
 # Architecture
 
@@ -76,6 +76,14 @@ To run developer mode:
 npm start
 ```
 
+For the best developer environment we recomend to use launch [tonlabs/local-node](https://hub.docker.com/r/tonlabs/local-node)
+
+To start the local node just run:
+
+```
+npm run run-tonos
+```
+
 # Documentation
 
 All documentation you can find by this [link](https://mytonwallet.com)
@@ -86,7 +94,7 @@ For now the extension is available on the followed languages:
 * English
 * Russian
 
-If you are native speaker on any other language and can help with tranlation, please use this file as [source](/src/assets/i18n/en.json)
+If you are native speaker on any other language and can help with translation, please use this file as [source](/src/assets/i18n/en.json)
 
 # Requested features
 
