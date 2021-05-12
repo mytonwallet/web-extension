@@ -89,7 +89,12 @@ export const accounts = () => {
 
   const getCurrentBalance = async (destination, server) => {
     const TonLibClient = TonLib.getClient(server);
-    const amount = await TonLibClient.requestAccountBalance(destination);
+    let amount = 0;
+    try {
+      amount = await TonLibClient.requestAccountBalance(destination);
+    } catch(e) {
+      throw e;
+    }
     await vault.updateBalance(destination, server, amount);
     return amount;
   };
@@ -243,7 +248,7 @@ export const accounts = () => {
           };
           result = await vault.addNewAccount(fullAccount);
         }
-        return {"address": account.address, "nickname": account.nickname, "result": result};
+        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": result};
       })
     );
     return await resultAccounts;
@@ -267,9 +272,9 @@ export const accounts = () => {
     };
     try {
       if (await vault.addNewAccount(account)) {
-        return {"address": account.address, "nickname": account.nickname, "result": true};
+        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": true};
       } else {
-        return {"address": account.address, "nickname": account.nickname, "result": false};
+        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": false};
       }
     } catch (e) {
       return {"added": false, "error": e.message};
@@ -295,9 +300,9 @@ export const accounts = () => {
     };
     try {
       if (await vault.addNewAccount(account)) {
-        return {"address": account.address, "nickname": account.nickname, "result": true};
+        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": true};
       } else {
-        return {"address": account.address, "nickname": account.nickname, "result": false};
+        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": false};
       }
     } catch (e) {
       return {"added": false, "error": e.message};

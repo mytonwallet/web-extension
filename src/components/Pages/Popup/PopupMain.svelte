@@ -17,10 +17,14 @@
     mdiGift,
     //mdiSwapVertical,
     mdiBriefcaseUpload,
-    mdiArrowTopRight
+    mdiArrowTopRight,
   } from "@mdi/js";
 
-  import { accountStore, currentAccount, currentNetwork } from "../../../common/stores.js";
+  import {
+    accountStore,
+    currentAccount,
+    currentNetwork,
+  } from "../../../common/stores.js";
 
   import {
     shortAddress,
@@ -29,25 +33,30 @@
   } from "../../../common/utils.js";
 
   //Context
-  const { openModal } = getContext('app_functions');
+  const { openModal } = getContext("app_functions");
 
-  let balance       = 0;
-  let showDeploy    = false;
-  let showBuy       = false;
-  let showGiver     = false;
-  let error         = "";
-  let giverLoading  = false;
+  let balance = 0;
+  let showDeploy = false;
+  let showBuy = false;
+  let showGiver = false;
+  let error = "";
+  let giverLoading = false;
   let deployLoading = false;
-  let transactions  = [];
+  let transactions = [];
 
   onMount(() => {
+    balance = $currentAccount.balance[$currentNetwork.server]
+      ? fromNano($currentAccount.balance[$currentNetwork.server])
+      : 0;
     checkBalance($currentAccount.address, $currentNetwork.server);
     getTransactions($currentAccount.address, $currentNetwork.server, 10, 1);
   });
 
-  $: showDeploy    = $currentAccount.deployed ? !$currentAccount.deployed.includes($currentNetwork.server): false;
-  $: showBuy       = !$currentNetwork.test;
-  $: showGiver     = $currentNetwork.test && $currentNetwork.giver != "";
+  $: showDeploy = $currentAccount.deployed
+    ? !$currentAccount.deployed.includes($currentNetwork.server)
+    : false;
+  $: showBuy = !$currentNetwork.test;
+  $: showGiver = $currentNetwork.test && $currentNetwork.giver != "";
 
   const copyAddress = (event) => {
     copyToClipboard($currentAccount.address);
@@ -60,10 +69,14 @@
 
   const checkBalance = (accountAddress, server) => {
     browser.runtime
-      .sendMessage({ type: "getCurrentBalance", data: {"accountAddress": accountAddress, "server": server} })
+      .sendMessage({
+        type: "getCurrentBalance",
+        data: { accountAddress: accountAddress, server: server },
+      })
       .then((result) => {
         balance = fromNano(result);
-      }).catch((e) => {
+      })
+      .catch((e) => {
         balance = 0;
         console.log(e); // here don't need to show any error for user, usually it is the network issue in the development environment
       });
@@ -71,20 +84,35 @@
 
   const getTransactions = (accountAddress, server, count, page) => {
     browser.runtime
-      .sendMessage({ type: "getTransactions", data: {"accountAddress": accountAddress, "server": server, "count": count, "page": page} })
+      .sendMessage({
+        type: "getTransactions",
+        data: {
+          accountAddress: accountAddress,
+          server: server,
+          count: count,
+          page: page,
+        },
+      })
       .then((result) => {
         transactions = result;
-      }).catch((e) => {
+      })
+      .catch((e) => {
         console.log(e); // here don't need to show any error for user, usually it is the network issue in the development environment
       });
   };
 
   currentAccount.subscribe((value) => {
+    balance = value.balance[$currentNetwork.server]
+      ? fromNano(value.balance[$currentNetwork.server])
+      : 0;
     checkBalance(value.address, $currentNetwork.server);
     getTransactions(value.address, $currentNetwork.server, 10, 1);
   });
 
   currentNetwork.subscribe((value) => {
+    balance = $currentAccount.balance[$currentNetwork.server]
+      ? fromNano($currentAccount.balance[$currentNetwork.server])
+      : 0;
     checkBalance($currentAccount.address, value.server);
     getTransactions($currentAccount.address, value.server, 10, 1);
   });
@@ -92,32 +120,47 @@
   const editNickname = () => {
     openModal("ModalEditNickname");
   };
-  const viewOnExplorer = () => {
-    browser.tabs.create({ url: `${$currentNetwork.explorer}/accounts/accountDetails?id=${$currentAccount.address}` });
+  const viewAddressOnExplorer = () => {
+    browser.tabs.create({
+      url: `${$currentNetwork.explorer}/accounts/accountDetails?id=${$currentAccount.address}`,
+    });
+  };
+  const viewTransactionOnExplorer = (txId) => {
+    browser.tabs.create({
+      url: `${$currentNetwork.explorer}/messages/messageDetails?id=${txId}`,
+    });
   };
   const deleteAccount = () => {
     openModal("ModalDeleteAccount");
   };
   const buy = () => {
-    browser.tabs.create({ url: "https://coinmarketcap.com/currencies/ton-crystal/markets/" });
+    browser.tabs.create({
+      url: "https://coinmarketcap.com/currencies/ton-crystal/markets/",
+    });
   };
   const giver = () => {
     giverLoading = true;
-    browser.runtime.sendMessage({ type: "takeFromGiver", data: {"accountAddress": $currentAccount.address, "server": $currentNetwork.server} }).then(
-      (result) => {
+    browser.runtime
+      .sendMessage({
+        type: "takeFromGiver",
+        data: {
+          accountAddress: $currentAccount.address,
+          server: $currentNetwork.server,
+        },
+      })
+      .then((result) => {
         giverLoading = false;
         if (result.error) {
-          openModal("ModalError", {"message" : result.error});
+          openModal("ModalError", { message: result.error });
         } else {
           if (!result.added) {
-            openModal("ModalError", {"message" : result.reason});
+            openModal("ModalError", { message: result.reason });
           } else {
             checkBalance($currentAccount.address, $currentNetwork.server);
-            openModal("ModalSuccess", {"message" : "Amount is received"});
+            openModal("ModalSuccess", { message: "Amount is received" });
           }
         }
-      }
-    );
+      });
   };
   /*
   const swap = () => {
@@ -130,24 +173,32 @@
   };
   const deploy = () => {
     deployLoading = true;
-    browser.runtime.sendMessage({ type: "deployNewWallet", data: {"accountAddress": $currentAccount.address, "server": $currentNetwork.server} }).then(
-      (result) => {
+    browser.runtime
+      .sendMessage({
+        type: "deployNewWallet",
+        data: {
+          accountAddress: $currentAccount.address,
+          server: $currentNetwork.server,
+        },
+      })
+      .then((result) => {
         deployLoading = false;
         if (!result.success) {
-          openModal("ModalError", {"message" : result.reason});
+          openModal("ModalError", { message: result.reason });
           if (result.alreadyDeployed) {
             const newCurrentAccount = $currentAccount;
             newCurrentAccount.deployed.push($currentNetwork.server);
             accountStore.changeAccount(newCurrentAccount);
           }
         } else {
-          openModal("ModalSuccess", {"message" : "The wallet has been deployed"});
+          openModal("ModalSuccess", {
+            message: "The wallet has been deployed",
+          });
           const newCurrentAccount = $currentAccount;
           newCurrentAccount.deployed.push($currentNetwork.server);
           accountStore.changeAccount(newCurrentAccount);
         }
-      }
-    );
+      });
   };
 </script>
 
@@ -256,6 +307,7 @@
       align-items: center;
       display: flex;
       width: 40px;
+      cursor: pointer;
     }
   }
   .account-tx-wrapper {
@@ -289,7 +341,9 @@
           <Icon src={mdiPencil} size="1" color="var(--color-black)" />
           {$_('Edit nickname')}
         </div>
-        <div class="account-settings-item" on:click={() => viewOnExplorer()}>
+        <div
+          class="account-settings-item"
+          on:click={() => viewAddressOnExplorer()}>
           <Icon src={mdiEye} size="1" color="var(--color-black)" />
           {$_('View on explorer')}
         </div>
@@ -306,7 +360,10 @@
   in:fade={{ delay: 0, duration: 200 }}>
   <div class="flex-column">
     <div class="flex-row is-horizontal-align">
-      <img src="/assets/img/icon-crystal-128.png" class="token-logo" alt="logo" />
+      <img
+        src="/assets/img/icon-crystal-128.png"
+        class="token-logo"
+        alt="logo" />
     </div>
     <div class="flex-row is-horizontal-align account-balance-amount">
       {balance}
@@ -318,21 +375,27 @@
           disable
           title={$_('Buy')}
           class="action-button is-rounded"
-          on:click={() => {buy();}}
+          on:click={() => {
+            buy();
+          }}
           icon={mdiCartArrowDown} />
       {/if}
       {#if showGiver}
         <Button
-          title={$_("Giver")}
+          title={$_('Giver')}
           class="action-button is-rounded"
           loading={giverLoading}
-          on:click={() => {giver();}}
+          on:click={() => {
+            giver();
+          }}
           icon={mdiGift} />
       {/if}
       <Button
         title={$_('Send transaction')}
         class="action-button is-rounded"
-        on:click={() => {sendTransaction();}}
+        on:click={() => {
+          sendTransaction();
+        }}
         icon={mdiArrowTopRight} />
       <!--
       <Button
@@ -347,7 +410,9 @@
           title={$_('Deploy')}
           class="action-button is-rounded"
           loading={deployLoading}
-          on:click={() => {deploy();}}
+          on:click={() => {
+            deploy();
+          }}
           icon={mdiBriefcaseUpload} />
       {/if}
     </div>
@@ -358,10 +423,13 @@
   <Tab tabid="assets">{$_('Assets')}</Tab>
   <Tab tabid="tx">{$_('Transactions')}</Tab>
 </Tabs>
-{#if active_tab == "assets"}
+{#if active_tab == 'assets'}
   <div class="account-assets-wrapper">
     <div class="flex-row is-horizontal-align account-assets">
-      <img src="/assets/img/icon-crystal-128.png" class="asset-logo" alt="logo" />
+      <img
+        src="/assets/img/icon-crystal-128.png"
+        class="asset-logo"
+        alt="logo" />
       <span class="asset-balance is-center">
         {balance}
         {$currentNetwork.coinName}
@@ -369,22 +437,33 @@
     </div>
   </div>
 {/if}
-{#if active_tab == "tx"}
+{#if active_tab == 'tx'}
   <div class="account-tx-wrapper">
     <div class="account-tx-wrapper-scroll">
       {#each transactions as tx}
-        <div class="flex-row is-horizontal-align account-tx" data-hash={tx.new_hash}>
+        <div
+          class="flex-row is-horizontal-align account-tx"
+          data-hash={tx.new_hash}>
           <span class="tx-type">
-            <Icon src={mdiBriefcaseUpload} size="2" />
+            {#if tx.type == 'deploy'}
+              <Icon
+                src={mdiBriefcaseUpload}
+                size="2"
+                on:click={() => viewTransactionOnExplorer(tx.id)} />
+            {/if}
+            {#if tx.type == 'transfer'}
+              <Icon
+                src={mdiArrowTopRight}
+                size="2"
+                on:click={() => viewTransactionOnExplorer(tx.id)} />
+            {/if}
           </span>
           <span class="tx-data">
             <span class="tx-name">{tx.type}</span>
-            <span class="tx-date">{new Date(tx.now*1000).toLocaleString()}</span>
+            <span
+              class="tx-date">{new Date(tx.now * 1000).toLocaleString()}</span>
           </span>
-          <span class="tx-balance is-center">
-            {tx.amount}
-            {tx.coinName}
-          </span>
+          <span class="tx-balance is-center"> {tx.amount} {tx.coinName} </span>
         </div>
       {/each}
     </div>

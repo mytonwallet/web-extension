@@ -189,6 +189,27 @@ class TonLib {
     }
   }
 
+  async requestAccountTransactions(address) {
+    try {
+      const data = await this.instance.net.query({"query": `
+      query {
+        transactions(
+          filter: {
+            account_addr: {eq: "0:${address}"}
+          }
+          orderBy: { path: "now", direction: DESC }
+          limit: 15
+        ) {
+          id, now, block_id, in_msg, workchain_id, balance_delta(format:DEC)
+        }
+      }
+      `});
+      return data.result.data.transactions;
+    } catch (exp) {
+      throw exp;
+    }
+  }
+
   async requestAccountBalance(address) {
     try {
       const data = await this.instance.net.query({"query": `
@@ -220,6 +241,7 @@ class TonLib {
          id
          code_hash
          boc
+         data
        }
       }
       `});
@@ -268,8 +290,8 @@ class TonLib {
         constructorParams,
         initParams,
         keyPair,
-        emulateBalance: true, //@TODO
-        newaccount: true, //@TODO
+        emulateBalance: true,
+        newaccount: true,
       });
     } catch (exp) {
       throw exp;

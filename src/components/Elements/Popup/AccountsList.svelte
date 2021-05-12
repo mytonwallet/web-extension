@@ -17,9 +17,17 @@
   import Dropdown from "../../../components/Elements/Dropdown.svelte";
 
   //Stores
-  import { currentAccount, currentNetwork, accountStore } from "../../../common/stores.js";
+  import {
+    currentAccount,
+    currentNetwork,
+    accountStore,
+  } from "../../../common/stores.js";
   import { Blockies } from "../../../common/blockies.js";
-  import { openPageWithPath, fromNano, shortAddress } from "../../../common/utils.js";
+  import {
+    openPageWithPath,
+    fromNano,
+    shortAddress,
+  } from "../../../common/utils.js";
 
   let allAccounts = [];
 
@@ -39,10 +47,10 @@
     if (target.dataset) {
       accountAddress = target.dataset.value;
     }
-    const deep    = 5; // search optimization and lock protection
-    let   counter = 0;
-    let   parentElement;
-    while (parentElement = target.parentElement) {
+    const deep = 5; // search optimization and lock protection
+    let counter = 0;
+    let parentElement;
+    while ((parentElement = target.parentElement)) {
       if (counter > deep) {
         break;
       }
@@ -54,11 +62,11 @@
       }
       counter++;
     }
-    const newCurrentAccount = allAccounts.filter((item) => item.address == accountAddress);
+    const newCurrentAccount = allAccounts.filter(
+      (item) => item.address == accountAddress
+    );
     if (newCurrentAccount.length) {
-      accountStore.changeAccount(
-        newCurrentAccount[0]
-      );
+      accountStore.changeAccount(newCurrentAccount[0]);
     }
   };
 
@@ -67,7 +75,7 @@
     seed: $currentAccount.address,
     color: "#2479b9",
     bgcolor: "#151515",
-    spotcolor: "#33ff00"
+    spotcolor: "#33ff00",
   });
 
   const indenticon = (address) => {
@@ -75,7 +83,7 @@
       seed: address,
       color: "#2479b9",
       bgcolor: "#151515",
-      spotcolor: "#33ff00"
+      spotcolor: "#33ff00",
     });
   };
 
@@ -121,10 +129,9 @@
     border-radius: 50%;
     font-size: 0rem;
   }
-  :global(.account-dropdown summary:focus,
-          .account-dropdown
-          .button.outline.icon
-          .lefticon:focus) {
+  :global(.account-dropdown summary:focus, .account-dropdown
+      .button.outline.icon
+      .lefticon:focus) {
     outline: none;
   }
   :global(.account-dropdown .card) {
@@ -223,7 +230,9 @@
             <span
               class="nickname is-vertical-align"
               title={shortAddress(account.address)}>{account.nickname}</span>
-            <span class="balance is-center">{fromNano(account.balance[$currentNetwork.server], 2)}</span>
+            <span class="balance is-center">
+              {account.balance[$currentNetwork.server] ? fromNano(account.balance[$currentNetwork.server], 2) : 0}
+            </span>
           </div>
         {/each}
       </div>

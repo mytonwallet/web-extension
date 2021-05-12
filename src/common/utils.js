@@ -22,22 +22,7 @@ const broadcastMessage = (type, data) => {
 };
 
 const openPageWithPath = (path) => {
-  browser.tabs.query({}).then((tabs) => {
-    const foundTab = tabs.find((tab) => {
-      if (typeof tab.url !== "undefined") {
-        return tab.url.includes(
-          `chrome-extension://${browser.runtime.id}/page.html#${path}`
-        );
-      } else {
-        return false;
-      }
-    });
-    if (foundTab) {
-      browser.tabs.update(foundTab.id, { highlighted: true });
-    } else {
-      browser.tabs.create({ url: `/page.html#${path}` });
-    }
-  });
+  browser.tabs.create({ url: `/page.html#${path}` });
 };
 
 const generateRandomBytes = (len) => {

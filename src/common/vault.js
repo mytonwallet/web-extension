@@ -240,7 +240,11 @@ export class Vault {
     const existingAccount = await store.get(accountAddress);
     if (existingAccount) {
       if (existingAccount.transactions[server]) {
-        return existingAccount.transactions[server].slice((page - 1) * count, page * count);
+        const sortedTransactions = existingAccount.transactions[server].sort(function(a, b) {
+          return b.now - a.now;
+        });
+
+        return sortedTransactions.slice((page - 1) * count, page * count);
       } else {
         return [];
       }

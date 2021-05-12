@@ -115,6 +115,11 @@
       url: `${$currentNetwork.explorer}/accounts/accountDetails?id=${$currentAccount.address}`,
     });
   };
+  const viewTransactionOnExplorer = (txId) => {
+    browser.tabs.create({
+      url: `${$currentNetwork.explorer}/messages/messageDetails?id=${txId}`,
+    });
+  };
   /*
   const deleteAccount = () => {
     openModal("ModalDeleteAccount");
@@ -259,6 +264,7 @@
       align-items: center;
       display: flex;
       width: 40px;
+      cursor: pointer;
     }
   }
   .account-tx-wrapper {
@@ -401,7 +407,18 @@
           class="flex-row is-horizontal-align account-tx"
           data-hash={tx.new_hash}>
           <span class="tx-type">
-            <Icon src={mdiBriefcaseUpload} size="2" />
+            {#if tx.type == 'deploy'}
+              <Icon
+                src={mdiBriefcaseUpload}
+                size="2"
+                on:click={() => viewTransactionOnExplorer(tx.id)} />
+            {/if}
+            {#if tx.type == 'transfer'}
+              <Icon
+                src={mdiArrowTopRight}
+                size="2"
+                on:click={() => viewTransactionOnExplorer(tx.id)} />
+            {/if}
           </span>
           <span class="tx-data">
             <span class="tx-name">{tx.type}</span>
