@@ -44,6 +44,9 @@
   let transactions = [];
 
   onMount(() => {
+    balance = $currentAccount.balance[$currentNetwork.server]
+      ? fromNano($currentAccount.balance[$currentNetwork.server])
+      : 0;
     checkBalance($currentAccount.address, $currentNetwork.server);
     getTransactions($currentAccount.address, $currentNetwork.server, 10, 1);
   });
@@ -97,11 +100,17 @@
   };
 
   currentAccount.subscribe((value) => {
+    balance = value.balance[$currentNetwork.server]
+      ? fromNano(value.balance[$currentNetwork.server])
+      : 0;
     checkBalance(value.address, $currentNetwork.server);
     getTransactions(value.address, $currentNetwork.server, 10, 1);
   });
 
   currentNetwork.subscribe((value) => {
+    balance = $currentAccount.balance[$currentNetwork.server]
+      ? fromNano($currentAccount.balance[$currentNetwork.server])
+      : 0;
     checkBalance($currentAccount.address, value.server);
     getTransactions($currentAccount.address, value.server, 10, 1);
   });

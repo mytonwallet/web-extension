@@ -13,7 +13,7 @@ This repository contains source code for web-extension that allow interaction wi
 
 # Browser supporting
 
-* Chrome [install](here will be the link)
+* Chrome [install](https://chrome.google.com/webstore/detail/mtw/neopaklikggjkdflfmfebibdpcebomfh)
 * Firefox [install](https://github.com/mytonwallet/web-extension/releases)
 * Edge [install](https://github.com/mytonwallet/web-extension/releases)
 * Opera [install](https://github.com/mytonwallet/web-extension/releases)

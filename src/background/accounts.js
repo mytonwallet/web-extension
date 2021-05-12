@@ -53,7 +53,8 @@ export const accounts = () => {
           account: {
             address: address,
             nickname: nickname,
-            deployed: []
+            deployed: [],
+            balance: {},
           },
           reason: `Added ${account.nickname} to your wallet`
         };
@@ -248,7 +249,7 @@ export const accounts = () => {
           };
           result = await vault.addNewAccount(fullAccount);
         }
-        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": result};
+        return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {},  "result": result};
       })
     );
     return await resultAccounts;
@@ -272,9 +273,9 @@ export const accounts = () => {
     };
     try {
       if (await vault.addNewAccount(account)) {
-        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": true};
+        return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {}, "result": true};
       } else {
-        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": false};
+        return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {}, "result": false};
       }
     } catch (e) {
       return {"added": false, "error": e.message};
@@ -300,9 +301,9 @@ export const accounts = () => {
     };
     try {
       if (await vault.addNewAccount(account)) {
-        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": true};
+        return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {}, "result": true};
       } else {
-        return {"address": account.address, "nickname": account.nickname, "balance": {}, "result": false};
+        return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {}, "result": false};
       }
     } catch (e) {
       return {"added": false, "error": e.message};

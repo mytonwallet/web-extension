@@ -70,7 +70,7 @@
     <Input required id="sending-tx-destination" />
   </Field>
   <Field label="{$_("Amount")}">
-    <Input required number id="sending-tx-amount" />
+    <Input required number step="any" id="sending-tx-amount" />
   </Field>
   <Field label="{$_("Message")}">
     <Input id="sending-tx-message" />

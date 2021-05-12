@@ -1,6 +1,6 @@
 {
   "name": "mytonwallet",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "The browser extension for Free TON blockchain.",
   "author": "My TON wallet team <support@mytonwallet.com>",
   "license": "APACHE2.0",
@@ -57,8 +57,8 @@
   },
   "dependencies": {
     "@mdi/js": "^5.9.55",
-    "@tonclient/core": "^1.11.1",
-    "@tonclient/lib-web": "^1.11.1",
+    "@tonclient/core": "^1.14.2",
+    "@tonclient/lib-web": "^1.14.2",
     "bignumber.js": "^9.0.1",
     "chota": "^0.8.0",
     "globby": "^3.0.0",
