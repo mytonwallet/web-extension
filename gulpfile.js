@@ -148,3 +148,14 @@ gulp.task('build',
     'zip'
   )
 );
+
+// patch version in manifest
+gulp.task('patchVersion', function () {
+  return gulp.src('./src/manifest.json')
+    .pipe(jsoneditor(function (json) {
+      const lastIndex = json.version.lastIndexOf(".");
+      json.version = json.version.substr(0, lastIndex) + "." + (new Number(json.version.substr(lastIndex + 1)) + 1);
+      return json;
+    }))
+    .pipe(gulp.dest('./src/manifest.json', { overwrite: true }));
+});

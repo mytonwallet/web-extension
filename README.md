@@ -31,12 +31,12 @@ This repository contains source code for web-extension that allow interaction wi
 
 # Tests
 
-Testing system is based on [selenium](https://www.selenium.dev/) for e2e testing and [testing-library](https://testing-library.com/docs/svelte-testing-library/intro) for components
+Testing system is based on [selenium](https://www.selenium.dev/) and [mochajs](https://mochajs.org/) for e2e testing and [testing-library](https://testing-library.com/docs/svelte-testing-library/intro) for components
 
-To tests need to run:
+To test need to run:
 
 ```bash
-npm run tests
+npm run test
 ```
 
 # Technical stack

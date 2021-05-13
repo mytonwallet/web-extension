@@ -3,16 +3,17 @@
   "version": "1.0.7",
   "description": "The browser extension for Free TON blockchain.",
   "author": "My TON wallet team <support@mytonwallet.com>",
-  "license": "APACHE2.0",
+  "license": "apache-2.0",
   "scripts": {
     "lint": "eslint . --ext .svelte --ext .js --fix",
     "build": "npm run dist && gulp build",
     "dist": "rollup --config",
     "start": "rollup --config --watch",
-    "tests": "mocha --recursive --timeout 30000 tests/e2e/",
+    "test": "mocha --recursive --timeout 30000 tests/e2e/",
     "test-firstrun": "mocha --recursive --timeout 30000 tests/e2e/firstrun/*.js",
     "test-dapps": "mocha --recursive --timeout 30000 tests/e2e/dapp/*.js",
-    "run-tonos": "docker run -d --name local-node -e USER_AGREEMENT=yes -p7777:80 tonlabs/local-node"
+    "run-tonos": "docker run -d --name local-node -e USER_AGREEMENT=yes -p7777:80 tonlabs/local-node",
+    "version": "gulp patchVersion && auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "@rollup/plugin-html": "^0.2.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
+    "auto-changelog": "^2.2.1",
     "babel-eslint": "^10.1.0",
     "chromedriver": "^87.0.4",
     "eslint-plugin-babel": "^5.3.1",
@@ -40,7 +42,7 @@
     "gulp-zip": "^4.0.0",
     "mocha": "^7.1.1",
     "node-sass": "^5.0.0",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.15",
     "rollup": "^2.38.5",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-eslint": "^7.0.0",
