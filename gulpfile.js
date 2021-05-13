@@ -157,5 +157,5 @@ gulp.task('patchVersion', function () {
       json.version = json.version.substr(0, lastIndex) + "." + (new Number(json.version.substr(lastIndex + 1)) + 1);
       return json;
     }))
-    .pipe(gulp.dest('./src/manifest.json', { overwrite: true }));
+    .pipe(gulp.dest('./src/', { overwrite: true }));
 });
