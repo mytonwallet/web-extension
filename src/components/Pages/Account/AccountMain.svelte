@@ -126,7 +126,7 @@
   };
   const viewTransactionOnExplorer = (txId) => {
     browser.tabs.create({
-      url: `${$currentNetwork.explorer}/messages/messageDetails?id=${txId}`,
+      url: `${$currentNetwork.explorer}/transactions/transactionDetails?id=${txId}`,
     });
   };
   /*
