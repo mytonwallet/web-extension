@@ -26,12 +26,6 @@
     "scripts": ["chromereload.js", "browser-polyfill.js", "background.js"],
     "persistent": true
   },
-  "applications": {
-    "gecko": {
-      "id": "support@mytonwallet.com",
-      "strict_min_version": "56.0"
-    }
-  },
   "browser_action": {
     "default_icon": "assets/img/icon-32.png",
     "default_title": "My TON wallet",

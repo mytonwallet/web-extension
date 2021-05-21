@@ -78,20 +78,24 @@ gulp.task('clean', function clean () {
 gulp.task('manifest:chrome', function () {
   return gulp.src('./builds/chrome/manifest.json')
     .pipe(jsoneditor(function (json) {
-      delete json.applications;
       json.minimum_chrome_version = '58';
       return json;
     }))
     .pipe(gulp.dest('./builds/chrome', { overwrite: true }));
 });
 
-gulp.task('manifest:opera', function () {
-  return gulp.src('./builds/opera/manifest.json')
+gulp.task('manifest:firefox', function () {
+  return gulp.src('./builds/firefox/manifest.json')
     .pipe(jsoneditor(function (json) {
-      delete json.applications;
+      json.applications = {
+        "gecko": {
+          "id": "support@mytonwallet.com",
+          "strict_min_version": "56.0"
+        }
+      };
       return json;
     }))
-    .pipe(gulp.dest('./builds/opera', { overwrite: true }));
+    .pipe(gulp.dest('./builds/firefox', { overwrite: true }));
 });
 
 gulp.task('manifest:production', function () {
@@ -125,8 +129,7 @@ gulp.task('copy',
   gulp.series(
     gulp.parallel(...copyTaskNames),
     'manifest:production',
-    'manifest:chrome',
-    'manifest:opera'
+    'manifest:firefox'
   )
 );
 
