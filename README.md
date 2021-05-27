@@ -1,5 +1,9 @@
 # My TON wallet (MTW)
 
+<div align="center">
+  <img src="/src/assets/img/icon-128.png" title="MTW - My TON wallet">
+</div>
+
 This repository contains source code for web-extension that allow interaction with Free Ton blockchain from your browser.
 
 # Security
@@ -95,6 +99,28 @@ For now the extension is available on the followed languages:
 * Russian
 
 If you are native speaker on any other language and can help with translation, please use this file as [source](/src/assets/i18n/en.json)
+
+# Steps for a new release
+
+* Run tests
+
+```
+  npm run tests
+```
+
+* Create a commit with a description
+
+* Increase a version in package.json and manifest.json and update CHANGELOG file
+
+```
+  npm run version
+```
+
+* Create builds for browsers
+
+```
+  npm run build
+```
 
 # Requested features
 
