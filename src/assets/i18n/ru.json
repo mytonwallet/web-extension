@@ -189,5 +189,10 @@
   "Coin name": "Название монеты",
   "Wallet": "Кошелёк",
   "Autologout (in minutes)": "Автовыход (в минутах)",
-  "Open page": "Открыть страницу"
+  "Open page": "Открыть страницу",
+  "Skip this step": "Пропустить этот шаг",
+  "Dismiss backup warning": "Отменить предупреждение о резерв. копии",
+  "Max": "Макс.",
+  "Account has insufficient balance for the requested operation. Send some value to account balance": "Учётная запись имеет недостаточный баланс для запрошенной операции. Пополните баланс.",
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Выполнение контракта было прервано с ошибкой: фаза вычисления не успешна, код выхода: 107. Для дополнительной информации о коде выхода проверьте исходный код контракта или спросите разработчика контракта."
 }

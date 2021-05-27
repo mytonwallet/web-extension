@@ -18,7 +18,7 @@
 **/
 export class Blockies {
   // The random number is a js implementation of the Xorshift PRNG
-  #randseed;
+  randseed;
 
   constructor () {
     this.randseed = new Array(4); // Xorshift: [x, y, z, w] 32 bit values

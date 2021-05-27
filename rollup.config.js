@@ -9,6 +9,7 @@ import { terser } from 'rollup-plugin-terser';
 import json from '@rollup/plugin-json';
 import livereload from 'rollup-plugin-livereload';
 import preprocess from 'svelte-preprocess';
+import replace from '@rollup/plugin-replace';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -119,6 +120,12 @@ const config = [{
     // instead of npm run dev), minify
     production && terser(),
     resolve({ browser: true }),
+    replace({
+      preventAssignment: true,
+      values: {
+        '__DEV_MODE__': !production,
+      }
+    })
   ],
   watch: {
     clearScreen: false

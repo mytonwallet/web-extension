@@ -8,7 +8,6 @@ export { accountStore, currentAccount } from './stores/account.js';
 export const CURRENT_KS_PASSWORD = writable("G1^8%3*c3Ra9c35");
 export const CURRENT_KS_VERSION = writable("1.0");
 export const steps = writable({current:0, stepList:[]});
-export const clicked = writable({id:""});
 export const lastActionTimestamp = writable();
 
 export function copyItem(item){

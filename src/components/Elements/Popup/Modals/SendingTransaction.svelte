@@ -9,13 +9,14 @@
     currentNetwork,
   } from "../../../../common/stores.js";
 
-  import { fromNano } from "../../../../common/utils.js";
+  import { fromNano, toNano } from "../../../../common/utils.js";
 
   //Components
   import { Field, Button, Input } from "svelte-chota";
 
   let destination, amount, message;
   let loading = false;
+  let allBalance = false;
 
   //Context
   const { closeModal, openModal } = getContext("app_functions");
@@ -26,34 +27,56 @@
     message = document.getElementById("sending-tx-message");
   });
 
+  const setMax = () => {
+    amount.value = fromNano(
+      $currentAccount.balance[$currentNetwork.server]
+        ? $currentAccount.balance[$currentNetwork.server]
+        : 0
+    );
+    allBalance = true;
+  };
+
   const sendTransaction = () => {
     loading = true;
-    browser.runtime.sendMessage({type: "sendTransaction",
-      data: {"accountAddress": $currentAccount.address,
-        "server": $currentNetwork.server,
-        "txData": {
-          "type": "send",
-          "params": {
-            "amount": amount.value,
-            "message": message.value,
-            "destination": destination.value
-          }
-        }
-      }
-    })
+    browser.runtime
+      .sendMessage({
+        type: "sendTransaction",
+        data: {
+          accountAddress: $currentAccount.address,
+          server: $currentNetwork.server,
+          txData: {
+            type: "send",
+            params: {
+              amount: toNano(amount.value),
+              message: message.value,
+              destination: destination.value,
+              allBalance: allBalance
+            },
+          },
+        },
+      })
       .then((result) => {
         loading = false;
         closeModal();
         if (result.error) {
-          openModal("ModalError", {"message" : result.error});
+          openModal("ModalError", { message: result.error });
         } else {
           browser.runtime
-            .sendMessage({ type: "getCurrentBalance", data: {"accountAddress": $currentAccount.address, "server": $currentNetwork.server} })
+            .sendMessage({
+              type: "getCurrentBalance",
+              data: {
+                accountAddress: $currentAccount.address,
+                server: $currentNetwork.server,
+              },
+            })
             .then((result) => {
               const newCurrentAccount = $currentAccount;
-              newCurrentAccount.balance[$currentNetwork.server] = fromNano(result);
+              newCurrentAccount.balance[$currentNetwork.server] = fromNano(
+                result
+              );
               accountStore.changeAccount(newCurrentAccount);
-            }).catch((e) => {
+            })
+            .catch((e) => {
               console.log(e); // here don't need to show any error for user, usually it is the network issue in the development environment
             });
         }
@@ -65,23 +88,24 @@
 </style>
 
 <div class="sending-tx flex-column">
-  <h6> {$_("Send transaction")} </h6>
-  <Field label="{$_("Address")}">
+  <h6>{$_('Send transaction')}</h6>
+  <Field label={$_('Address')}>
     <Input required id="sending-tx-destination" />
   </Field>
-  <Field label="{$_("Amount")}">
-    <Input required number step="any" id="sending-tx-amount" />
+  <Field label={$_('Amount')} gapless>
+    <Button on:click={() => setMax()} outline>{$_('Max')}</Button>
+    <Input required number step="any" on:keyup={() => {allBalance = false}} id="sending-tx-amount" />
   </Field>
-  <Field label="{$_("Message")}">
+  <Field label={$_('Message')}>
     <Input id="sending-tx-message" />
   </Field>
   <div class="flex-column flow-buttons">
     <Button
-        id="save-btn"
-        class="flex-row flex-center-centr button__solid button__primary"
-        loading={loading}
-        on:click={() => sendTransaction()}>
-        {$_("Send")}
+      id="save-btn"
+      class="flex-row flex-center-centr button__solid button__primary"
+      {loading}
+      on:click={() => sendTransaction()}>
+      {$_('Send')}
     </Button>
   </div>
 </div>

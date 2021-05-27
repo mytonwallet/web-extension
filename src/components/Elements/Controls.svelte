@@ -1,5 +1,5 @@
 <script>
-  import { getContext, onMount, afterUpdate } from "svelte";
+  import { getContext, onMount, onDestroy, afterUpdate } from "svelte";
   import { Icon, Button } from "svelte-chota";
   import { _ } from "svelte-i18n";
 
@@ -15,7 +15,7 @@
   let server = "localhost:7777";
   let allNetworks = [];
 
-  onMount(() => {
+  const updateAllNetworks = () => {
     browser.runtime
       .sendMessage({ type: "getAllNetworks", data: {} })
       .then((result) => {
@@ -24,6 +24,22 @@
           (item) => item.server == $currentNetwork.server
         )[0];
       });
+  };
+
+  onMount(() => {
+    updateAllNetworks();
+  });
+
+  const updateNetworksListener = (message) => {
+    if (message.type === "updateNetworks") {
+      updateAllNetworks();
+    }
+  };
+
+  browser.runtime.onMessage.addListener(updateNetworksListener);
+
+  onDestroy(() => {
+    browser.runtime.onMessage.removeListener(updateNetworksListener);
   });
 
   const changeNetwork = (networkValue) => {

@@ -1,7 +1,7 @@
 <script>
   import { onMount, getContext } from "svelte";
   import { fade } from "svelte/transition";
-  import { _ } from 'svelte-i18n';
+  import { _ } from "svelte-i18n";
 
   //Stores
   import { Checkbox, Field, Input, Button } from "svelte-chota";
@@ -10,7 +10,7 @@
   import ErrorBox from "../../Elements/ErrorBox.svelte";
 
   //Context
-  const {  switchPage } = getContext("app_functions");
+  const { switchPage } = getContext("app_functions");
 
   //DOM nodes
   let error, formObj, name, server, coinName, giver, test, explorer;
@@ -18,35 +18,38 @@
 
   //Props
   onMount(() => {
-    name        = document.getElementById("name-input");
-    server      = document.getElementById("server-input");
-    coinName    = document.getElementById("coin-name-input");
-    giver       = document.getElementById("giver-input");
-    test        = document.getElementById("test-input");
-    explorer    = document.getElementById("explorer-input");
+    name = document.getElementById("name-input");
+    server = document.getElementById("server-input");
+    coinName = document.getElementById("coin-name-input");
+    giver = document.getElementById("giver-input");
+    test = document.getElementById("test-input");
+    explorer = document.getElementById("explorer-input");
   });
 
   const handleSubmit = async () => {
     try {
       if (formObj.checkValidity()) {
-        browser.runtime.sendMessage({type: "addNewNetwork",
-                                     data: {"name": name.value,
-                                            "server": server.value,
-                                            "explorer": explorer.value,
-                                            "test": test.value == "on",
-                                            "giver": giver.value,
-                                            "coinName": coinName.value
-                                            }
-                                    }).then((result) => {
-                                      console.log(result);
-          if (!result.error) {
-            switchPage("AccountMain");
-          } else {
-            error = result.error;
-          }
-        });
+        browser.runtime
+          .sendMessage({
+            type: "addNewNetwork",
+            data: {
+              name: name.value,
+              server: server.value,
+              explorer: explorer.value,
+              test: test.value == "on",
+              giver: giver.value,
+              coinName: coinName.value,
+            },
+          })
+          .then((result) => {
+            if (!result.error) {
+              switchPage("AccountMain");
+            } else {
+              error = result.error;
+            }
+          });
       }
-    } catch(e) {
+    } catch (e) {
       formObj.reportValidity();
     }
   };
@@ -59,7 +62,7 @@
 <style>
 </style>
 
-<h6>{$_("Add new network")}</h6>
+<h6>{$_('Add new network')}</h6>
 
 <form
   id="add-new-network-form"
@@ -68,55 +71,37 @@
   bind:this={formObj}>
   <Field grouped>
     <div class="input-box-50">
-      <Field label="{$_("Name")}">
-        <Input
-          id="name-input"
-          required={true}
-          autofocus={true} />
+      <Field label={$_('Name')}>
+        <Input id="name-input" required={true} autofocus={true} />
       </Field>
     </div>
     <div class="input-box-50">
-      <Field label="{$_("Server")}">
-        <Input
-          id="server-input"
-          required={true}
-          autofocus={true} />
+      <Field label={$_('Server')}>
+        <Input id="server-input" required={true} autofocus={true} />
       </Field>
     </div>
   </Field>
   <Field grouped>
     <div class="input-box-50">
-      <Field label="{$_("Explorer")}">
-        <Input
-          id="explorer-input"
-          required={true}
-          autofocus={true} />
+      <Field label={$_('Explorer')}>
+        <Input id="explorer-input" required={true} autofocus={true} />
       </Field>
     </div>
     <div class="input-box-50">
-      <Field label="{$_("Coin name")}">
-        <Input
-          id="coin-name-input"
-          required={true}
-          autofocus={true} />
+      <Field label={$_('Coin name')}>
+        <Input id="coin-name-input" required={true} autofocus={true} />
       </Field>
     </div>
   </Field>
   <Field grouped>
     <div class="input-box-50">
-      <Field label="{$_("Test network")}">
-        <Checkbox
-          id="test-input"
-          bind:checked={testStatus}
-          autofocus={true} />
+      <Field label={$_('Test network')}>
+        <Checkbox id="test-input" bind:checked={testStatus} autofocus={true} />
       </Field>
     </div>
     <div class="input-box-50">
-      <Field label="{$_("Giver on test network")}">
-        <Input
-          id="giver-input"
-          disabled={!testStatus}
-          autofocus={true} />
+      <Field label={$_('Giver on test network')}>
+        <Input id="giver-input" disabled={!testStatus} autofocus={true} />
       </Field>
     </div>
   </Field>
@@ -126,14 +111,14 @@
       class="button__solid button__primary submit-button submit-button-text submit"
       style="margin: 0 0 1rem;"
       type="submit">
-      {$_("Add new network")}
+      {$_('Add new network')}
     </Button>
     <Button
       id="back"
       class="flex-row flex-center-centr button__solid button"
       style="margin: 0 0 1rem;"
-      on:click={() =>goBack()}>
-      {$_("Back")}
+      on:click={() => goBack()}>
+      {$_('Back')}
     </Button>
   </div>
 </form>

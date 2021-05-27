@@ -52,52 +52,22 @@
 </script>
 
 <style>
-  .layout {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .content {
-    flex-grow: 1;
-    display: flex;
-  }
-
-  .header {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    right: 0;
-    height: 6rem;
-    border-bottom: 1px solid var(--divider-light);
-  }
-
-  .steps {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-
   .hide-steps {
     display: none;
   }
 </style>
 
-<div class="layout">
-  <div class="header">
+<div class="flow-layout">
+  <div class="flow-header">
     <Logo />
   </div>
-  <div class="content">
+  <div class="flow-content">
     <svelte:component
       this={currentPage}
       {keystoreFile}
       {keystorePasswordInfo} />
   </div>
-  <div class="steps" class:hide-steps={hideSteps}>
+  <div class="flow-steps" class:hide-steps={hideSteps}>
     <Steps {back} {hideBack} />
   </div>
 </div>

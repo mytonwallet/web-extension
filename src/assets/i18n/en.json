@@ -189,5 +189,10 @@
   "Coin name": "Coin name",
   "Wallet": "Wallet",
   "Autologout (in minutes)": "Autologout (in minutes)",
-  "Open page": "Open page"
+  "Open page": "Open page",
+  "Skip this step": "Skip this step",
+  "Dismiss backup warning": "Dismiss backup warning",
+  "Max": "Max",
+  "Account has insufficient balance for the requested operation. Send some value to account balance": "Account has insufficient balance for the requested operation. Send some value to account balance.",
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer"
 }

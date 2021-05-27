@@ -434,7 +434,7 @@
             <span
               class="tx-date">{new Date(tx.now * 1000).toLocaleString()}</span>
           </span>
-          <span class="tx-balance is-center"> {tx.amount} {tx.coinName} </span>
+          <span class="tx-balance is-center" title="{tx.amount}"> {fromNano(tx.amount)} {tx.coinName} </span>
         </div>
       {/each}
     </div>

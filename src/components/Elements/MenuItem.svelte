@@ -15,7 +15,7 @@
   let feedbackURL = "https://docs.google.com/forms/d/e/1FAIpQLSeDZwc8cvMKhjQc2PzTiqNCJ31oAqvhzbO6IEWBv1CBu2b3LA/viewform";
 
   $: isSelected = $currentPage.name === menuItem.page.name;
-  $: backupPage = menuItem.name === "Backup Wallet";
+  $: backupPage = menuItem.name === "Backup wallet";
 
   const menuAction = () => {
     if (menuItem.page.name === "LockScreen") {

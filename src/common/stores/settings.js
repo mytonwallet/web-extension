@@ -7,6 +7,7 @@ const defaultSettingsStore = {
     "name": "AccountMain",
     "data" : {}
   },
+  "dismissWarning": false,
   "themeName": "dark",
   "lang": getLocaleFromNavigator(),
   "autologout": 5
@@ -137,10 +138,10 @@ export const needsBackup = derived(
   settingsStore,
   ($settingsStore) => {
     if ($settingsStore.dismissWarning) return false;
-    if ($settingsStore.lastBackupDate && $settingsStore.setLastChangeDate){
-      return new Date($settingsStore.setLastChangeDate) > new Date($settingsStore.lastBackupDate);
+    if ($settingsStore.lastBackupDate && $settingsStore.lastChangeDate){
+      return new Date($settingsStore.lastChangeDate) > new Date($settingsStore.lastBackupDate);
     }
-    if (typeof $settingsStore.lastBackupDate === 'undefined' && $settingsStore.setLastChangeDate) {
+    if (typeof $settingsStore.lastBackupDate === 'undefined' && $settingsStore.lastChangeDate) {
       return true;
     }
     return false;

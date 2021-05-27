@@ -3,8 +3,8 @@
 import { openDB } from 'idb/with-async-ittr.js';
 
 export class Vault {
-  #masterDb; //private
-  #db; //private
+  masterDb; //private
+  db; //private
   async init () {
     this.masterDb = await openDB('master', 1, {
       upgrade(db) {

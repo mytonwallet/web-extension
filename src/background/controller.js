@@ -13,6 +13,20 @@ export const controller = () => {
     return created;
   };
 
+  const addNewNetwork = async (network) => {
+    if (await networksController.addNewNetwork(network)) {
+      broadcastMessage('updateNetworks', true);
+      return {"success": true};
+    }
+    return {"success": false, "error": "Network is existed"};
+  };
+
+  const removeNetwork = async (server) => {
+    await networksController.removeNetwork(server);
+    broadcastMessage('updateNetworks', true);
+    return true;
+  };
+
   const unlock = async (password) => {
     const unlocked = await accountsController.unlock(password);
     broadcastMessage('walletIsLocked', !unlocked);
@@ -46,6 +60,8 @@ export const controller = () => {
     deleteAccount,
     setSettings,
     unlock,
-    lock
+    lock,
+    addNewNetwork,
+    removeNetwork
   };
 };

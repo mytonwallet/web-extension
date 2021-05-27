@@ -104,9 +104,9 @@ export const eventsHandler = (controller) => {
           // Network
           if (message.type === 'getAllNetworks') return Promise.resolve(controller.networks.getAllNetworks(message.data));
 
-          if (message.type === 'addNewNetwork') return Promise.resolve(controller.networks.addNewNetwork(message.data));
+          if (message.type === 'addNewNetwork') return Promise.resolve(controller.addNewNetwork(message.data));
 
-          if (message.type === 'removeNetwork') return Promise.resolve(controller.networks.addNewNetwork(message.data));
+          if (message.type === 'removeNetwork') return Promise.resolve(controller.removeNetwork(message.data));
 
           // Settings
           if (message.type === 'setSettings') return Promise.resolve(controller.setSettings(message.data));

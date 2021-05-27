@@ -88,6 +88,21 @@ export const accounts = () => {
     }
   };
 
+  const updateAllBalances = async (server) => {
+    const TonLibClient = TonLib.getClient(server);
+    const accounts = await vault.getAccounts();
+    let balances = [];
+    try {
+      balances = await TonLibClient.requestManyAccountBalances(accounts.map((item) => {return item.address;}));
+    } catch(e) {
+      throw e;
+    }
+    for (let i in balances) {
+      await vault.updateBalance(balances[i]["id"], server, balances[i]["balance"]);
+    }
+    return true;
+  };
+
   const getCurrentBalance = async (destination, server) => {
     const TonLibClient = TonLib.getClient(server);
     let amount = 0;
@@ -341,12 +356,13 @@ export const accounts = () => {
         "transfer",
         { comment: strToHex(txData.params.message) }
       );
-        // Prepare input parameter for 'submitTransaction' method of multisig wallet
+
+      // Prepare input parameter for 'submitTransaction' method of multisig wallet
       const submitTransactionParams = {
         dest: txData.params.destination,
-        value: toNano(txData.params.amount),
+        value: txData.params.allBalance ? 1000000 : txData.params.amount, //1000000 - 1e6 min value
         bounce: false,
-        allBalance: false,
+        allBalance: txData.params.allBalance,
         payload: payload
       };
 
@@ -361,11 +377,13 @@ export const accounts = () => {
       result.contractName  = "SafeMultisigWallet"; // we will be able to find ABI
       result.coinName      = network.coinName;
       result.amount        = txData.params.amount;
+      result.allBalance    = txData.params.allBalance;
       result.parameters = {
         initFunctionName: "submitTransaction",
         initFunctionInput: submitTransactionParams
       };
       await addTransaction(accountAddress, server, result);
+      await updateAllBalances(server);
       return {id: result.id, reason: `SubmitTransaction for ${txData.params.destination} with amount ${txData.params.amount}`};
     } catch (exp) {
       return {error: exp.message};

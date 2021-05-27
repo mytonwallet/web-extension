@@ -9,7 +9,6 @@
   import {
     settingsStore,
     currentPage,
-    clicked,
     currentThemeName,
   } from "../common/stores.js";
 
@@ -209,4 +208,3 @@
   {/if}
   <LightDarkToggle size="1" orientation="bottom" />
 </div>
-<svelte:window on:click={(e) => clicked.set(e.target)} />

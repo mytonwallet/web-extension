@@ -255,7 +255,7 @@ const fromNano = (amount, num = 4) => {
 };
 
 const toNano = (amount) => {
-  return new BigNumber(amount).times(10**9);
+  return new BigNumber(amount).times(10**9).toNumber();
 };
 
 const strToHex = (text) => {

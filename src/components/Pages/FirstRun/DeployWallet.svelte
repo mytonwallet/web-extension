@@ -65,10 +65,15 @@
         if (!result.success) {
           error = result.reason;
         } else {
+          error = "";
           changeStep(newAccount ? 2: 5);
         }
       }
     );
+  };
+
+  const skipThisStep = () => {
+    changeStep(newAccount ? 2: 5);
   };
 
   const checkBalance = () => {
@@ -87,6 +92,7 @@
         if (!result.added) {
           error = result.reason;
         } else {
+          error = "";
           checkBalance();
           takingFromGiver = false;
         }
@@ -139,11 +145,12 @@
         <span> {$_("Balance")}: <b>{fromNano(balance)} {$currentNetwork.coinName}</b> </span>
       </p>
       {#if giver && balance == 0}
-        <Button class="button__solid" on:click={() => takeFromGiver()}>{$_("Take from giver")}</Button>
+        <Button style="margin: 0 0 1rem;" class="button__solid" on:click={() => takeFromGiver()}>{$_("Take from giver")}</Button>
       {/if}
       {#if !giver}
-        <Button class="button__solid" on:click={() => checkBalance()}>{$_("Check balance")}</Button>
+        <Button style="margin: 0 0 1rem;" class="button__solid" on:click={() => checkBalance()}>{$_("Check balance")}</Button>
       {/if}
+        <Button style="margin: 0 0 1rem;" class="button__solid" on:click={() => skipThisStep()}>{$_("Skip this step")}</Button>
       {#if error}
         <p class="text-warning">{error}</p>
       {/if}

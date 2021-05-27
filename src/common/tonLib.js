@@ -9,7 +9,7 @@ class TonLib {
   static seedPhraseDictionaryEnglish = 1;
   static hdPath = "m/44'/396'/0'/0/0";
 
-  #instance = null; //private
+  instance = null; //private
 
   constructor(client) {
     this.tonClient = client;
@@ -224,6 +224,32 @@ class TonLib {
       }
       `});
       return data.result.data.accounts.length > 0 ? data.result.data.accounts[0].balance: 0;
+    } catch (exp) {
+      throw exp;
+    }
+  }
+
+  async requestManyAccountBalances(accountsList) {
+    try {
+      let filter = "";
+      for (let i in accountsList) {
+        filter += `OR: {id: {eq: "${accountsList[i]}"}
+        `;
+      }
+      filter += new String("}").repeat(accountsList.length);
+      const data = await this.instance.net.query({"query": `
+        query {
+         accounts(
+           filter: {
+             ${filter}
+           }
+         ) {
+           id
+           balance(format: DEC)
+         }
+        }
+      `});
+      return data.result.data.accounts;
     } catch (exp) {
       throw exp;
     }
