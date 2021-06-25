@@ -17,6 +17,7 @@
   let destination, amount, message;
   let loading = false;
   let allBalance = false;
+  let disabled = true;
 
   //Context
   const { closeModal, openModal } = getContext("app_functions");
@@ -36,6 +37,19 @@
     allBalance = true;
   };
 
+  const validateAddress = () => {
+    const rawAddress = new RegExp(/-?[0-9]{0,10}:[a-fA-F0-9]{64}/);
+    const base64Address = new RegExp(/[_\-\/\+a-zA-Z0-9]{48}/);
+    if (
+      new String(destination.value).match(rawAddress) ||
+      new String(destination.value).match(base64Address)
+    ) {
+      disabled = false;
+    } else {
+      disabled = true;
+    }
+  };
+
   const sendTransaction = () => {
     loading = true;
     browser.runtime
@@ -50,7 +64,7 @@
               amount: toNano(amount.value),
               message: message.value,
               destination: destination.value,
-              allBalance: allBalance
+              allBalance: allBalance,
             },
           },
         },
@@ -90,11 +104,23 @@
 <div class="sending-tx flex-column">
   <h6>{$_('Send transaction')}</h6>
   <Field label={$_('Address')}>
-    <Input required id="sending-tx-destination" />
+    <Input
+      required
+      id="sending-tx-destination"
+      on:keyup={() => {
+        validateAddress();
+      }} />
   </Field>
   <Field label={$_('Amount')} gapless>
     <Button on:click={() => setMax()} outline>{$_('Max')}</Button>
-    <Input required number step="any" on:keyup={() => {allBalance = false}} id="sending-tx-amount" />
+    <Input
+      required
+      number
+      step="any"
+      on:keyup={() => {
+        allBalance = false;
+      }}
+      id="sending-tx-amount" />
   </Field>
   <Field label={$_('Message')}>
     <Input id="sending-tx-message" />
@@ -103,6 +129,7 @@
     <Button
       id="save-btn"
       class="flex-row flex-center-centr button__solid button__primary"
+      {disabled}
       {loading}
       on:click={() => sendTransaction()}>
       {$_('Send')}

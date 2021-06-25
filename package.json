@@ -3,7 +3,7 @@
   "version": "1.0.8",
   "description": "The browser extension for Free TON blockchain.",
   "author": "My TON wallet team <support@mytonwallet.com>",
-  "license": "apache-2.0",
+  "license": "Apache-2.0",
   "scripts": {
     "lint": "eslint . --ext .svelte --ext .js --fix",
     "build": "npm run dist && gulp build",

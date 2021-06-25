@@ -40,7 +40,6 @@ function copyTask (taskName, opts) {
   const destination = opts.destination;
   const destinations = opts.destinations || [destination];
   const pattern = opts.pattern || '/**/*';
-  const devMode = opts.devMode;
 
   return gulp.task(taskName, function () {
     return performCopy();
@@ -67,7 +66,6 @@ function zipTask (target) {
       .pipe(gulp.dest('./builds'));
   };
 }
-
 
 // clean dist
 gulp.task('clean', function clean () {

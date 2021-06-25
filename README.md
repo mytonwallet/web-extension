@@ -19,7 +19,7 @@ This repository contains source code for web-extension that allow interaction wi
 
 * Chrome [install](https://chrome.google.com/webstore/detail/mtw/neopaklikggjkdflfmfebibdpcebomfh)
 * Firefox [install](https://github.com/mytonwallet/web-extension/releases)
-* Edge [install](https://github.com/mytonwallet/web-extension/releases)
+* Edge [install](https://microsoftedge.microsoft.com/addons/detail/mtw-%D0%BC%D0%BE%D0%B9-ton-%D0%BA%D0%BE%D1%88%D0%B5%D0%BB%D0%B5%D0%BA/oooiblbdpdlecigodndinbpfopomaegl)
 * Opera [install](https://github.com/mytonwallet/web-extension/releases)
 * Safari [install](https://github.com/mytonwallet/web-extension/releases)
 
@@ -66,6 +66,18 @@ This repository provides by [Apache License 2.0](LICENSE)
 
 # Distribution and mode for developers
 
+To prepare environment need to run:
+
+```
+npm i
+```
+
+To run developer mode:
+
+```
+npm start
+```
+
 To prepare build need to run:
 
 ```
@@ -74,15 +86,11 @@ npm run dist
 
 This command will generate a zip file for each browser.
 
-To run developer mode:
+For the best developer environment we recommend to use launch [tonlabs/local-node](https://hub.docker.com/r/tonlabs/local-node)
 
-```
-npm start
-```
+To run local TON node you have to install [docker](https://docs.docker.com/engine/install/)
 
-For the best developer environment we recomend to use launch [tonlabs/local-node](https://hub.docker.com/r/tonlabs/local-node)
-
-To start the local node just run:
+To start the local TON node just run:
 
 ```
 npm run run-tonos
@@ -105,7 +113,7 @@ If you are native speaker on any other language and can help with translation, p
 * Run tests
 
 ```
-  npm run tests
+  npm run test
 ```
 
 * Create a commit with a description
