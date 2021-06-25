@@ -1,6 +1,6 @@
 {
   "name": "mytonwallet",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "The browser extension for Free TON blockchain.",
   "author": "My TON wallet team <support@mytonwallet.com>",
   "license": "Apache-2.0",
@@ -13,7 +13,7 @@
     "test-firstrun": "mocha --recursive --timeout 30000 tests/e2e/firstrun/*.js",
     "test-dapps": "mocha --recursive --timeout 30000 tests/e2e/dapp/*.js",
     "run-tonos": "docker run -d --name local-node -e USER_AGREEMENT=yes -p7777:80 tonlabs/local-node",
-    "version": "gulp patchVersion && auto-changelog -p -l 20 && git add CHANGELOG.md"
+    "version": "gulp patchVersion && auto-changelog -p -l 20 -t keepachangelog --prepend"
   },
   "repository": {
     "type": "git",

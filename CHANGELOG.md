@@ -1,10 +1,20 @@
-### Changelog
+# Changelog
 
-All notable changes to this project will be documented in this file. Dates are displayed in UTC.
+All notable changes to this project will be documented in this file.
 
-#### v1.0.8
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-> 27 May 2021
+## v1.0.9 - 2021-06-25
+
+### Commits
+
+- translated on +49 languages 
+- address checking on sending tx form, fixed license name mistyping
+
+## v1.0.8 - 2021-05-27
+
+### Commits
 
 - Label when in developer mode
 - Backup warning
@@ -20,9 +30,7 @@ All notable changes to this project will be documented in this file. Dates are d
 - Hotfix for cross-browser building process
 - Fixed bug with transaction URL on blockchain explorer
 
-#### v1.0.7
-
-> 13 May 2021
+#### v1.0.7 2021-05-13
 
 - Initial
 - Fixed bug with decimals
@@ -32,3 +40,5 @@ All notable changes to this project will be documented in this file. Dates are d
 - Hotfix for bug with currentAccount
 - Page and Popup works the same with balance
 - Added CHANGELOG.md and semver
+
+
