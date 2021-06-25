@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "MTW - dompet TON saya"
+  },
+  "extShortName": {
+    "message": "Amankan dompet TON gratis."
+  },
+  "extDescription": {
+    "message": "Free TON Blockchain Wallet memungkinkan Anda membuat akun baru, membuat cadangan, mengembalikannya, mengirim transaksi, dan banyak lagi."
+  },
+  "TransactionIsConfirmed": {
+    "message": "Transaksi dikonfirmasi"
+  }
+}

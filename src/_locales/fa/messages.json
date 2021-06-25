@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "MTW - کیف پول TON م"
+  },
+  "extShortName": {
+    "message": "کیف پول رایگان TON."
+  },
+  "extDescription": {
+    "message": "Wallet رایگان Ton Blockchain اجازه می دهد تا شما را به ایجاد حساب های جدید، پشتیبان گیری، بازگرداندن آنها، ارسال معاملات و خیلی بیشتر."
+  },
+  "TransactionIsConfirmed": {
+    "message": "معامله تایید شده است"
+  }
+}

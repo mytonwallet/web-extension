@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "MTW - กระเป๋าเงิน TON ของฉัน"
+  },
+  "extShortName": {
+    "message": "ปลอดภัยฟรี TON Wallet"
+  },
+  "extDescription": {
+    "message": "ฟรี TON Blockchain Wallet ช่วยให้คุณสามารถสร้างบัญชีใหม่ทำการสำรองข้อมูลคืนค่าส่งธุรกรรมและอีกมากมาย"
+  },
+  "TransactionIsConfirmed": {
+    "message": "ยืนยันการทำธุรกรรม"
+  }
+}

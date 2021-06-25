@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "MTW - My TON wallet"
+  },
+  "extShortName": {
+    "message": "Cartera segura de TON gratis."
+  },
+  "extDescription": {
+    "message": "La billetera Free Ton Blockchain le permite crear nuevas cuentas, hacer copias de seguridad, restaurarlas, enviar transacciones y mucho más."
+  },
+  "TransactionIsConfirmed": {
+    "message": "Se confirma la transacción"
+  }
+}
