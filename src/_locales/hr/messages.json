@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "MTW - Moj TON novčanik"
+  },
+  "extShortName": {
+    "message": "Siguran Free TON novčanik."
+  },
+  "extDescription": {
+    "message": "Besplatno TON Blockchain novčanik omogućuje stvaranje novih računa, napravite sigurnosne kopije, obnovite ih, pošaljite transakcije i još mnogo toga."
+  },
+  "TransactionIsConfirmed": {
+    "message": "Transakcija je potvrđena"
+  }
+}

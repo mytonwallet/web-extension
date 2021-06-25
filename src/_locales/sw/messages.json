@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "MTW - mkoba wangu wa TON."
+  },
+  "extShortName": {
+    "message": "Salama ya TON ya bure."
+  },
+  "extDescription": {
+    "message": "Free TON Blockchain Wallet inakuwezesha kuunda akaunti mpya, kufanya backups, kurejesha yao, kutuma shughuli na mengi zaidi."
+  },
+  "TransactionIsConfirmed": {
+    "message": "Shughuli imethibitishwa."
+  }
+}

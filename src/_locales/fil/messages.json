@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "MTW - My TON wallet"
+  },
+  "extShortName": {
+    "message": "Ligtas libreng Ton pitaka."
+  },
+  "extDescription": {
+    "message": "Libreng Ton Blockchain Wallet ay nagbibigay-daan sa iyo upang lumikha ng mga bagong account, gumawa ng backups, ibalik ang mga ito, magpadala ng mga transaksyon at marami pang iba."
+  },
+  "TransactionIsConfirmed": {
+    "message": "Libreng"
+  }
+}
