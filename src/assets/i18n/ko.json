@@ -237,5 +237,14 @@
   "Dismiss backup warning": "백업 경고를 닫습니다",
   "Max": "최대",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "계정이 요청 된 작업에 대한 균형이 충분하지 않습니다. 계정 잔액에 몇 가지 가치를 보냅니다.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "계약서 실행은 오류로 종료되지 않았습니다. Compute Phase가 성공하지 못하고 코드 : 107을 종료하지 않으 셨습니다. 종료 코드에 대한 자세한 정보는 계약 소스 코드를 확인하거나 계약 개발자에게 문의하십시오."
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "계약서 실행은 오류로 종료되지 않았습니다. Compute Phase가 성공하지 못하고 코드 : 107을 종료하지 않으 셨습니다. 종료 코드에 대한 자세한 정보는 계약 소스 코드를 확인하거나 계약 개발자에게 문의하십시오.",
+  "Warning": "경고",
+  "Warning text about restoring": "씨앗 구문 복구는 오래된 방법입니다. 첫 번째 출시시 keystore 복원 만 지원합니다. 첫 번째 지갑을 만든 후에는 씨앗 구문에서 오래된 지갑을 내보낼 수 있습니다. 씨앗 구문이 다른 버전에 속한 경우 지갑의 SafemultisigWallet 버전 만 지원합니다. 모든 자금은 새로 생성되고 배포 된 지갑으로 전송되어야합니다.",
+  "No matches": "맞지 않는다",
+  "Select or enter a new one": "선택하거나 새로 입력하십시오",
+  "Own addresses": "자신의 주소",
+  "Retrieving transactions period (in minutes)": "트랜잭션 기간 검색 (분)",
+  "Fee": "요금",
+  "Total": "총",
+  "Destination": "목적지"
 }

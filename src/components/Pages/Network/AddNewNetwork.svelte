@@ -35,6 +35,7 @@
             data: {
               name: name.value,
               server: server.value,
+              endpoints: [server.value],
               explorer: explorer.value,
               test: test.value == "on",
               giver: giver.value,

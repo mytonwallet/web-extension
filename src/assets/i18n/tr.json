@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Yedekleme uyarısını reddetme",
   "Max": "Maksimum",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Hesap istenen işlem için yetersiz dengeye sahiptir. Hesap bakiyesine biraz değer gönderin.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Sözleşme Yürütme Hatası ile sonlandırıldı: hesaplama aşaması başarılı olmadı, kodu çıktı: 107. Çıkış kodu hakkında daha fazla bilgi için Sözleşme Kaynağı Kodunu kontrol et veya sözleşme geliştiricisine sor"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Sözleşme Yürütme Hatası ile sonlandırıldı: hesaplama aşaması başarılı olmadı, kodu çıktı: 107. Çıkış kodu hakkında daha fazla bilgi için Sözleşme Kaynağı Kodunu kontrol et veya sözleşme geliştiricisine sor",
+  "Warning": "Uyarı",
+  "Warning text about restoring": "Tohum cümleleri kurtarma modası geçmiş bir yöntemdir. İlk başlamada yalnızca Anahtar Görevlisi geri yüklemelerini destekliyoruz. İlk cüzdanı oluşturduktan sonra, eski cüzdanı tohum cümlesinden dışa aktarmak mümkün olacaktır. Lütfen sadece cüzdanın safemultisigwallet versiyonunu desteklediğimiz için, bu nedenle tohum cümlesi diğer sürümlere aitse. Tüm fonlar yeni oluşturulan ve konuşlandırılmış cüzdana aktarılmalıdır.",
+  "No matches": "Eşleşme yok",
+  "Select or enter a new one": "Yeni bir tane seçin veya girin",
+  "Own addresses": "Kendi adresleri",
+  "Retrieving transactions period (in minutes)": "İşlem süresi (dakikalar içinde)",
+  "Fee": "Ücret",
+  "Total": "Toplam",
+  "Destination": "Hedef"
 }

@@ -237,5 +237,14 @@
   "Dismiss backup warning": "ব্যাকআপ সতর্কতা বরখাস্ত করুন",
   "Max": "সর্বোচ্চ",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "অ্যাকাউন্ট অনুরোধ অপারেশন জন্য অপর্যাপ্ত ভারসাম্য আছে। অ্যাকাউন্ট ব্যালেন্স কিছু মান পাঠান।",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "চুক্তি এক্সিকিউশনটি ত্রুটির সাথে সমাপ্ত হয়েছিল: কম্পিউট ফেজ সফল নয়, প্রস্থান কোড: 107. প্রস্থান কোড সম্পর্কে আরও তথ্যের জন্য চুক্তি সোর্স কোডটি চেক করুন অথবা চুক্তি বিকাশকারীকে জিজ্ঞাসা করুন"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "চুক্তি এক্সিকিউশনটি ত্রুটির সাথে সমাপ্ত হয়েছিল: কম্পিউট ফেজ সফল নয়, প্রস্থান কোড: 107. প্রস্থান কোড সম্পর্কে আরও তথ্যের জন্য চুক্তি সোর্স কোডটি চেক করুন অথবা চুক্তি বিকাশকারীকে জিজ্ঞাসা করুন",
+  "Warning": "সতর্কতা",
+  "Warning text about restoring": "বীজ ফ্রেজ পুনরুদ্ধারের একটি পুরানো পদ্ধতি। আমরা শুধুমাত্র প্রথম প্রবর্তন keystore restores সমর্থন। প্রথম ওয়ালেট তৈরি করার পরে, বীজ ফ্রেজ থেকে পুরানো ওয়ালেট রপ্তানি করা সম্ভব হবে। দয়া করে মনে রাখবেন যে আমরা শুধুমাত্র Wallet এর SafeMultisigwallet সংস্করণ সমর্থন করি, তাই যদি বীজের বাক্যাংশটি অন্যান্য সংস্করণের সাথে থাকে। সমস্ত তহবিল নতুন তৈরি এবং নিয়ামক ওয়ালেট স্থানান্তর করা আবশ্যক।",
+  "No matches": "মিল নেই",
+  "Select or enter a new one": "নির্বাচন করুন অথবা একটি নতুন এক লিখুন",
+  "Own addresses": "নিজস্ব ঠিকানা",
+  "Retrieving transactions period (in minutes)": "লেনদেনের সময়কাল পুনরুদ্ধার করা (মিনিটের মধ্যে)",
+  "Fee": "ফি",
+  "Total": "মোট",
+  "Destination": "গন্তব্য"
 }

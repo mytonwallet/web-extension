@@ -18,6 +18,8 @@
     //mdiSwapVertical,
     mdiBriefcaseUpload,
     mdiArrowTopRight,
+    mdiArrowBottomLeft,
+    mdiAlertCircle,
   } from "@mdi/js";
 
   import {
@@ -51,6 +53,15 @@
     checkBalance($currentAccount.address, $currentNetwork.server);
     getTransactions($currentAccount.address, $currentNetwork.server, 10, 1);
   });
+
+  const walletUIUpdateListener = (message) => {
+    if (message.type === "updateWalletUI") {
+      checkBalance($currentAccount.address, $currentNetwork.server);
+      getTransactions($currentAccount.address, $currentNetwork.server, 10, 1);
+    }
+  };
+
+  browser.runtime.onMessage.addListener(walletUIUpdateListener);
 
   $: showDeploy = $currentAccount.deployed
     ? !$currentAccount.deployed.includes($currentNetwork.server)
@@ -107,6 +118,8 @@
       : 0;
     checkBalance(value.address, $currentNetwork.server);
     getTransactions(value.address, $currentNetwork.server, 10, 1);
+    giverLoading = false;
+    deployLoading = false;
   });
 
   currentNetwork.subscribe((value) => {
@@ -115,29 +128,36 @@
       : 0;
     checkBalance($currentAccount.address, value.server);
     getTransactions($currentAccount.address, value.server, 10, 1);
+    giverLoading = false;
+    deployLoading = false;
   });
 
   const editNickname = () => {
     openModal("ModalEditNickname");
   };
+
   const viewAddressOnExplorer = () => {
     browser.tabs.create({
       url: `${$currentNetwork.explorer}/accounts/accountDetails?id=${$currentAccount.address}`,
     });
   };
+
   const viewTransactionOnExplorer = (txId) => {
     browser.tabs.create({
       url: `${$currentNetwork.explorer}/transactions/transactionDetails?id=${txId}`,
     });
   };
+
   const deleteAccount = () => {
     openModal("ModalDeleteAccount");
   };
+
   const buy = () => {
     browser.tabs.create({
       url: "https://coinmarketcap.com/currencies/ton-crystal/markets/",
     });
   };
+
   const giver = () => {
     giverLoading = true;
     browser.runtime
@@ -162,15 +182,16 @@
         }
       });
   };
-  /*
+/*
   const swap = () => {
     //show enrolling form
     browser.tabs.create({ url: "https://docs.google.com/forms/d/e/1FAIpQLSeDZwc8cvMKhjQc2PzTiqNCJ31oAqvhzbO6IEWBv1CBu2b3LA/viewform" });
   };
-  */
+*/
   const sendTransaction = () => {
     openModal("ModalSendingTransaction");
   };
+
   const deploy = () => {
     deployLoading = true;
     browser.runtime
@@ -268,7 +289,7 @@
   }
   :global(.action-button) {
     background-color: var(--color-primary);
-    color: var(--color-black);
+    color: var(--color-white);
   }
   :global(.account-tabs) {
     margin-top: 1rem;
@@ -390,13 +411,6 @@
           }}
           icon={mdiGift} />
       {/if}
-      <Button
-        title={$_('Send transaction')}
-        class="action-button is-rounded"
-        on:click={() => {
-          sendTransaction();
-        }}
-        icon={mdiArrowTopRight} />
       <!--
       <Button
         disabled
@@ -414,6 +428,14 @@
             deploy();
           }}
           icon={mdiBriefcaseUpload} />
+      {:else}
+        <Button
+          title={$_('Send transaction')}
+          class="action-button is-rounded"
+          on:click={() => {
+            sendTransaction();
+          }}
+          icon={mdiArrowTopRight} />
       {/if}
     </div>
   </div>
@@ -447,13 +469,29 @@
           <span class="tx-type">
             {#if tx.type == 'deploy'}
               <Icon
+                class="action-button"
                 src={mdiBriefcaseUpload}
                 size="2"
                 on:click={() => viewTransactionOnExplorer(tx.id)} />
             {/if}
             {#if tx.type == 'transfer'}
               <Icon
+                class="action-button"
                 src={mdiArrowTopRight}
+                size="2"
+                on:click={() => viewTransactionOnExplorer(tx.id)} />
+            {/if}
+            {#if tx.type == 'incoming'}
+              <Icon
+                class="action-button"
+                src={mdiArrowBottomLeft}
+                size="2"
+                on:click={() => viewTransactionOnExplorer(tx.id)} />
+            {/if}
+            {#if tx.type == 'error'}
+              <Icon
+                class="action-button"
+                src={mdiAlertCircle}
                 size="2"
                 on:click={() => viewTransactionOnExplorer(tx.id)} />
             {/if}
@@ -463,7 +501,10 @@
             <span
               class="tx-date">{new Date(tx.now * 1000).toLocaleString()}</span>
           </span>
-          <span class="tx-balance is-center" title="{tx.amount}"> {fromNano(tx.amount)} {tx.coinName} </span>
+          <span class="tx-balance is-center" title={tx.amount}>
+            {fromNano(tx.amount)}
+            {tx.coinName}
+          </span>
         </div>
       {/each}
     </div>

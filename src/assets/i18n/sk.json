@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Upustenie zálohovania",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Účet nemá dostatočnú rovnováhu pre požadovanú operáciu. Poslať určitú hodnotu na zostatok na účte.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Realizácia zmluvy bola ukončená s chybou: Compute fáza nie je úspešná, výstupný kód: 107. Viac informácií o Exit Code skontrolujte Zdrojový kód zmluvy alebo požiadajte o vývojár zmluvy"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Realizácia zmluvy bola ukončená s chybou: Compute fáza nie je úspešná, výstupný kód: 107. Viac informácií o Exit Code skontrolujte Zdrojový kód zmluvy alebo požiadajte o vývojár zmluvy",
+  "Warning": "Pozor",
+  "Warning text about restoring": "Záchrana vety semená je zastaraná metóda. Podporujeme iba konektory na prvom spustení. Po vytvorení prvej peňaženky bude možné exportovať starú peňaženku z semien. Upozorňujeme, že podporujeme len bezpečnostnú verziu peňaženky, takže ak semená patrí k iným verziám. Všetky finančné prostriedky musia byť prevedené do novovytvorenej a nasadenej peňaženky.",
+  "No matches": "Žiadne zhody",
+  "Select or enter a new one": "Vyberte alebo zadajte nový",
+  "Own addresses": "Vlastné adresy",
+  "Retrieving transactions period (in minutes)": "Obdobie transakcií (v minútach)",
+  "Fee": "Poplatok",
+  "Total": "Celkom",
+  "Destination": "Destinácia"
 }

@@ -237,5 +237,14 @@
   "Dismiss backup warning": "ಬ್ಯಾಕ್ಅಪ್ ಎಚ್ಚರಿಕೆಯನ್ನು ವಜಾಗೊಳಿಸಿ",
   "Max": "ಗರಿಷ್ಠ",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "ವಿನಂತಿಸಿದ ಕಾರ್ಯಾಚರಣೆಗೆ ಖಾತೆಗೆ ಸಾಕಷ್ಟು ಸಮತೋಲನವಿಲ್ಲ. ಖಾತೆಯ ಸಮತೋಲನಕ್ಕೆ ಕೆಲವು ಮೌಲ್ಯವನ್ನು ಕಳುಹಿಸಿ.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "ಕಾಂಟ್ರಾಕ್ಟ್ ಎಕ್ಸಿಕ್ಯೂಶನ್ ಅನ್ನು ದೋಷದೊಂದಿಗೆ ಕೊನೆಗೊಳಿಸಲಾಯಿತು: ಕಂಪ್ಯೂಟ್ ಹಂತವು ಯಶಸ್ವಿಯಾಗುವುದಿಲ್ಲ, ನಿರ್ಗಮಿಸಿ ಕೋಡ್: 107. ಎಕ್ಸಿಟ್ ಕೋಡ್ ಬಗ್ಗೆ ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಕಾಂಟ್ರಾಕ್ಟ್ ಮೂಲ ಕೋಡ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ ಅಥವಾ ಕಾಂಟ್ರಾಕ್ಟ್ ಡೆವಲಪರ್ ಅನ್ನು ಕೇಳಿ"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "ಕಾಂಟ್ರಾಕ್ಟ್ ಎಕ್ಸಿಕ್ಯೂಶನ್ ಅನ್ನು ದೋಷದೊಂದಿಗೆ ಕೊನೆಗೊಳಿಸಲಾಯಿತು: ಕಂಪ್ಯೂಟ್ ಹಂತವು ಯಶಸ್ವಿಯಾಗುವುದಿಲ್ಲ, ನಿರ್ಗಮಿಸಿ ಕೋಡ್: 107. ಎಕ್ಸಿಟ್ ಕೋಡ್ ಬಗ್ಗೆ ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಕಾಂಟ್ರಾಕ್ಟ್ ಮೂಲ ಕೋಡ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ ಅಥವಾ ಕಾಂಟ್ರಾಕ್ಟ್ ಡೆವಲಪರ್ ಅನ್ನು ಕೇಳಿ",
+  "Warning": "ಎಚ್ಚರಿಕೆ",
+  "Warning text about restoring": "ಬೀಜ ನುಡಿಗಟ್ಟು ಚೇತರಿಕೆಯು ಹಳೆಯ ವಿಧಾನವಾಗಿದೆ. ನಾವು ಮೊದಲ ಬಿಡುಗಡೆಗೆ ಕೀಸ್ಟೋರ್ ಪುನಃಸ್ಥಾಪನೆಗಳನ್ನು ಮಾತ್ರ ಬೆಂಬಲಿಸುತ್ತೇವೆ. ಮೊದಲ ಕೈಚೀಲವನ್ನು ರಚಿಸಿದ ನಂತರ, ಬೀಜ ಪದಗುಚ್ಛದಿಂದ ಹಳೆಯ ವಾಲೆಟ್ ಅನ್ನು ರಫ್ತು ಮಾಡಲು ಸಾಧ್ಯವಿದೆ. ನಾವು ವಾಲೆಟ್ನ ಸಫಾಲ್ಟ್ಸಿಗ್ವಾಲೆಟ್ ಆವೃತ್ತಿಯನ್ನು ಮಾತ್ರ ಬೆಂಬಲಿಸುತ್ತೇವೆ, ಆದ್ದರಿಂದ ಬೀಜ ನುಡಿಗಟ್ಟು ಇತರ ಆವೃತ್ತಿಗಳಿಗೆ ಸೇರಿದಿದ್ದರೆ. ಎಲ್ಲಾ ನಿಧಿಗಳನ್ನು ಹೊಸದಾಗಿ ರಚಿಸಿದ ಮತ್ತು ನಿಯೋಜಿತ ಕೈಚೀಲಕ್ಕೆ ವರ್ಗಾಯಿಸಬೇಕು.",
+  "No matches": "ಯಾವುದೇ ಹೊಂದಾಣಿಕೆಗಳಿಲ್ಲ",
+  "Select or enter a new one": "ಹೊಸದನ್ನು ಆಯ್ಕೆಮಾಡಿ ಅಥವಾ ನಮೂದಿಸಿ",
+  "Own addresses": "ಸ್ವಂತ ವಿಳಾಸಗಳು",
+  "Retrieving transactions period (in minutes)": "ವಹಿವಾಟು ಅವಧಿಯನ್ನು ಪಡೆದುಕೊಳ್ಳುವುದು (ನಿಮಿಷಗಳಲ್ಲಿ)",
+  "Fee": "ಶುಲ್ಕ",
+  "Total": "ಒಟ್ಟು",
+  "Destination": "ತಲುಪುವ ದಾರಿ"
 }

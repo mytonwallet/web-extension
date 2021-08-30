@@ -237,5 +237,14 @@
   "Dismiss backup warning": "WAARSCHUWING VAN DE BACKOP",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Account heeft onvoldoende saldo voor de gevraagde operatie. Stuur een waarde naar een accountsaldo.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "De uitvoering van het contract werd beëindigd met fout: de berekeningsfase is niet opgevolgd, Exit Code: 107. Voor meer informatie over Exit Code Controleer de contractbroncode of vraag de ontwikkelingsontwikkelaar"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "De uitvoering van het contract werd beëindigd met fout: de berekeningsfase is niet opgevolgd, Exit Code: 107. Voor meer informatie over Exit Code Controleer de contractbroncode of vraag de ontwikkelingsontwikkelaar",
+  "Warning": "Waarschuwing",
+  "Warning text about restoring": "Seed Phrase Recovery is een verouderde methode. Wij ondersteunen alleen de keystore-restauraties bij de eerste lancering. Na het maken van de eerste portemonnee is het mogelijk om de oude portemonnee uit de zaaduitdrukking te exporteren. Houd er rekening mee dat we alleen de safemultisigwallet-versie van de portemonnee ondersteunen, dus als de zaaduitdrukking van andere versies behoort. Alle fondsen moeten worden overgedragen aan de nieuw gecreëerde en ingezette portefeuille.",
+  "No matches": "Geen overeenkomsten",
+  "Select or enter a new one": "Selecteer of voer een nieuwe in",
+  "Own addresses": "Eigen adressen",
+  "Retrieving transactions period (in minutes)": "Het ophalen van transactiesperiode (in minuten)",
+  "Fee": "Vergoeding",
+  "Total": "Totaal",
+  "Destination": "Bestemming"
 }

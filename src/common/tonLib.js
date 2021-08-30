@@ -1,5 +1,6 @@
-import { TonClient, signerExternal, signerNone, signerKeys, abiContract } from "@tonclient/core";
+import { TonClient, signerExternal, signerNone, signerKeys, abiContract, accountForExecutorAccount } from "@tonclient/core";
 import { libWeb } from "@tonclient/lib-web";
+import { Vault } from "../common/vault.js";
 
 TonClient.useBinaryLibrary(libWeb);
 
@@ -13,13 +14,16 @@ class TonLib {
 
   constructor(client) {
     this.tonClient = client;
+    this.vault = new Vault();
+    this.vault.init();
   }
 
-  getClient(server = "main.ton.dev") {
-    if (this.instance == null || !this.instance.config.network.endpoints.includes(server)) {
+  async getClient(server = "main.ton.dev") {
+    const network = await this.vault.getNetwork(server);
+    if (this.instance == null || network.endpoints.filter(x => this.instance.config.network.endpoints.includes(x)).length == 0) {
       this.instance = new this.tonClient({
         network: {
-          endpoints: [server]
+          endpoints: network.endpoints
         }
       });
     }
@@ -65,6 +69,22 @@ class TonLib {
           : undefined,
       });
       return address;
+    } catch (exp) {
+      throw exp;
+    }
+  }
+
+  /**
+   * Description
+   * https://github.com/tonlabs/ton-client-js/blob/master/packages/core/src/modules.ts#L2942
+  **/
+  async decodeMessageBody(abi, body) {
+    try {
+      return await this.instance.abi.decode_message_body({
+        abi: abiContract(abi),
+        body: body,
+        is_internal: true
+      });
     } catch (exp) {
       throw exp;
     }
@@ -189,18 +209,18 @@ class TonLib {
     }
   }
 
-  async requestAccountTransactions(address) {
+  async requestAccountsTransactions(addresses, now) {
     try {
       const data = await this.instance.net.query({"query": `
       query {
         transactions(
           filter: {
-            account_addr: {eq: "0:${address}"}
+            account_addr: {in: [${addresses.map((item) => {return `"${item}"`}).join(", ")}]}
+            now: {gt: ${now}}
           }
           orderBy: { path: "now", direction: DESC }
-          limit: 15
         ) {
-          id, now, block_id, in_msg, workchain_id, balance_delta(format:DEC)
+          id, account_addr, now, aborted, orig_status, end_status, block_id, balance_delta(format:DEC), total_fees(format:DEC)
         }
       }
       `});
@@ -271,12 +291,16 @@ class TonLib {
        }
       }
       `});
-      return data.result.data.accounts.length > 0 ? data.result.data.accounts[0]: {};
+      return data.result.data.accounts.length > 0 ? data.result.data.accounts[0]: false;
     } catch (exp) {
       throw exp;
     }
   }
 
+  /**
+   * Description
+   * https://github.com/tonlabs/ton-client-js/blob/master/packages/core/src/modules.ts#L3285
+  **/
   async calcRunFees(address, functionName, abi, input = {}, keyPair = null) {
     try {
       const data = await this.instance.net.query({"query": `
@@ -291,10 +315,10 @@ class TonLib {
         }
         `});
       //here needs to check that address is existed
-      if (data.result.accounts.length == 0) {
+      if (data.result && data.result.data && data.result.data.accounts.length == 0) {
         throw new Error("Account is not existed");
       }
-      const boc = data.result.accounts[0].boc;
+      const boc = data.result.data.accounts[0].boc;
       const encoded_message = await this.encodeMessage(address, functionName, abi, input, keyPair);
       const result = await this.instance.tvm.run_executor({
         message: encoded_message.message,
@@ -303,7 +327,7 @@ class TonLib {
         skip_transaction_check: false,
         return_updated_account: false
       });
-      return result;
+      return result.fees;
     } catch (exp) {
       throw exp;
     }

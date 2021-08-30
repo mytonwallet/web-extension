@@ -237,5 +237,14 @@
   "Dismiss backup warning": "बैकअप चेतावनी को खारिज करें",
   "Max": "मैक्स",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "अनुरोधित ऑपरेशन के लिए खाते में अपर्याप्त शेष राशि है। खाता शेष राशि के लिए कुछ मूल्य भेजें।",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "अनुबंध निष्पादन को त्रुटि के साथ समाप्त कर दिया गया था: गणना चरण सफल नहीं हुआ है, बाहर निकलें कोड: 107. निकास कोड के बारे में अधिक जानकारी के लिए अनुबंध स्रोत कोड की जांच करें या अनुबंध डेवलपर से पूछें"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "अनुबंध निष्पादन को त्रुटि के साथ समाप्त कर दिया गया था: गणना चरण सफल नहीं हुआ है, बाहर निकलें कोड: 107. निकास कोड के बारे में अधिक जानकारी के लिए अनुबंध स्रोत कोड की जांच करें या अनुबंध डेवलपर से पूछें",
+  "Warning": "चेतावनी",
+  "Warning text about restoring": "बीज वाक्यांश वसूली एक पुरानी विधि है। हम केवल पहले लॉन्च पर keystore पुनर्स्थापना का समर्थन करते हैं। पहला वॉलेट बनाने के बाद, बीज वाक्यांश से पुराने वॉलेट को निर्यात करना संभव होगा। कृपया ध्यान दें कि हम केवल वॉलेट के safemultisigwallet संस्करण का समर्थन करते हैं, इसलिए यदि बीज वाक्यांश अन्य संस्करणों से संबंधित है। सभी फंडों को नव निर्मित और तैनात बटुए में स्थानांतरित किया जाना चाहिए।",
+  "No matches": "कोई मेल नही",
+  "Select or enter a new one": "एक नया चुनें या दर्ज करें",
+  "Own addresses": "अपने पते",
+  "Retrieving transactions period (in minutes)": "लेनदेन की अवधि (मिनटों में) पुनर्प्राप्त करना",
+  "Fee": "शुल्क",
+  "Total": "कुल",
+  "Destination": "गंतव्य"
 }

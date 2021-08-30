@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Elutasítja a biztonsági mentés figyelmeztetését",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "A fióknak nincs elegendő egyenlege a kért működéshez. Küldjön valamilyen értéket a fiók egyenlegének.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "A szerződés végrehajtása hibával megszűnt: A kiszámítási fázis nem sikerült, kilépési kód: 107. További információ a kilépési kódról Ellenőrizze a szerződés forráskódját, vagy kérje meg a szerződésfejlesztőt"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "A szerződés végrehajtása hibával megszűnt: A kiszámítási fázis nem sikerült, kilépési kód: 107. További információ a kilépési kódról Ellenőrizze a szerződés forráskódját, vagy kérje meg a szerződésfejlesztőt",
+  "Warning": "Figyelem",
+  "Warning text about restoring": "A vetőmag-kifejezés helyreállítása elavult módszer. Csak az első indításkor visszaállítottuk a Keystore-t. Miután létrehozta az első pénztárcát, lehetséges lesz exportálni a régi pénztárcát a mag mondatból. Felhívjuk figyelmét, hogy csak akkor támogatja a SafeMultisigWallet változata a tárca, így ha a vetőmag kifejezés tartozik más változatok. Minden forrást át kell adni az újonnan létrehozott és telepített pénztárcába.",
+  "No matches": "Nincs egyezés",
+  "Select or enter a new one": "Válassza ki vagy írjon be egy újat",
+  "Own addresses": "Saját címek",
+  "Retrieving transactions period (in minutes)": "Tranzakciók visszavonása (percekben)",
+  "Fee": "Díj",
+  "Total": "Teljes",
+  "Destination": "Rendeltetési hely"
 }

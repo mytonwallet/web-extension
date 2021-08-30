@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Despedir la advertencia de respaldo",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "La cuenta no tiene un equilibrio insuficiente para la operación solicitada. Enviar algún valor al saldo de la cuenta.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "La ejecución del contrato se terminó con error: la fase de cómputo no está sucedida, el código de salida: 107. Para obtener más información sobre el código de salida, verifique el código fuente del contrato o pídale al desarrollador del contrato"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "La ejecución del contrato se terminó con error: la fase de cómputo no está sucedida, el código de salida: 107. Para obtener más información sobre el código de salida, verifique el código fuente del contrato o pídale al desarrollador del contrato",
+  "Warning": "Advertencia",
+  "Warning text about restoring": "La recuperación de la frase de semillas es un método obsoleto. Solo apoyamos los restauraciones de KeyStore en el primer lanzamiento. Después de crear la primera billetera, será posible exportar la billetera vieja de la frase de semillas. Tenga en cuenta que solo admitimos la versión SafeMultisigwAllet de la billetera, por lo que si la frase de la semilla pertenece a otras versiones. Todos los fondos deben ser transferidos a la billetera recién creada e implementada.",
+  "No matches": "No hay coincidencias",
+  "Select or enter a new one": "Seleccione o ingrese una nueva",
+  "Own addresses": "Direcciones propias",
+  "Retrieving transactions period (in minutes)": "Recuperación del período de transacciones (en minutos)",
+  "Fee": "Tarifa",
+  "Total": "Total",
+  "Destination": "Destino"
 }

@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Απορρίψτε την προειδοποίηση αντιγράφων ασφαλείας",
   "Max": "Μέγιστη",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Ο λογαριασμός δεν έχει επαρκή ισορροπία για την απαιτούμενη λειτουργία. Στείλτε κάποια αξία για το υπόλοιπο λογαριασμού.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Η εκτέλεση της σύμβασης τερματίστηκε με σφάλμα: η υπολογιστική φάση δεν επιτυγχάνεται, εξόδου Κωδικός: 107. Για περισσότερες πληροφορίες σχετικά με τον κωδικό εξόδου Ελέγξτε τον πηγαίο κώδικα της σύμβασης ή ζητήστε από τον προγραμματιστή συμβολαίου"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Η εκτέλεση της σύμβασης τερματίστηκε με σφάλμα: η υπολογιστική φάση δεν επιτυγχάνεται, εξόδου Κωδικός: 107. Για περισσότερες πληροφορίες σχετικά με τον κωδικό εξόδου Ελέγξτε τον πηγαίο κώδικα της σύμβασης ή ζητήστε από τον προγραμματιστή συμβολαίου",
+  "Warning": "Προειδοποίηση",
+  "Warning text about restoring": "Η ανάκτηση φράσης σπόρων είναι μια ξεπερασμένη μέθοδος. Υποστηρίζουμε μόνο το Keystore αποκαθιστά στην πρώτη εκκίνηση. Μετά τη δημιουργία του πρώτου πορτοφολιού, θα είναι δυνατή η εξαγωγή του παλιού πορτοφολιού από τη φράση σπόρων. Παρακαλείστε να σημειώσετε ότι υποστηρίζουμε μόνο την έκδοση SafemultisIgwallet του πορτοφολιού, οπότε αν η φράση σπόρων ανήκει σε άλλες εκδόσεις. Όλα τα κεφάλαια πρέπει να μεταφερθούν στο νεοσυσταθέντα και να αναπτυχθούν πορτοφόλι.",
+  "No matches": "Δεν υπάρχουν αγώνες",
+  "Select or enter a new one": "Επιλέξτε ή εισάγετε ένα νέο",
+  "Own addresses": "Δικές του διευθύνσεις",
+  "Retrieving transactions period (in minutes)": "Ανάκτηση της περιόδου συναλλαγών (σε λεπτά)",
+  "Fee": "Τέλη",
+  "Total": "Σύνολο",
+  "Destination": "Προορισμός"
 }

@@ -237,5 +237,14 @@
   "Dismiss backup warning": "اخراج پشتیبان گیری اخطار",
   "Max": "مکس",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "حساب دارای تعادل کافی برای عملیات درخواست شده است. ارسال برخی از ارزش به حساب مانده حساب.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "اعدام قرارداد با خطا خاتمه یافت: فاز محاسبه شده موفق نشد، خروج از کد: 107. برای کسب اطلاعات بیشتر در مورد کد خروج، کد منبع قرارداد را بررسی کنید یا از توسعه دهنده قرارداد بپرسید"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "اعدام قرارداد با خطا خاتمه یافت: فاز محاسبه شده موفق نشد، خروج از کد: 107. برای کسب اطلاعات بیشتر در مورد کد خروج، کد منبع قرارداد را بررسی کنید یا از توسعه دهنده قرارداد بپرسید",
+  "Warning": "هشدار",
+  "Warning text about restoring": "بازیابی اصطلاح بذر یک روش قدیمی است. ما فقط از Keystore پشتیبانی می کنیم در اولین راه اندازی. پس از ایجاد کیف پول اول، کیف پول قدیمی را از عبارت بذر صادر می کند. لطفا توجه داشته باشید که ما فقط از نسخه Safemultisigwallet از کیف پول پشتیبانی می کنیم، بنابراین اگر عبارت SEED متعلق به نسخه های دیگر باشد. تمام وجوه باید به کیف پول تازه ایجاد شده و مستقر منتقل شود.",
+  "No matches": "هیچ بازی",
+  "Select or enter a new one": "یکی را انتخاب کنید یا وارد کنید",
+  "Own addresses": "آدرس های خود",
+  "Retrieving transactions period (in minutes)": "بازیابی دوره معاملات (در دقیقه)",
+  "Fee": "هزینه",
+  "Total": "جمع",
+  "Destination": "مقصد"
 }

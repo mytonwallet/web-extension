@@ -237,5 +237,14 @@
   "Dismiss backup warning": "የመጠባበቂያ ማስጠንቀቂያ ማስጠንቀቂያ",
   "Max": "ማክስ",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "ለተጠየቀው ክወና በቂ ያልሆነ ሂሳብ አለው. ለሂሳብ ሚዛን የተወሰነ እሴት ይላኩ.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "የኮንትራት አፈፃፀም በስህተት ተቋረጠ-የተከፈለ ደረጃ ተተክቷል, ከድድ ኮድ: - ስለ መውጫ ደብዛድ መረጃ የኮንትራት ምንጭ ኮድ ይፈትሹ ወይም የኮንትራቱን ገንቢ ይጠይቁ"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "የኮንትራት አፈፃፀም በስህተት ተቋረጠ-የተከፈለ ደረጃ ተተክቷል, ከድድ ኮድ: - ስለ መውጫ ደብዛድ መረጃ የኮንትራት ምንጭ ኮድ ይፈትሹ ወይም የኮንትራቱን ገንቢ ይጠይቁ",
+  "Warning": "ማስጠንቀቂያ",
+  "Warning text about restoring": "የዘር ሐረግ ማገገም ጊዜው ያለፈበት ዘዴ ነው. እኛ በመጀመሪያ ማስነሳት ላይ የ Keestoore መልሶ ማቋቋም ብቻ እንረዳለን. የመጀመሪያውን የኪስ ቦርሳ ከፈጠረ በኋላ የድሮውን ዎል ኳስ ከዘሩ ሐረግ ማቅረብ ይቻል ይሆናል. እባክዎን ያስተውሉ የኪስ ቦርሳ ስሪቱን ብቻ እንደገለጽን ልብ ይበሉ, ስለሆነም የዘር ሐረግ ከሌሎች ስሪቶች ከሆነ. ሁሉም ገንዘቦች ወደ አዲስ የተፈጠረ እና የተሰማሩ የኪስ ቦርሳ መወሰድ አለባቸው.",
+  "No matches": "ግጥሚያዎች የሉም",
+  "Select or enter a new one": "አዲስ ይምረጡ ወይም ያስገቡ",
+  "Own addresses": "የራስ አድራሻዎች",
+  "Retrieving transactions period (in minutes)": "የግብይቶችን ጊዜ ማስመለስ (በደቂቃዎች ውስጥ)",
+  "Fee": "ክፍያ",
+  "Total": "ጠቅላላ",
+  "Destination": "መድረሻ"
 }

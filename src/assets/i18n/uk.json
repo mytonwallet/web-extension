@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Відхилити резервне копіювання",
   "Max": "Макс",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Обліковий запис має недостатній баланс для запитуваної операції. Надішліть своє значення для облікового запису.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Виконання контракту була припинена з помилкою: Compute Phase не вдалося, код виходу: 107. Для отримання додаткової інформації про код виходу перевіряйте вихідний код договору або попросіть розробника контракту"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Виконання контракту була припинена з помилкою: Compute Phase не вдалося, код виходу: 107. Для отримання додаткової інформації про код виходу перевіряйте вихідний код договору або попросіть розробника контракту",
+  "Warning": "Увага",
+  "Warning text about restoring": "Відновлення фрази насіння - застарілий метод. Ми підтримуємо лише keystore відновлюється на першому запуску. Після створення першого гаманця можна буде експортувати старий кошелек з фрази насіння. Будь ласка, зверніть увагу, що ми підтримуємо лише SafeMultisigwallet версію гаманця, тому, якщо фраза насіння належить до інших версій. Всі кошти повинні бути передані до новоствореного та розгорнутого кошелею.",
+  "No matches": "Немає матчів",
+  "Select or enter a new one": "Виберіть або введіть новий",
+  "Own addresses": "Власні адреси",
+  "Retrieving transactions period (in minutes)": "Отримання періоду транзакцій (за лічені хвилини)",
+  "Fee": "Плата",
+  "Total": "Загальний",
+  "Destination": "Призначення"
 }

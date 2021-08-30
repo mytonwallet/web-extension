@@ -237,5 +237,14 @@
   "Dismiss backup warning": "બેકઅપ ચેતવણીને કાઢી નાખો",
   "Max": "મહત્તમ",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "વિનંતી કરેલ ઑપરેશન માટે એકાઉન્ટમાં અપર્યાપ્ત સંતુલન છે. એકાઉન્ટ સંતુલન માટે કેટલાક મૂલ્ય મોકલો.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "કોન્ટ્રેક્ટ એક્ઝેક્યુશનને ભૂલથી સમાપ્ત કરવામાં આવ્યું હતું: કોમ્પ્યુટ તબક્કો સફળ થઈ ગયું નથી, એક્ઝિટ કોડ: 107. એક્ઝિટ કોડ વિશે વધુ માહિતી માટે કોન્ટ્રેક્ટ સ્રોત કોડ તપાસો અથવા કોન્ટ્રેક્ટ ડેવલપરને પૂછો"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "કોન્ટ્રેક્ટ એક્ઝેક્યુશનને ભૂલથી સમાપ્ત કરવામાં આવ્યું હતું: કોમ્પ્યુટ તબક્કો સફળ થઈ ગયું નથી, એક્ઝિટ કોડ: 107. એક્ઝિટ કોડ વિશે વધુ માહિતી માટે કોન્ટ્રેક્ટ સ્રોત કોડ તપાસો અથવા કોન્ટ્રેક્ટ ડેવલપરને પૂછો",
+  "Warning": "ચેતવણી",
+  "Warning text about restoring": "બીજ શબ્દસમૂહ પુનઃપ્રાપ્તિ જૂની પદ્ધતિ છે. અમે ફક્ત પ્રથમ લોન્ચ પર કીસ્ટોર રીસ્ટોર્સને સપોર્ટ કરીએ છીએ. પ્રથમ વૉલેટ બનાવ્યાં પછી, બીજ શબ્દસમૂહમાંથી જૂના વૉલેટ નિકાસ કરવું શક્ય છે. મહેરબાની કરીને નોંધ કરો કે અમે ફક્ત વૉલેટના સેફેમ્ટિઝિગવાલ્ટ સંસ્કરણને સમર્થન આપીએ છીએ, તેથી જો બીજ શબ્દસમૂહ અન્ય સંસ્કરણોથી સંબંધિત હોય. બધા ભંડોળ નવા બનાવેલ અને જમાવટવાળા વૉલેટમાં સ્થાનાંતરિત થવું આવશ્યક છે.",
+  "No matches": "કોઈ મેચો",
+  "Select or enter a new one": "પસંદ કરો અથવા નવું દાખલ કરો",
+  "Own addresses": "પોતાના સરનામા",
+  "Retrieving transactions period (in minutes)": "વ્યવહારોનો સમય પુનઃપ્રાપ્ત કરવો (મિનિટમાં)",
+  "Fee": "ફી",
+  "Total": "કુલ",
+  "Destination": "ગંતવ્ય"
 }

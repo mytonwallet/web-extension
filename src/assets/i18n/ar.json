@@ -237,5 +237,14 @@
   "Dismiss backup warning": "رفض تحذير النسخ الاحتياطي",
   "Max": "الأعلى",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "الحساب له توازن كاف للعملية المطلوبة. إرسال بعض القيمة إلى رصيد الحساب.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "تم إنهاء الإعدام بالعقد مع الخطأ: لم تنجح مرحلة حسابية، رمز الخروج: 107. لمزيد من المعلومات حول رمز الخروج تحقق من شفرة مصدر العقد أو اسأل مطور العقد"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "تم إنهاء الإعدام بالعقد مع الخطأ: لم تنجح مرحلة حسابية، رمز الخروج: 107. لمزيد من المعلومات حول رمز الخروج تحقق من شفرة مصدر العقد أو اسأل مطور العقد",
+  "Warning": "تحذير",
+  "Warning text about restoring": "عبارة البذور الشفاء هي طريقة قديمة. نحن فقط نؤيد Keystore الاستعادة على الإطلاق الأول. بعد إنشاء المحفظة الأولى، سيكون من الممكن تصدير المحفظة القديمة من عبارة البذور. يرجى ملاحظة أننا نؤيد فقط إصدار Safemultisigwallet من المحفظة، لذلك إذا كانت عبارة SEED تنتمي إلى إصدارات أخرى. يجب نقل جميع الأموال إلى المحفظة المنشأة حديثا ونشرها.",
+  "No matches": "لا مباريات",
+  "Select or enter a new one": "حدد أو أدخل واحدة جديدة",
+  "Own addresses": "العناوين الخاصة",
+  "Retrieving transactions period (in minutes)": "استرجاع فترة المعاملات (بالدقائق)",
+  "Fee": "مصاريف",
+  "Total": "المجموع",
+  "Destination": "وجهة"
 }

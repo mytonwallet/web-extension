@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Licenziare avvertimento di backup",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "L'account ha un equilibrio insufficiente per l'operazione richiesta. Invia qualche valore per il saldo del conto.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "L'esecuzione del contratto è stata interrotta con errore: la fase di calcolo non è riuscita, il codice di uscita: 107. Per ulteriori informazioni sul codice di uscita controlla il codice sorgente del contratto o chiedere allo sviluppatore del contratto"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "L'esecuzione del contratto è stata interrotta con errore: la fase di calcolo non è riuscita, il codice di uscita: 107. Per ulteriori informazioni sul codice di uscita controlla il codice sorgente del contratto o chiedere allo sviluppatore del contratto",
+  "Warning": "Avvertimento",
+  "Warning text about restoring": "Il recupero della frase dei semi è un metodo obsoleto. Supportiamo solo il keystore ripristini il primo lancio. Dopo aver creato il primo portafoglio, sarà possibile esportare il vecchio portafoglio dalla frase dei semi. Si prega di notare che supportiamo solo la versione SafeMultisigwallet del portafoglio, quindi se la frase di semi appartiene ad altre versioni. Tutti i fondi devono essere trasferiti al portafoglio appena creato e schierato.",
+  "No matches": "Nessuna corrispondenza",
+  "Select or enter a new one": "Seleziona o inserisci uno nuovo",
+  "Own addresses": "Propri indirizzi",
+  "Retrieving transactions period (in minutes)": "Periodo di recupero delle transazioni (in minuti)",
+  "Fee": "Tassa",
+  "Total": "Totale",
+  "Destination": "Destinazione"
 }

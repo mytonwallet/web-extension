@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Отменить предупреждение о резерв. копии",
   "Max": "Макс.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Учётная запись имеет недостаточный баланс для запрошенной операции. Пополните баланс.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Выполнение контракта было прервано с ошибкой: фаза вычисления не успешна, код выхода: 107. Для дополнительной информации о коде выхода проверьте исходный код контракта или спросите разработчика контракта."
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Выполнение контракта было прервано с ошибкой: фаза вычисления не успешна, код выхода: 107. Для дополнительной информации о коде выхода проверьте исходный код контракта или спросите разработчика контракта.",
+  "Warning": "Предупреждение",
+  "Warning text about restoring": "Восстановление под сид фразе является устаревшим методом. Мы поддерживаем только восстановления по keystore при первом запуске. После создания первого кошелька будет возможно импортировать из сид фразы старый кошелек. Имейте ввиду, что мы поддерживаем только кошелек версии SafeMultisigWallet, поэтому если сид фраза принадлежит другим версиям смарт контрактов необходимо перевести все средства на вновь созданный и развернутый кошелек.",
+  "No matches": "Нет совпадений",
+  "Select or enter a new one": "Выберите или введите новый",
+  "Own addresses": "Собственные адреса",
+  "Retrieving transactions period (in minutes)": "Период получения транзакций (в минутах)",
+  "Fee": "Комиссия",
+  "Total": "Всего",
+  "Destination": "Назначение"
 }

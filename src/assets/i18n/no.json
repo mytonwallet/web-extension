@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Avvis Backup Warning.",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Kontoen har utilstrekkelig balanse for den forespurte operasjonen. Send litt verdi til kontosaldoen.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Kontraktsutførelsen ble avsluttet med feil: Beregnet fase lykkes, avsluttes, avslutter kode: 107. For mer informasjon om utgangskode, kontroller kontraktskildekoden eller spør kontraktsutvikleren"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Kontraktsutførelsen ble avsluttet med feil: Beregnet fase lykkes, avsluttes, avslutter kode: 107. For mer informasjon om utgangskode, kontroller kontraktskildekoden eller spør kontraktsutvikleren",
+  "Warning": "Advarsel",
+  "Warning text about restoring": "Frøfrasgjenoppretting er en utdatert metode. Vi støtter bare KeyStore Restores på første lansering. Etter å ha skapt den første lommeboken, vil det være mulig å eksportere den gamle lommeboken fra frøfrasen. Vær oppmerksom på at vi bare støtter SafeMultisigWallet-versjonen av lommeboken, så hvis frøfrasen tilhører andre versjoner. Alle midler må overføres til den nyopprettede og distribuerte lommeboken.",
+  "No matches": "Ingen treff",
+  "Select or enter a new one": "Velg eller skriv inn en ny",
+  "Own addresses": "Egne adresser",
+  "Retrieving transactions period (in minutes)": "Hente transaksjoner periode (i minutter)",
+  "Fee": "Avgift",
+  "Total": "Total",
+  "Destination": "Mål"
 }

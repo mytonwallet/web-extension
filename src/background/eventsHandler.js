@@ -1,6 +1,6 @@
 import {
   lastActionTimestamp,
-  currentAutologout
+  currentAutologout,
 } from "./../common/stores.js";
 
 export const eventsHandler = (controller) => {
@@ -90,6 +90,8 @@ export const eventsHandler = (controller) => {
           if (message.type === 'getAllAccounts') return Promise.resolve(controller.accounts.getSanatizedAccounts(message.data));
 
           if (message.type === 'getTransactions') return Promise.resolve(controller.accounts.getTransactions(message.data.accountAddress, message.data.server, message.data.count, message.data.page));
+
+          if (message.type === 'calculateFeeForSafeMultisig') return Promise.resolve(controller.accounts.calculateFeeForSafeMultisig(message.data.accountAddress, message.data.server,  message.data.txData));
 
           if (message.type === 'sendTransaction') return Promise.resolve(controller.accounts.sendTransaction(message.data.accountAddress, message.data.server,  message.data.txData));
 

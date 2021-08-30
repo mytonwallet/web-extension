@@ -4,7 +4,7 @@
   <img src="/src/assets/img/icon-128.png" title="MTW - My TON wallet">
 </div>
 
-This repository contains source code for web-extension that allow interaction with Free Ton blockchain from your browser.
+This repository contains source code for web-extension that allow interaction with Free Ton (freeTON) blockchain from your browser.
 
 # Security
 
@@ -104,7 +104,56 @@ All documentation you can find by this [link](https://mytonwallet.com)
 
 For now the extension is available on the followed languages:
 * English
+* Arabic
+* Amharic
+* Bulgarian
+* Bengali
+* Catalan
+* Czech
+* Danish
+* German
+* Greek
+* Spanish
+* Estonian
+* Persian
+* Finnish
+* Filipino
+* French
+* Gujarati
+* Hebrew
+* Hindi
+* Croatian
+* Hungarian
+* Indonesian
+* Italian
+* Japanese
+* Kannada
+* Korean
+* Lithuanian
+* Latvian
+* Malayalam
+* Marathi
+* Malay
+* Dutch
+* Norwegian
+* Polish
+* Portuguese (Brazil)
+* Portuguese (Portugal)
+* Romanian
 * Russian
+* Slovak
+* Slovenian
+* Serbian
+* Swedish
+* Swahili
+* Tamil
+* Telugu
+* Thai
+* Turkish
+* Ukrainian
+* Vietnamese
+* Chinese (China)
+* Chinese (Taiwan)
 
 If you are native speaker on any other language and can help with translation, please use this file as [source](/src/assets/i18n/en.json)
 

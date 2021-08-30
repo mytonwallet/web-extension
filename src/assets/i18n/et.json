@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Vabastage varukoopia hoiatus",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Kontol ei ole nõutud toimingu jaoks piisavalt tasakaalu. Saada mõned väärtused konto saldoks.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Lepingu täitmine lõpetati vigadega: arvutusfaas ei õnnestunud, väljumise kood: 107. Lisateavet väljumise koodi kohta Kontrollige lepingu lähtekoodi või küsige lepingu arendajalt"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Lepingu täitmine lõpetati vigadega: arvutusfaas ei õnnestunud, väljumise kood: 107. Lisateavet väljumise koodi kohta Kontrollige lepingu lähtekoodi või küsige lepingu arendajalt",
+  "Warning": "Hoiatus",
+  "Warning text about restoring": "Seemne lause taastamine on aegunud meetod. Me toetame ainult võtmetore taastamist esimesel käivitamisel. Pärast esimese rahakoti loomist on võimalik vana rahakotti seemnepildi eksportida. Pange tähele, et me toetame ainult rahakoti safemultisigwalleti versiooni, nii et kui seemnete fraas kuulub teistele versioonidele. Kõik fondid tuleb üle kanda äsja loodud ja lähetatud rahakotile.",
+  "No matches": "Pole vasteid",
+  "Select or enter a new one": "Valige või sisestage uus",
+  "Own addresses": "Oma aadressid",
+  "Retrieving transactions period (in minutes)": "Tehingute allalaadimise periood (minutites)",
+  "Fee": "Tasu",
+  "Total": "Kogusumma",
+  "Destination": "Sihtkoht"
 }

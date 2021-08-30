@@ -1,16 +1,114 @@
 import { Vault } from "../common/vault.js";
-import { generateRandomHex, encrypt, decrypt, strToHex, toNano } from "../common/utils.js";
+import { generateRandomHex, encrypt, decrypt, strToHex, broadcastMessage } from "../common/utils.js";
 import TonLib from "../common/tonLib.js";
 import SafeMultisigWallet from "./solidity/SafeMultisigWallet/SafeMultisigWallet.json";
 import Transfer from "./solidity/Transfer/Transfer.json";
 import GiverV2 from "./solidity/GiverV2/GiverV2.json";
 import giverkeyPair from "./solidity/GiverV2/GiverV2.keys.json";
-import { CURRENT_KS_PASSWORD } from "../common/stores.js";
+import { CURRENT_KS_PASSWORD, SAFE_MULTISIG_WALLET_CODE_HASH, currentRetrievingTransactionsPeriod, currentRetrievingTransactionsLastTime, settingsStore } from "../common/stores.js";
 
 export const accounts = () => {
   let currentPassword = "";
   const vault = new Vault();
   vault.init();
+
+  let retrievingTransactionsIntervalPeriod = 0.1;
+  let retrievingTransactionsLastTime;
+  currentRetrievingTransactionsPeriod.subscribe((value) => {
+    retrievingTransactionsIntervalPeriod = value;
+  });
+
+  currentRetrievingTransactionsLastTime.subscribe((value) => {
+    retrievingTransactionsLastTime = value;
+  });
+
+  const retrievingTransactionsInterval = setInterval(async function () {
+    const networks = await vault.getNetworks();
+    const accounts = await vault.getAccounts();
+    const allAddresses = accounts.map((item) => {return item.address});
+    let needToUpdateWalletUI = false;
+    for (let i in networks) {
+      const network          = networks[i];
+      const server           = networks[i].server;
+
+      const TonLibClient     = await TonLib.getClient(server);
+      const transactions     = await TonLib.requestAccountsTransactions(allAddresses, retrievingTransactionsLastTime);
+      if (transactions.length === 0) {
+        continue;
+      }
+      const transactionsAddresses = transactions.map((item) => {return item.account_addr}).filter((v, i, a) => a.indexOf(v) === i);
+      for (let j in transactionsAddresses) {
+        const lastTransactions = await vault.getTransactions(transactionsAddresses[j], server, 15, 1);
+        const txIds = lastTransactions.map((tx) => {
+          return tx.id;
+        });
+        for (let i in transactions) {
+          if (transactions[i].account_addr != transactionsAddresses[j] || (transactions[i].account_addr == transactionsAddresses[j] && txIds.includes(transactions[i].id) === true)) {
+            continue;
+          }
+          const txData = transactions[i];
+          if (txData.orig_status === 0 && txData.end_status === 1) {
+            txData.type = "deploy";
+          } else if (txData.aborted === true && txData.orig_status != 0) {
+            txData.type = "error";
+          } else {
+            txData.type = (txData.balance_delta < 0 ? "transfer": "incoming");
+          }
+          txData.contractName = "SafeMultisigWallet";
+          txData.coinName     = network.coinName;
+          txData.amount       = txData.balance_delta;
+          await addTransaction(transactionsAddresses[j], server, txData);
+          needToUpdateWalletUI = true;
+        }
+      }
+    }
+    if (needToUpdateWalletUI) {
+      broadcastMessage("updateWalletUI");
+    }
+    settingsStore.setRetrievingTransactionsLastTime(~~(new Date().getTime()/1000));
+  }, retrievingTransactionsIntervalPeriod * 60 * 1000); //check every x minutes
+
+  const updateTransactionsList = async (address, server, fromStart = false) => {
+    const TonLibClient     = await TonLib.getClient(server);
+    const transactions     = await TonLib.requestAccountsTransactions([address], fromStart ? 0: retrievingTransactionsLastTime);
+    if (transactions.length === 0) {
+      return;
+    }
+    const network = await vault.getNetwork(server);
+    const lastTransactions = await vault.getTransactions(address, server, 15, 1);
+    const txIds = lastTransactions.map((tx) => {
+      return tx.id;
+    });
+    let needToUpdateWalletUI = false;
+    for (let i in transactions) {
+      if (transactions[i].account_addr == address && txIds.includes(transactions[i].id) === true) {
+        continue;
+      }
+      const txData = transactions[i];
+      if (txData.orig_status === 0 && txData.end_status === 1) {
+        txData.type = "deploy";
+      } else if (txData.aborted === true && txData.orig_status != 0) {
+        txData.type = "error";
+      } else {
+        txData.type = (txData.balance_delta < 0 ? "transfer": "incoming");
+      }
+      txData.contractName = "SafeMultisigWallet";
+      txData.coinName     = network.coinName;
+      txData.amount       = txData.balance_delta;
+      await addTransaction(address, server, txData);
+      needToUpdateWalletUI = true;
+    }
+    if (needToUpdateWalletUI) {
+      broadcastMessage("updateWalletUI");
+    }
+  };
+
+  const updateTransactionsListAllNetworks = async (address) => {
+    const networks = await vault.getNetworks();
+    for (let i in networks) {
+      await updateTransactionsList(address, networks[i].server, true);
+    }
+  };
 
   const firstRun = async () => {
     return await vault.getAccountCount() == 0;
@@ -29,7 +127,7 @@ export const accounts = () => {
   };
 
   const addNewAccount = async (nickname) => {
-    const TonLibClient = TonLib.getClient();
+    const TonLibClient = await TonLib.getClient();
     const seed         = await TonLibClient.generateSeed();
     const keyPair      = await TonLibClient.convertSeedToKeys(seed.phrase);
     const address      = await TonLibClient.predictAddress(keyPair.public, SafeMultisigWallet.abi, SafeMultisigWallet.tvc);
@@ -71,7 +169,7 @@ export const accounts = () => {
     if (network.giver == "") {
       return Error("giver is not existed for this network");
     }
-    const TonLibClient = TonLib.getClient(server);
+    const TonLibClient = await TonLib.getClient(server);
     try {
       const result = await TonLibClient.sendTransaction(network.giver, "sendTransaction", GiverV2.abi, {
         dest: destination,
@@ -79,6 +177,7 @@ export const accounts = () => {
         bounce: false
       }, giverkeyPair);
       if (result) {
+        updateTransactionsList(destination, server); // here we don't need to sync this process
         return {added: true, id: result.id, reason: `5000000000 crystals have been added to the address ${destination}`};
       } else {
         throw Error("Account by this address already exists");
@@ -89,7 +188,7 @@ export const accounts = () => {
   };
 
   const updateAllBalances = async (server) => {
-    const TonLibClient = TonLib.getClient(server);
+    const TonLibClient = await TonLib.getClient(server);
     const accounts = await vault.getAccounts();
     let balances = [];
     try {
@@ -104,7 +203,7 @@ export const accounts = () => {
   };
 
   const getCurrentBalance = async (destination, server) => {
-    const TonLibClient = TonLib.getClient(server);
+    const TonLibClient = await TonLib.getClient(server);
     let amount = 0;
     try {
       amount = await TonLibClient.requestAccountBalance(destination);
@@ -118,7 +217,7 @@ export const accounts = () => {
   const deployNewWallet = async (destination, server) => {
     try {
       const account = await vault.getAccount(destination);
-      const TonLibClient = TonLib.getClient(server);
+      const TonLibClient = await TonLib.getClient(server);
       const keyPair = await decrypt(currentPassword, account.encrypted);
       // store it in tx as initial tx state
       const result = await TonLibClient.sendDeployTransaction(destination, SafeMultisigWallet.abi, SafeMultisigWallet.tvc, {
@@ -130,13 +229,12 @@ export const accounts = () => {
       }, keyPair);
 
       const network = await vault.getNetwork(server);
-      // mark that SafeMultisigWallet has been deployed
-      // in vault db
+      // mark that SafeMultisigWallet has been deployed in vault db
       await vault.markAsDeployed(destination, server);
       result.type          = "deploy";
       result.contractName  = "SafeMultisigWallet"; // we will be able to find ABI
       result.coinName      = network.coinName;
-      result.amount        = 0;
+      result.amount        = Number(result.balance_delta.substr(1))*-1;
       result.parameters = {
         initFunctionName: "constructor",
         initFunctionInput: {
@@ -149,10 +247,12 @@ export const accounts = () => {
     } catch (exp) {
       const response = {success: false, reason: exp.message};
       if (exp.message.indexOf("Constructor was already called") != -1) {
-        // mark that SafeMultisigWallet has been deployed
-        // in vault db
-        await vault.markAsDeployed(destination, server);
-        response.alreadyDeployed = true;
+        // mark that SafeMultisigWallet has been deployed in vault db
+        const deployed = await checkSafeMultisigDeployed(destination);
+        if (deployed.includes(server) === true) {
+          await vault.markAsDeployed(destination, server);
+          response.alreadyDeployed = true;
+        }
       }
       return response;
     }
@@ -241,12 +341,27 @@ export const accounts = () => {
     return await vault.addNewAccount(account);
   };
 
+  const checkSafeMultisigDeployed = async (account) => {
+    let deployed = [];
+    const networks = await vault.getNetworks();
+    for (let i in networks) {
+      const network = networks[i];
+      const TonLibClient = await TonLib.getClient(network.server);
+      const accountData = await TonLibClient.requestAccountData(account);
+      if (accountData && accountData.code_hash === SAFE_MULTISIG_WALLET_CODE_HASH) {
+        deployed.push(network.server);
+      }
+    }
+    return deployed;
+  };
+
   const addAccounts = async (full, accounts) => {
     const resultAccounts = Promise.all(
       accounts.map(async (account) => {
         let result;
         if (full) {
           account.encrypted = await encrypt(currentPassword, account.keyPair);
+          account.deployed  = await checkSafeMultisigDeployed(account.address);
           result = await vault.addNewAccount(account);
         } else {
           const fullAccount = {
@@ -259,11 +374,12 @@ export const accounts = () => {
             contactList: {},
             contractList: {},
             tokenList: {},
-            deployed: [],
+            deployed: await checkSafeMultisigDeployed(account.address),
             encrypted: await encrypt(currentPassword, account.keyPair) // must be encrypted
           };
           result = await vault.addNewAccount(fullAccount);
         }
+        updateTransactionsListAllNetworks(account.address);
         return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {},  "result": result};
       })
     );
@@ -271,7 +387,7 @@ export const accounts = () => {
   };
 
   const addAccountByKeys = async (nickname, keyPair) => {
-    const TonLibClient = TonLib.getClient();
+    const TonLibClient = await TonLib.getClient();
     const address = await TonLibClient.predictAddress(keyPair.public, SafeMultisigWallet.abi, SafeMultisigWallet.tvc);
     const account = {
       address: address,
@@ -283,11 +399,13 @@ export const accounts = () => {
       contactList: {},
       contractList: {},
       tokenList: {},
-      deployed: [],
+      deployed: await checkSafeMultisigDeployed(address),
       encrypted: await encrypt(currentPassword, keyPair) // must be encrypted
     };
+
     try {
       if (await vault.addNewAccount(account)) {
+        updateTransactionsListAllNetworks(account.address);
         return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {}, "result": true};
       } else {
         return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {}, "result": false};
@@ -298,7 +416,7 @@ export const accounts = () => {
   };
 
   const addAccountBySeed  = async (nickname, seed) => {
-    const TonLibClient = TonLib.getClient();
+    const TonLibClient = await TonLib.getClient();
     const keyPair = await TonLibClient.convertSeedToKeys(seed);
     const address = await TonLibClient.predictAddress(keyPair.public, SafeMultisigWallet.abi, SafeMultisigWallet.tvc);
     const account = {
@@ -311,11 +429,13 @@ export const accounts = () => {
       contactList: {},
       contractList: {},
       tokenList: {},
-      deployed: [],
+      deployed: await checkSafeMultisigDeployed(address),
       encrypted: await encrypt(currentPassword, keyPair) // must be encrypted
     };
+
     try {
       if (await vault.addNewAccount(account)) {
+        updateTransactionsListAllNetworks(account.address);
         return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {}, "result": true};
       } else {
         return {"address": account.address, "nickname": account.nickname, "deployed": [], "balance": {}, "result": false};
@@ -347,36 +467,107 @@ export const accounts = () => {
     });
   };
 
-  const sendTransaction = async (accountAddress, server, txData) => {
+  const calculateFeeForSafeMultisig = async (accountAddress, server, txData) => {
     try {
       const account      = await vault.getAccount(accountAddress);
-      const TonLibClient = TonLib.getClient(server);
+      const TonLibClient = await TonLib.getClient(server);
       const keyPair      = await decrypt(currentPassword, account.encrypted);
       const payload      = await TonLibClient.encodeMessageBody(Transfer.abi,
         "transfer",
         { comment: strToHex(txData.params.message) }
       );
 
+      let bounce = false;
+      const accountData = await TonLibClient.requestAccountData(txData.params.destination);
+      if (accountData) {
+        bounce = true;
+      }
+
       // Prepare input parameter for 'submitTransaction' method of multisig wallet
       const submitTransactionParams = {
         dest: txData.params.destination,
         value: txData.params.allBalance ? 1000000 : txData.params.amount, //1000000 - 1e6 min value
-        bounce: false,
+        bounce: bounce,
         allBalance: txData.params.allBalance,
         payload: payload
       };
 
       const network = await vault.getNetwork(server);
-      const result = await TonLibClient.sendTransaction(accountAddress,
-        "submitTransaction",
-        SafeMultisigWallet.abi,
-        submitTransactionParams,
-        keyPair);
+      let result;
+      if (txData.params.allBalance) { //@TODO need to be sure, that one-custodial wallet
+        result = await TonLibClient.calcRunFees(accountAddress,
+          "sendTransaction",
+          SafeMultisigWallet.abi,
+          { dest: txData.params.destination,
+            value: 0,
+            bounce: bounce,
+            flags: 130,
+            payload: payload
+          },
+          keyPair);
+      } else {
+        result = await TonLibClient.calcRunFees(accountAddress,
+          "submitTransaction",
+          SafeMultisigWallet.abi,
+          submitTransactionParams,
+          keyPair);
+      }
+      return {fee: result};
+    } catch (exp) {
+      return {error: exp.message};
+    }
+  };
+
+  const sendTransaction = async (accountAddress, server, txData) => {
+    try {
+      const account      = await vault.getAccount(accountAddress);
+      const TonLibClient = await TonLib.getClient(server);
+      const keyPair      = await decrypt(currentPassword, account.encrypted);
+      const payload      = await TonLibClient.encodeMessageBody(Transfer.abi,
+        "transfer",
+        { comment: strToHex(txData.params.message) }
+      );
+
+      let bounce = false;
+      const accountData = await TonLibClient.requestAccountData(txData.params.destination);
+      if (accountData) {
+        bounce = true;
+      }
+
+      // Prepare input parameter for 'submitTransaction' method of multisig wallet
+      const submitTransactionParams = {
+        dest: txData.params.destination,
+        value: txData.params.allBalance ? 1000000 : txData.params.amount, //1000000 - 1e6 min value
+        bounce: bounce,
+        allBalance: txData.params.allBalance,
+        payload: payload
+      };
+
+      const network = await vault.getNetwork(server);
+      let result;
+      if (txData.params.allBalance) { //@TODO need to be sure, that one-custodial wallet
+        result = await TonLibClient.sendTransaction(accountAddress,
+          "sendTransaction",
+          SafeMultisigWallet.abi,
+          { dest: txData.params.destination,
+            value: 0,
+            bounce: bounce,
+            flags: 130,
+            payload: payload
+          },
+          keyPair);
+      } else {
+        result = await TonLibClient.sendTransaction(accountAddress,
+          "submitTransaction",
+          SafeMultisigWallet.abi,
+          submitTransactionParams,
+          keyPair);
+      }
 
       result.type          = "transfer";
       result.contractName  = "SafeMultisigWallet"; // we will be able to find ABI
       result.coinName      = network.coinName;
-      result.amount        = txData.params.amount;
+      result.amount        = Number(result.balance_delta.substr(1))*-1;
       result.allBalance    = txData.params.allBalance;
       result.parameters = {
         initFunctionName: "submitTransaction",
@@ -384,6 +575,17 @@ export const accounts = () => {
       };
       await addTransaction(accountAddress, server, result);
       await updateAllBalances(server);
+
+      // if internal tx, then need to update immediately
+      const accounts          = await vault.getAccounts();
+      const accountsAddresses = accounts.map((account) => {
+        return account.address;
+      });
+
+      if (accountsAddresses.includes(txData.params.destination) === true) {
+        updateTransactionsList(txData.params.destination, server);
+      }
+
       return {id: result.id, reason: `SubmitTransaction for ${txData.params.destination} with amount ${txData.params.amount}`};
     } catch (exp) {
       return {error: exp.message};
@@ -409,7 +611,9 @@ export const accounts = () => {
     lock,
     walletIsLocked,
     decryptKeys,
+    addTransaction,
     getTransactions,
+    calculateFeeForSafeMultisig,
     sendTransaction
   };
 };

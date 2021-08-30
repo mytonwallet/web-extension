@@ -237,5 +237,14 @@
   "Dismiss backup warning": "బ్యాకప్ హెచ్చరికను తొలగించండి",
   "Max": "గరిష్టంగా",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "అభ్యర్థించిన ఆపరేషన్ కోసం ఖాతా తగినంత బ్యాలెన్స్ లేదు. ఖాతా బ్యాలెన్స్కు కొన్ని విలువను పంపండి.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "కాంట్రాక్ట్ ఎగ్జిక్యూషన్ లోపం తో ముగిసింది: దశ విజయవంతం కాలేదు, నిష్క్రమణ కోడ్: 107. నిష్క్రమణ కోడ్ గురించి మరింత సమాచారం కోసం కాంట్రాక్ట్ సోర్స్ కోడ్ను తనిఖీ చేయండి లేదా కాంట్రాక్ట్ డెవలపర్ను అడగండి"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "కాంట్రాక్ట్ ఎగ్జిక్యూషన్ లోపం తో ముగిసింది: దశ విజయవంతం కాలేదు, నిష్క్రమణ కోడ్: 107. నిష్క్రమణ కోడ్ గురించి మరింత సమాచారం కోసం కాంట్రాక్ట్ సోర్స్ కోడ్ను తనిఖీ చేయండి లేదా కాంట్రాక్ట్ డెవలపర్ను అడగండి",
+  "Warning": "హెచ్చరిక",
+  "Warning text about restoring": "సీడ్ పదబంధం రికవరీ ఒక పాత పద్ధతి. మేము మొదటి ప్రయోగంపై కీస్టోర్ను మాత్రమే మద్దతిస్తాము. మొదటి సంచిని సృష్టించిన తరువాత, పాత వాలెట్ను విత్తనాల పదబంధం నుండి ఎగుమతి చేయడం సాధ్యమవుతుంది. దయచేసి వెజెర్ట్ యొక్క SafeMultisigwallet సంస్కరణకు మాత్రమే మద్దతిస్తారని దయచేసి గమనించండి, కాబట్టి సీడ్ పదబంధం ఇతర సంస్కరణలకు చెందినది. అన్ని నిధులు కొత్తగా సృష్టించబడిన మరియు నియోగించబడిన సంచికి బదిలీ చేయబడాలి.",
+  "No matches": "ఏ మ్యాచ్లు",
+  "Select or enter a new one": "ఒక క్రొత్తదాన్ని ఎంచుకోండి లేదా నమోదు చేయండి",
+  "Own addresses": "సొంత చిరునామాలు",
+  "Retrieving transactions period (in minutes)": "లావాదేవీల కాలం (నిమిషాల్లో)",
+  "Fee": "రుసుము",
+  "Total": "మొత్తం",
+  "Destination": "గమ్యం"
 }

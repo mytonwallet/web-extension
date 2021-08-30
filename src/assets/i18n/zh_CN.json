@@ -237,5 +237,14 @@
   "Dismiss backup warning": "解雇备份警告",
   "Max": "最大限度",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "帐户对请求的操作余额不足。向帐户余额发送一些值。",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "契约执行已终止错误：计算阶段未成功，退出代码：107.有关退出代码的更多信息，请检查合同源代码或询问合同开发人员"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "契约执行已终止错误：计算阶段未成功，退出代码：107.有关退出代码的更多信息，请检查合同源代码或询问合同开发人员",
+  "Warning": "警告",
+  "Warning text about restoring": "种子短语恢复是一种过时的方法。我们只支持首次发布时恢复密钥库。创建第一个钱包后，可以从种子短语出口旧钱包。请注意，我们只支持钱包的SafeMultisigwallet版本，因此如果种子短语属于其他版本。必须将所有资金转移到新创建和部署的钱包。",
+  "No matches": "无匹配",
+  "Select or enter a new one": "选择或输入一个新的",
+  "Own addresses": "自己的地址",
+  "Retrieving transactions period (in minutes)": "检索交易期间（以分钟为单位）",
+  "Fee": "费用",
+  "Total": "总计",
+  "Destination": "目的地"
 }

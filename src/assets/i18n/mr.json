@@ -237,5 +237,14 @@
   "Dismiss backup warning": "बॅकअप चेतावणी डिसमिस करा",
   "Max": "कमाल",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "विनंती केलेल्या ऑपरेशनसाठी खात्यात अपुरे शिल्लक आहे. खाते शिल्लक काही मूल्य पाठवा.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "कॉन्ट्रॅक्ट अंमलबजावणी त्रुटीसह समाप्त केली गेली: गणना चरण यशस्वी झाला नाही, कोड कोड: 107. एक्झीट कोडबद्दल अधिक माहितीसाठी कॉन्ट्रॅक्ट स्त्रोत कोड तपासा किंवा करार विकासक विचारा"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "कॉन्ट्रॅक्ट अंमलबजावणी त्रुटीसह समाप्त केली गेली: गणना चरण यशस्वी झाला नाही, कोड कोड: 107. एक्झीट कोडबद्दल अधिक माहितीसाठी कॉन्ट्रॅक्ट स्त्रोत कोड तपासा किंवा करार विकासक विचारा",
+  "Warning": "चेतावणी",
+  "Warning text about restoring": "बियाणे वाक्यांश पुनर्प्राप्ती एक कालबाह्य पद्धत आहे. आम्ही प्रथम प्रक्षेपणावर फक्त कीस्टोर पुनर्संचयित करतो. प्रथम वॉलेट तयार केल्यानंतर, जुन्या वॉलेटला बियाणे वाक्यांशातून निर्यात करणे शक्य होईल. कृपया लक्षात घ्या की आम्ही फक्त वॉलेटच्या सुरक्षिततेसगुली आवृत्तीचे समर्थन करतो, म्हणून जर बियाणे वाक्यांश इतर आवृत्त्या संबंधित असेल तर. सर्व फंड नव्याने तयार आणि तैनात वॉलेटमध्ये हस्तांतरित करणे आवश्यक आहे.",
+  "No matches": "कोणतीही जुळणी नाहीत",
+  "Select or enter a new one": "एक नवीन निवडा किंवा प्रविष्ट करा",
+  "Own addresses": "स्वतःचे पत्ते",
+  "Retrieving transactions period (in minutes)": "व्यवहार कालावधी पुनर्प्राप्त करणे (काही मिनिटांत)",
+  "Fee": "शुल्क",
+  "Total": "एकूण",
+  "Destination": "गंतव्य"
 }

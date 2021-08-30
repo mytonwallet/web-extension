@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Dismiss backup warning",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Account has insufficient balance for the requested operation. Send some value to account balance.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer",
+  "Warning": "Warning",
+  "Warning text about restoring": "Seed phrase recovery is an outdated method. We only support keystore restores on first launch. After creating the first wallet, it will be possible to export the old wallet from the seed phrase. Please note that we only support the SafeMultisigWallet version of the wallet, so if the seed phrase belongs to other versions. All funds must be transferred to the newly created and deployed wallet.",
+  "No matches": "No matches",
+  "Select or enter a new one": "Select or enter a new one",
+  "Own addresses": "Own addresses",
+  "Retrieving transactions period (in minutes)": "Retrieving transactions period (in minutes)",
+  "Fee": "Fee",
+  "Total": "Total",
+  "Destination": "Destination"
 }

@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Dispense o aviso de backup",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Conta tem saldo insuficiente para a operação solicitada. Envie algum valor para o saldo da conta.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "A execução do contrato foi encerrada com erro: a fase de computação não é bem-sucedida, saída do código: 107. Para obter mais informações sobre o código de saída Verifique o código-fonte do contrato ou pergunte ao desenvolvedor do contrato"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "A execução do contrato foi encerrada com erro: a fase de computação não é bem-sucedida, saída do código: 107. Para obter mais informações sobre o código de saída Verifique o código-fonte do contrato ou pergunte ao desenvolvedor do contrato",
+  "Warning": "Aviso",
+  "Warning text about restoring": "A recuperação da frase de semente é um método desatualizado. Só suportamos a Keystore restaurações no primeiro lançamento. Depois de criar a primeira carteira, será possível exportar a carteira antiga da frase de semente. Por favor, note que suportamos apenas a versão SafeMultisigwallet da carteira, por isso, se a frase de semente pertence a outras versões. Todos os fundos devem ser transferidos para a carteira recém-criada e implantada.",
+  "No matches": "Sem combinações",
+  "Select or enter a new one": "Selecione ou insira um novo",
+  "Own addresses": "Endereços próprios",
+  "Retrieving transactions period (in minutes)": "Recuperando o período de transações (em minutos)",
+  "Fee": "Taxa",
+  "Total": "Total",
+  "Destination": "Destino"
 }

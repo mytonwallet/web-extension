@@ -237,5 +237,14 @@
   "Dismiss backup warning": "I-dismiss ang Backup Warning.",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Hindi sapat ang balanse ng account para sa hiniling na operasyon. Magpadala ng ilang halaga sa balanse sa account.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Ang pagpapatupad ng kontrata ay tinapos na may error: compute phase ay hindi nagtagumpay, exit code: 107. Para sa karagdagang impormasyon tungkol sa exit code suriin ang contract source code o magtanong sa developer ng kontrata"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Ang pagpapatupad ng kontrata ay tinapos na may error: compute phase ay hindi nagtagumpay, exit code: 107. Para sa karagdagang impormasyon tungkol sa exit code suriin ang contract source code o magtanong sa developer ng kontrata",
+  "Warning": "Babala",
+  "Warning text about restoring": "Ang pagbawi ng parirala ng binhi ay isang hindi napapanahong paraan. Sinusuportahan lamang namin ang keystore restores sa unang paglunsad. Pagkatapos ng paglikha ng unang wallet, posible na i-export ang lumang wallet mula sa pariralang binhi. Mangyaring tandaan na sinusuportahan lamang namin ang bersyon ng Safemultisigwallet ng wallet, kaya kung ang pariralang binhi ay kabilang sa iba pang mga bersyon. Ang lahat ng mga pondo ay dapat ilipat sa bagong nilikha at deployed wallet.",
+  "No matches": "Walang mga tugma",
+  "Select or enter a new one": "Piliin o ipasok ang isang bago",
+  "Own addresses": "Sariling address.",
+  "Retrieving transactions period (in minutes)": "Pagkuha ng panahon ng transaksyon (sa ilang minuto)",
+  "Fee": "Fee.",
+  "Total": "Kabuuan",
+  "Destination": "Patutunguhan"
 }

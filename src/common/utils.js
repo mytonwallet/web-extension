@@ -22,7 +22,15 @@ const broadcastMessage = (type, data) => {
 };
 
 const openPageWithPath = (path) => {
-  browser.tabs.create({ url: `/page.html#${path}` });
+  browser.tabs.query({ url: `chrome-extension://${browser.runtime.id}/page.html`}).then((tabs) => {
+    if (tabs.length != 0) {
+      browser.tabs.update(tabs[0].id, { active: true, highlighted: true, url: `/page.html#${path}` }).then((tab) => {
+        browser.tabs.reload(tabs[0].id);
+      });
+    } else {
+      browser.tabs.create({ url: `/page.html#${path}` });
+    }
+  });
 };
 
 const generateRandomBytes = (len) => {

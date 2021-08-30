@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Atlaidiet backup brīdinājumu",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Kontam ir nepietiekams atlikums pieprasītajai darbībai. Nosūtiet zināmu vērtību konta atlikumam.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Līguma izpilde tika izbeigta ar kļūdu: Computer fāze nav izdevies, izejas kods: 107. Lai iegūtu plašāku informāciju par izejas kodu Pārbaudiet līguma avota kodu vai jautājiet līguma izstrādātājam"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Līguma izpilde tika izbeigta ar kļūdu: Computer fāze nav izdevies, izejas kods: 107. Lai iegūtu plašāku informāciju par izejas kodu Pārbaudiet līguma avota kodu vai jautājiet līguma izstrādātājam",
+  "Warning": "Brīdinājums",
+  "Warning text about restoring": "Sēklu frāzes atgūšana ir novecojusi metode. Mēs atbalstām tikai Keystore atjauno pirmo reizi. Pēc pirmās maku izveides būs iespējams eksportēt veco maku no sēklu frāzes. Lūdzu, ņemiet vērā, ka mēs atbalstām tikai seifultrisigwallet versiju maku, tādēļ, ja sēklu frāze pieder citām versijām. Visi līdzekļi jānodod jaunizveidotajam un izvietotajam maku.",
+  "No matches": "Nav atbilstības",
+  "Select or enter a new one": "Izvēlieties vai ievadiet jaunu",
+  "Own addresses": "Pašu adreses",
+  "Retrieving transactions period (in minutes)": "Darījumu iegūšanas periods (minūtēs)",
+  "Fee": "Maksa",
+  "Total": "Kopā",
+  "Destination": "Galamērķis"
 }

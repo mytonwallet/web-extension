@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Odmítnout záložní varování",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Účet má nedostatek zůstatku pro požadovanou operaci. Zaslat nějakou hodnotu na zůstatek účtu.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Provedení smlouvy byla ukončena chybou: Počíta fáze není úspěšná, ukončit kód: 107. Další informace o ukončovacím kódu Zkontrolujte zdrojový kód smlouvy nebo požádejte o vývojáře smlouvy"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Provedení smlouvy byla ukončena chybou: Počíta fáze není úspěšná, ukončit kód: 107. Další informace o ukončovacím kódu Zkontrolujte zdrojový kód smlouvy nebo požádejte o vývojáře smlouvy",
+  "Warning": "Varování",
+  "Warning text about restoring": "Zotavení semen fráze je zastaralá metoda. Podporujeme pouze KeyStore obnovuje na prvním spuštění. Po vytvoření první peněženky bude možné exportovat starou peněženku z fráze osiva. Upozorňujeme, že podporujeme pouze verzi Safemultisigwallet Wallet, takže pokud fráze semen patří do jiných verzí. Všechny prostředky musí být převedeny na nově vytvořenou a nasazenou peněženku.",
+  "No matches": "Žádné shody",
+  "Select or enter a new one": "Vyberte nebo zadejte nový",
+  "Own addresses": "Vlastní adresy",
+  "Retrieving transactions period (in minutes)": "Vyhledávání období transakcí (v minutách)",
+  "Fee": "Poplatek",
+  "Total": "Celkový",
+  "Destination": "Destinace"
 }

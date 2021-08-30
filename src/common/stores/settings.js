@@ -10,7 +10,9 @@ const defaultSettingsStore = {
   "dismissWarning": false,
   "themeName": "dark",
   "lang": getLocaleFromNavigator(),
-  "autologout": 5
+  "autologout": 5,
+  "retrievingTransactionsPeriod": 1,
+  "retrievingTransactionsLastTime": 0
 };
 
 const createSettingsStore = () => {
@@ -21,6 +23,7 @@ const createSettingsStore = () => {
 
   const getStore = async() => {
     let settings = await getStorageItem("settings");
+    settings = Object.assign({}, defaultSettingsStore, settings); // if we add new property, need to fill it from default
     if (typeof settings != "undefined") {
       settingsStore.set(settings);
       init({
@@ -77,6 +80,18 @@ const createSettingsStore = () => {
         return store;
       });
     },
+    setRetrievingTransactionsPeriod: (period) => {
+      settingsStore.update((store) => {
+        store.retrievingTransactionsPeriod = period;
+        return store;
+      });
+    },
+    setRetrievingTransactionsLastTime: (time) => {
+      settingsStore.update((store) => {
+        store.retrievingTransactionsLastTime = time;
+        return store;
+      });
+    },
     setThemeName: (themeName) => {
       settingsStore.update((store) => {
         store.themeName = themeName;
@@ -125,6 +140,18 @@ export const currentLang = derived(
 export const currentAutologout = derived(
   settingsStore,
   ($settingsStore) => { return $settingsStore.autologout; }
+);
+
+//Derived Store to return the current retrieving transactions period setting
+export const currentRetrievingTransactionsPeriod = derived(
+  settingsStore,
+  ($settingsStore) => { return $settingsStore.retrievingTransactionsPeriod; }
+);
+
+//Derived Store to return the current retrieving transactions last time setting
+export const currentRetrievingTransactionsLastTime = derived(
+  settingsStore,
+  ($settingsStore) => { return $settingsStore.retrievingTransactionsLastTime; }
 );
 
 //Derived Store to return the current theme

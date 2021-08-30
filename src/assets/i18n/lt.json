@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Atmesti atsarginę kopiją",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Sąskaita turi nepakankamą prašomos operacijos pusiausvyrą. Siųsti tam tikrą vertę į paskyros balansą.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Sutarties vykdymas buvo nutrauktas su klaida."
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Sutarties vykdymas buvo nutrauktas su klaida.",
+  "Warning": "įspėjimas",
+  "Warning text about restoring": "Sėklų frazės atkūrimas yra pasenęs metodas. Palaikome tik 'Keystore' atkuria pirmąjį paleidimą. Sukūrę pirmąją piniginę, bus galima eksportuoti seną piniginę nuo sėklų frazės. Atkreipkite dėmesį, kad palaikome tik 'SafetitisigWallet' piniginės versiją, taigi, jei sėklų frazė priklauso kitoms versijoms. Visos lėšos turi būti perkeltos į naujai sukurtą ir dislokuotą piniginę.",
+  "No matches": "Nėra rungtynių",
+  "Select or enter a new one": "Pasirinkite arba įveskite naują",
+  "Own addresses": "Savo adresus.",
+  "Retrieving transactions period (in minutes)": "Atliekant sandorių laikotarpį (minutėmis)",
+  "Fee": "Rinkliava",
+  "Total": "Iš viso.",
+  "Destination": "Kelionės tikslas"
 }

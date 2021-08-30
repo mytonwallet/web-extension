@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Singkirkan peringatan cadangan",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Akun memiliki keseimbangan yang tidak mencukupi untuk operasi yang diminta. Kirim beberapa nilai ke saldo akun.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Eksekusi kontrak dihentikan dengan kesalahan: fase komputasi tidak berhasil, keluar kode: 107. Untuk informasi lebih lanjut tentang kode keluar, periksa kode sumber kontrak atau tanyakan kepada pengembang kontrak"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Eksekusi kontrak dihentikan dengan kesalahan: fase komputasi tidak berhasil, keluar kode: 107. Untuk informasi lebih lanjut tentang kode keluar, periksa kode sumber kontrak atau tanyakan kepada pengembang kontrak",
+  "Warning": "Peringatan",
+  "Warning text about restoring": "Penyembuhan frasa benih adalah metode yang sudah ketinggalan zaman. Kami hanya mendukung keystore mengembalikan pada peluncuran pertama. Setelah membuat dompet pertama, akan mungkin untuk mengekspor dompet lama dari frasa benih. Harap dicatat bahwa kami hanya mendukung versi safemultigwallet dari dompet, jadi jika frase benih milik versi lain. Semua dana harus ditransfer ke dompet yang baru dibuat dan dikerahkan.",
+  "No matches": "Tidak ada yang cocok",
+  "Select or enter a new one": "Pilih atau masukkan yang baru",
+  "Own addresses": "Alamat sendiri",
+  "Retrieving transactions period (in minutes)": "Mengambil periode transaksi (dalam hitungan menit)",
+  "Fee": "Biaya",
+  "Total": "Total",
+  "Destination": "Tujuan"
 }

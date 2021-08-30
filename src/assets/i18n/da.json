@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Afvis backup advarsel",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Kontoen har utilstrækkelig balance for den ønskede operation. Send en vis værdi til kontosaldo.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Kontraktsudførelse blev opsagt med fejl: Beregn fase er ikke lykkedes, udgangskode: 107. For mere information om exitkode Kontroller kontraktkildekoden eller spørg kontraktudvikleren"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Kontraktsudførelse blev opsagt med fejl: Beregn fase er ikke lykkedes, udgangskode: 107. For mere information om exitkode Kontroller kontraktkildekoden eller spørg kontraktudvikleren",
+  "Warning": "Advarsel",
+  "Warning text about restoring": "Frø sætning genopretning er en forældet metode. Vi understøtter kun Keystore genopretter den første lancering. Efter at have oprettet den første tegnebog, vil det være muligt at eksportere den gamle tegnebog fra frø sætningen. Bemærk venligst, at vi kun understøtter SafemultisigWallet-versionen af ​​tegnebogen, så hvis frøfrasen tilhører andre versioner. Alle midler skal overføres til den nyoprettede og implementerede tegnebog.",
+  "No matches": "Ingen kampe",
+  "Select or enter a new one": "Vælg eller indtast en ny",
+  "Own addresses": "Egne adresser",
+  "Retrieving transactions period (in minutes)": "Hentning af transaktioner periode (i minutter)",
+  "Fee": "Betaling",
+  "Total": "i alt",
+  "Destination": "Bestemmelsessted"
 }

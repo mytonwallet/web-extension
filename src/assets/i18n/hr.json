@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Odbacite sigurnosno kopiranje",
   "Max": "Maks",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Račun nema dovoljno ravnoteže za traženu operaciju. Pošaljite neku vrijednost na stanje računa.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Izvršenje ugovora prekinuta je s pogreškom: Faza izračuna nije uspjela, izlazni kod: 107. Za više informacija o izlaznim kodu Provjerite izvorni kod ugovora ili pitajte razvojnog programera ugovora"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Izvršenje ugovora prekinuta je s pogreškom: Faza izračuna nije uspjela, izlazni kod: 107. Za više informacija o izlaznim kodu Provjerite izvorni kod ugovora ili pitajte razvojnog programera ugovora",
+  "Warning": "Upozorenje",
+  "Warning text about restoring": "Recovery Fraza sjemena je zastarjela metoda. Podržavamo samo kvadre na prvom lansiranju. Nakon izrade prvog novčanika, bit će moguće izvesti stari novčanik iz fraze sjemena. Imajte na umu da samo podržavamo samo safemultisigwalette verziju novčanika, pa ako fraza sjemena pripada drugim verzijama. Sva sredstva moraju se prenijeti na novostvoreni i raspoređeni novčanik.",
+  "No matches": "Nema podudaranja",
+  "Select or enter a new one": "Odaberite ili unesite novi",
+  "Own addresses": "Vlastite adrese",
+  "Retrieving transactions period (in minutes)": "Dohvaćanje razdoblja transakcija (u minutama)",
+  "Fee": "Pristojba",
+  "Total": "Ukupan",
+  "Destination": "Odredište"
 }

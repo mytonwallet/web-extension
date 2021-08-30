@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Renvoyer l'avertissement de sauvegarde",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Le compte a insuffisant l'équilibre pour l'opération demandée. Envoyez une certaine valeur au solde du compte.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "L'exécution de contrat a été terminée avec erreur: la phase de calcul n'est pas réussi, sortie Code de sortie: 107. Pour plus d'informations sur le code de sortie, vérifiez le code source du contrat ou demandez au développeur du contrat."
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "L'exécution de contrat a été terminée avec erreur: la phase de calcul n'est pas réussi, sortie Code de sortie: 107. Pour plus d'informations sur le code de sortie, vérifiez le code source du contrat ou demandez au développeur du contrat.",
+  "Warning": "Avertissement",
+  "Warning text about restoring": "La récupération de la phrase de la graine est une méthode obsolète. Nous ne soutenons que KeyStore Restaure au premier lancement. Après avoir créé le premier portefeuille, il sera possible d'exporter l'ancien portefeuille de la phrase de la graine. Veuillez noter que nous ne prenons en charge que la version Safemultisigwallet du portefeuille, donc si la phrase de la graine appartient à d'autres versions. Tous les fonds doivent être transférés sur le portefeuille nouvellement créé et déployé.",
+  "No matches": "Pas de correspondance",
+  "Select or enter a new one": "Sélectionnez ou entrez un nouveau",
+  "Own addresses": "Propres adresses",
+  "Retrieving transactions period (in minutes)": "Récupération de la période de transaction (en minutes)",
+  "Fee": "Frais",
+  "Total": "Le total",
+  "Destination": "Destination"
 }

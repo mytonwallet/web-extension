@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Descarta l'avís de còpia de seguretat",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "El compte té un saldo insuficient per a l'operació sol·licitada. Envieu algun valor al saldo del compte.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "L'execució del contracte es va acabar amb un error: la fase de computació no ha tingut èxit, el codi de sortida: 107. Per obtenir més informació sobre el codi de sortida, comproveu el codi font del contracte o demaneu al desenvolupador de contractes"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "L'execució del contracte es va acabar amb un error: la fase de computació no ha tingut èxit, el codi de sortida: 107. Per obtenir més informació sobre el codi de sortida, comproveu el codi font del contracte o demaneu al desenvolupador de contractes",
+  "Warning": "Advertència",
+  "Warning text about restoring": "La recuperació de frases de llavor és un mètode obsolet. Només donem suport a la restauració del magatzem de claus al primer llançament. Després de crear la primera cartera, serà possible exportar l'antiga cartera de la frase de llavor. Tingueu en compte que només donem suport a la versió de Safemultisigwallet de la cartera, de manera que si la frase de llavor pertany a altres versions. Tots els fons han de ser transferits a la cartera nova i desplegada.",
+  "No matches": "Sense coincidències",
+  "Select or enter a new one": "Seleccioneu o introduïu-ne un de nou",
+  "Own addresses": "Adreces pròpies",
+  "Retrieving transactions period (in minutes)": "Recuperació de períodes de transaccions (en minuts)",
+  "Fee": "Drets",
+  "Total": "Total",
+  "Destination": "Destinació"
 }

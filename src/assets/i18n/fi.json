@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Hylkää varmuuskopiointi varoitus",
   "Max": "Max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Tilillä ei ole riittävästi saldon pyydetystä toiminnasta. Lähetä arvo tili saldo.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Sopimuksen toteutus lopetettiin virheellä: Laskuvaihe ei ole onnistunut, poistumiskoodi: 107. Lisätietoja poistokoodista Tarkista sopimuksen lähdekoodi tai pyydä sopimuskehitystä"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Sopimuksen toteutus lopetettiin virheellä: Laskuvaihe ei ole onnistunut, poistumiskoodi: 107. Lisätietoja poistokoodista Tarkista sopimuksen lähdekoodi tai pyydä sopimuskehitystä",
+  "Warning": "Varoitus",
+  "Warning text about restoring": "Siementensuodatus on vanhentunut menetelmä. Tuemme vain Keystore Reales ensimmäisessä käynnistämisessä. Ensimmäisen lompakon luomisen jälkeen on mahdollista viedä vanha lompakko siementen lauseesta. Huomioithan, että tuemme vain lompakon Safemultisigwallet-versiota, joten jos siemenlause kuuluu muihin versioihin. Kaikki varat on siirrettävä äskettäin luotuun ja käyttöönotettuun lompakkoon.",
+  "No matches": "Ei otteluita",
+  "Select or enter a new one": "Valitse tai anna uusi",
+  "Own addresses": "Omat osoitteet",
+  "Retrieving transactions period (in minutes)": "Transaktioiden hakeminen (muutamassa minuutissa)",
+  "Fee": "Maksu",
+  "Total": "Kaikki yhteensä",
+  "Destination": "Kohde"
 }

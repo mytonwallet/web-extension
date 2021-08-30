@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Odrzuć ostrzeżenie o kopii zapasowej",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Konto ma niewystarczające saldo dla żądanej operacji. Wyślij pewną wartość do salda konta.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Egzekucja kontraktowa została zakończona błędem: Faza obliczeniowa nie zostanie udana, kod wyjścia: 107. Aby uzyskać więcej informacji na temat kodu wyjścia Sprawdź kod źródłowy kontraktu lub poprosić o deweloper"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Egzekucja kontraktowa została zakończona błędem: Faza obliczeniowa nie zostanie udana, kod wyjścia: 107. Aby uzyskać więcej informacji na temat kodu wyjścia Sprawdź kod źródłowy kontraktu lub poprosić o deweloper",
+  "Warning": "Ostrzeżenie",
+  "Warning text about restoring": "Odzyskiwanie wyrażenia nasion jest przestarzałą metodą. Wspieramy tylko przywracania kluczy przy pierwszym uruchomieniu. Po utworzeniu pierwszego portfela będzie możliwe wyeksportowanie starego portfela z frazy nasion. Należy pamiętać, że obsługujemy tylko wersję SafeMultisigWallet portfela, więc jeśli fraza nasion należy do innych wersji. Wszystkie środki muszą zostać przeniesione na nowo utworzony i wdrożony portfel.",
+  "No matches": "Brak wyników",
+  "Select or enter a new one": "Wybierz lub wprowadź nowy",
+  "Own addresses": "Własne adresy",
+  "Retrieving transactions period (in minutes)": "Pobieranie okresu transakcji (w minutach)",
+  "Fee": "Opłata",
+  "Total": "Całkowity",
+  "Destination": "Miejsce docelowe"
 }

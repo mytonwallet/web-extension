@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Respinge avertizarea de rezervă",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Contul are un echilibru insuficient pentru operațiunea solicitată. Trimiteți o valoare pentru soldul contului.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Execuția contractului a fost reziliată cu eroare: Faza de calcul nu este reușită, codul de ieșire: 107. Pentru mai multe informații despre codul de ieșire Verificați codul sursă de contract sau întrebați dezvoltatorul de contract"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Execuția contractului a fost reziliată cu eroare: Faza de calcul nu este reușită, codul de ieșire: 107. Pentru mai multe informații despre codul de ieșire Verificați codul sursă de contract sau întrebați dezvoltatorul de contract",
+  "Warning": "Avertizare",
+  "Warning text about restoring": "Fraza de recuperare a semințelor este o metodă depășită. Susținem doar Keystore Restaores la prima lansare. După crearea primului portofel, va fi posibil să exportați vechea portofel din fraza de semințe. Rețineți că acceptăm doar versiunea SafeMultisigwallet a portofelului, deci dacă fraza de semințe aparține altor versiuni. Toate fondurile trebuie transferate în portofelul nou creat și implementat.",
+  "No matches": "Nici-o potrivire",
+  "Select or enter a new one": "Selectați sau introduceți unul nou",
+  "Own addresses": "Adrese proprii",
+  "Retrieving transactions period (in minutes)": "Preluarea perioadei de tranzacții (în câteva minute)",
+  "Fee": "Taxă",
+  "Total": "Total",
+  "Destination": "Destinaţie"
 }

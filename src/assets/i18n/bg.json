@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Освободете предупреждението за архивиране",
   "Max": "Макс",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Сметката има недостатъчен баланс за исканата операция. Изпратете баланса на сметката.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Изпълнението на договора е прекратено с грешка: Фазата на изчисление не е успешна, изход код: 107. За повече информация относно кода за изход проверете кода на източника на договор или попитайте разработчика на договора"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Изпълнението на договора е прекратено с грешка: Фазата на изчисление не е успешна, изход код: 107. За повече информация относно кода за изход проверете кода на източника на договор или попитайте разработчика на договора",
+  "Warning": "Внимание",
+  "Warning text about restoring": "Възстановяването на семената е остарял метод. Подкрепяме само Keystore възстановява първото стартиране. След създаването на първия портфейл, ще бъде възможно да се изнася стария портфейл от семената. Моля, обърнете внимание, че ние поддържаме само Safemultisigwallet версията на портфейла, така че ако семената принадлежи към други версии. Всички средства трябва да бъдат прехвърлени на новосъздадения и разгърнат портфейл.",
+  "No matches": "Няма съвпадения",
+  "Select or enter a new one": "Изберете или въведете нов",
+  "Own addresses": "Собствени адреси",
+  "Retrieving transactions period (in minutes)": "Период на извличане на транзакции (за минути)",
+  "Fee": "Такса",
+  "Total": "Обща сума",
+  "Destination": "Дестинация"
 }

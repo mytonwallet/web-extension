@@ -237,5 +237,14 @@
   "Dismiss backup warning": "காப்பு எச்சரிக்கை எச்சரிக்கை",
   "Max": "அதிகபட்சம்",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "கோரப்பட்ட நடவடிக்கைக்கு கணக்கு போதுமான சமநிலை இல்லை. கணக்கு சமநிலைக்கு சில மதிப்பை அனுப்புங்கள்.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "ஒப்பந்தச் செயல்படுத்தல் பிழை ஏற்பட்டது: கணக்கிடப்பட்டது கட்டம் வெற்றிபெற்றது: Exit Code: 107. Exit Code பற்றிய மேலும் தகவலுக்கு ஒப்பந்த மூலக் குறியீட்டை சரிபார்க்கவும் அல்லது ஒப்பந்த டெவலப்பர் கேளுங்கள்"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "ஒப்பந்தச் செயல்படுத்தல் பிழை ஏற்பட்டது: கணக்கிடப்பட்டது கட்டம் வெற்றிபெற்றது: Exit Code: 107. Exit Code பற்றிய மேலும் தகவலுக்கு ஒப்பந்த மூலக் குறியீட்டை சரிபார்க்கவும் அல்லது ஒப்பந்த டெவலப்பர் கேளுங்கள்",
+  "Warning": "எச்சரிக்கை",
+  "Warning text about restoring": "விதை சொற்றொடர் மீட்பு ஒரு காலாவதியான முறை. முதல் தொடக்கத்தில் KeyStore ஐ மீண்டும் ஆதரிக்கிறோம். முதல் பணப்பையை உருவாக்கிய பிறகு, விதை வாக்கியத்திலிருந்து பழைய பணப்பையை ஏற்றுமதி செய்ய முடியும். விதை சொற்றொடர் மற்ற பதிப்புகளுக்கு சொந்தமானது என்றால் பணப்பையை Safemultisigwallet பதிப்பை மட்டுமே ஆதரிக்கிறோம் என்பதை நினைவில் கொள்க. அனைத்து நிதிகளும் புதிதாக உருவாக்கப்பட்ட மற்றும் பயன்படுத்தப்பட்ட பணப்பையை மாற்றப்பட வேண்டும்.",
+  "No matches": "போட்டிகள் இல்லை",
+  "Select or enter a new one": "ஒரு புதிய ஒன்றை தேர்ந்தெடுக்கவும் அல்லது உள்ளிடவும்",
+  "Own addresses": "சொந்த முகவரிகள்",
+  "Retrieving transactions period (in minutes)": "பரிவர்த்தனைகளை மீட்டெடுத்தல் காலம் (நிமிடங்களில்)",
+  "Fee": "கட்டணம்",
+  "Total": "மொத்தம்",
+  "Destination": "இலக்கு"
 }

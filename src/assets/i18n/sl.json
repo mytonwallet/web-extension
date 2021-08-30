@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Zavrne varnostno kopijo",
   "Max": "Max.",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Račun za zahtevano operacijo ne zadostuje. Pošljite nekaj vrednosti na stanje na računu.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Izvedba pogodbe je bila prekinjena z napako: Faza izračuna ni uspela, izhodna koda: 107. Za več informacij o izhodni kodi preverite kodo naročnika ali vprašajte razvijalca pogodbe"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Izvedba pogodbe je bila prekinjena z napako: Faza izračuna ni uspela, izhodna koda: 107. Za več informacij o izhodni kodi preverite kodo naročnika ali vprašajte razvijalca pogodbe",
+  "Warning": "Opozorilo",
+  "Warning text about restoring": "Izterjava semenskega stavka je zastarela metoda. Podpiramo samo ključno mesto ob obnavljanju prvega zagona. Po ustvarjanju prve denarnice, bo mogoče izvoziti staro denarnico iz semenske fraze. Prosimo, upoštevajte, da podpiramo samo varno različico denarnice, tako da, če semenska fraza pripada drugim različicam. Vsa sredstva je treba prenesti na novo ustvarjeno in razporejeno denarnico.",
+  "No matches": "Brez zadetkov",
+  "Select or enter a new one": "Izberite ali vnesite novo",
+  "Own addresses": "Lastne naslove",
+  "Retrieving transactions period (in minutes)": "Pridobivanje obdobja transakcij (v minutah)",
+  "Fee": "FEE",
+  "Total": "Skupaj.",
+  "Destination": "Nadati"
 }

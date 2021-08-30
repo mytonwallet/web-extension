@@ -18,6 +18,7 @@
     mdiSwapVertical,
     mdiBriefcaseUpload,
     mdiArrowTopRight,
+    mdiArrowBottomLeft,
   } from "@mdi/js";
 
   import {
@@ -55,6 +56,15 @@
     ? !$currentAccount.deployed.includes($currentNetwork.server)
     : false;
   $: showBuy = !$currentNetwork.test;
+
+  const walletUIUpdateListener = (message) => {
+    if (message.type === "updateWalletUI") {
+      checkBalance($currentAccount.address, $currentNetwork.server);
+      getTransactions($currentAccount.address, $currentNetwork.server, 10, 1);
+    }
+  };
+
+  browser.runtime.onMessage.addListener(walletUIUpdateListener);
 
   const copyAddress = (event) => {
     copyToClipboard($currentAccount.address);
@@ -418,13 +428,22 @@
           <span class="tx-type">
             {#if tx.type == 'deploy'}
               <Icon
+                class="action-button"
                 src={mdiBriefcaseUpload}
                 size="2"
                 on:click={() => viewTransactionOnExplorer(tx.id)} />
             {/if}
             {#if tx.type == 'transfer'}
               <Icon
+                class="action-button"
                 src={mdiArrowTopRight}
+                size="2"
+                on:click={() => viewTransactionOnExplorer(tx.id)} />
+            {/if}
+            {#if tx.type == 'incoming'}
+              <Icon
+                class="action-button"
+                src={mdiArrowBottomLeft}
                 size="2"
                 on:click={() => viewTransactionOnExplorer(tx.id)} />
             {/if}
@@ -434,7 +453,10 @@
             <span
               class="tx-date">{new Date(tx.now * 1000).toLocaleString()}</span>
           </span>
-          <span class="tx-balance is-center" title="{tx.amount}"> {fromNano(tx.amount)} {tx.coinName} </span>
+          <span class="tx-balance is-center" title={tx.amount}>
+            {fromNano(tx.amount)}
+            {tx.coinName}
+          </span>
         </div>
       {/each}
     </div>

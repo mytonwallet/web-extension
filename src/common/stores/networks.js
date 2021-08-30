@@ -4,7 +4,7 @@ import { setStorageItem, getStorageItem, removeStorageItem } from '../utils.js';
 const defaultNetworksStore = {
   "currentNetwork" : {
     "name": "The main network",
-    "server": "https://main.ton.dev",
+    "server": "main.ton.dev",
     "coinName": "CRYSTAL"
   }
 };

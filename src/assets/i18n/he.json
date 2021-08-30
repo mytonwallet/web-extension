@@ -237,5 +237,14 @@
   "Dismiss backup warning": "לדחות אזהרת גיבוי",
   "Max": "מקס",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "לחשבון אין איזון מספיק עבור הפעולה המבוקשת. שלח ערך כלשהו לאיזון החשבון.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "ביצוע חוזה הסתיים עם שגיאה: שלב לחשב לא מצליח, קוד יציאה: 107. לקבלת מידע נוסף אודות קוד יציאה בדוק את קוד המקור החוזה או לשאול את מפתח החוזה"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "ביצוע חוזה הסתיים עם שגיאה: שלב לחשב לא מצליח, קוד יציאה: 107. לקבלת מידע נוסף אודות קוד יציאה בדוק את קוד המקור החוזה או לשאול את מפתח החוזה",
+  "Warning": "אַזהָרָה",
+  "Warning text about restoring": "שחזור ביטוי זרע הוא שיטה מיושנת. אנו רק תומכים ב- KeyStore משחזרת על ההשקה הראשונה. לאחר יצירת הארנק הראשון, ניתן יהיה לייצא את הארנק הישן מביטוי הזרע. לידיעתך, אנו מתומכים רק בגירסת SafeMultisigwallet של הארנק, אז אם ביטוי הזרע שייך לגרסאות אחרות. כל הכספים חייבים להיות מועברים לארנק החדש שנוצר ופריסה.",
+  "No matches": "אין התאמה",
+  "Select or enter a new one": "בחר או הזן אחד חדש",
+  "Own addresses": "כתובות משלו",
+  "Retrieving transactions period (in minutes)": "אחזור תקופת עסקאות (בתוך דקות)",
+  "Fee": "תַשְׁלוּם",
+  "Total": "סהכ",
+  "Destination": "יַעַד"
 }

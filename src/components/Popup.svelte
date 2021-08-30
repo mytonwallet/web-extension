@@ -32,6 +32,7 @@
   import ModalError from "./Elements/Popup/Modals/Error.svelte";
   import ModalSuccess from "./Elements/Popup/Modals/Success.svelte";
   import ModalSendingTransaction from "./Elements/Popup/Modals/SendingTransaction.svelte";
+  import ModalConfirmTransaction from "./Elements/Popup/Modals/ConfirmTransaction.svelte";
 
   export let loaded;
 
@@ -144,7 +145,7 @@
     }
   }
 
-  const Modals = { ModalEditNickname, ModalDeleteAccount, ModalError, ModalSuccess, ModalSendingTransaction };
+  const Modals = { ModalEditNickname, ModalDeleteAccount, ModalError, ModalSuccess, ModalSendingTransaction, ModalConfirmTransaction };
 
 </script>
 

@@ -237,5 +237,14 @@
   "Dismiss backup warning": "Loại bỏ cảnh báo sao lưu",
   "Max": "Tối đa",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "Tài khoản không có đủ số dư cho các hoạt động được yêu cầu. Gửi một số giá trị vào số dư tài khoản.",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Thực thi hợp đồng đã bị chấm dứt với lỗi: Tính toán giai đoạn không thành công, thoát mã: 107. Để biết thêm thông tin về mã thoát Kiểm tra mã nguồn hợp đồng hoặc hỏi nhà phát triển hợp đồng"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "Thực thi hợp đồng đã bị chấm dứt với lỗi: Tính toán giai đoạn không thành công, thoát mã: 107. Để biết thêm thông tin về mã thoát Kiểm tra mã nguồn hợp đồng hoặc hỏi nhà phát triển hợp đồng",
+  "Warning": "Cảnh báo",
+  "Warning text about restoring": "Phục hồi cụm từ hạt giống là một phương pháp lỗi thời. Chúng tôi chỉ hỗ trợ khôi phục kho khóa trên lần phóng đầu tiên. Sau khi tạo ví đầu tiên, có thể xuất ví cũ từ cụm hạt giống. Xin lưu ý rằng chúng tôi chỉ hỗ trợ phiên bản SafeMultisigWallet của ví, vì vậy nếu cụm từ hạt giống thuộc về các phiên bản khác. Tất cả các quỹ phải được chuyển sang ví mới được tạo và triển khai.",
+  "No matches": "Không có trận đấu",
+  "Select or enter a new one": "Chọn hoặc nhập một cái mới",
+  "Own addresses": "Địa chỉ riêng",
+  "Retrieving transactions period (in minutes)": "Lấy lại thời gian giao dịch (tính bằng phút)",
+  "Fee": "Phí",
+  "Total": "Toàn bộ",
+  "Destination": "Điểm đến"
 }

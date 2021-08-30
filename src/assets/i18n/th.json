@@ -237,5 +237,14 @@
   "Dismiss backup warning": "ยกเลิกคำเตือนการสำรองข้อมูล",
   "Max": "สูงสุด",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "บัญชีมียอดคงเหลือไม่เพียงพอสำหรับการดำเนินงานที่ร้องขอ ส่งค่าไปยังยอดเงินในบัญชี",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "การดำเนินการตามสัญญาถูกยกเลิกด้วยข้อผิดพลาด: การคำนวณขั้นตอนไม่สำเร็จออกรหัส: 107 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับรหัสออกตรวจสอบรหัสที่มาของสัญญาหรือถามผู้พัฒนาสัญญา"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "การดำเนินการตามสัญญาถูกยกเลิกด้วยข้อผิดพลาด: การคำนวณขั้นตอนไม่สำเร็จออกรหัส: 107 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับรหัสออกตรวจสอบรหัสที่มาของสัญญาหรือถามผู้พัฒนาสัญญา",
+  "Warning": "คำเตือน",
+  "Warning text about restoring": "การกู้คืนวลีเมล็ดเป็นวิธีที่ล้าสมัย เราสนับสนุน Keystore คืนค่าการเปิดตัวครั้งแรกเท่านั้น หลังจากสร้างกระเป๋าเงินใบแรกมันจะเป็นไปได้ที่จะส่งออกกระเป๋าเงินเก่าออกจากวลีเมล็ด โปรดทราบว่าเรารองรับเฉพาะรุ่น SafeMultisigwallet ของกระเป๋าเงินดังนั้นหากวลีเมล็ดเป็นของรุ่นอื่น ๆ เงินทั้งหมดจะต้องถ่ายโอนไปยังกระเป๋าเงินที่สร้างขึ้นใหม่และปรับใช้ใหม่",
+  "No matches": "ไม่ตรงกัน",
+  "Select or enter a new one": "เลือกหรือป้อนใหม่",
+  "Own addresses": "ที่อยู่ของตัวเอง",
+  "Retrieving transactions period (in minutes)": "การเรียกคืนระยะเวลาธุรกรรม (เป็นนาที)",
+  "Fee": "ค่าธรรมเนียม",
+  "Total": "รวม",
+  "Destination": "ปลายทาง"
 }

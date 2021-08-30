@@ -15,8 +15,11 @@ export class Vault {
       }
     });
 
-    this.db = await openDB('vault', 1, {
-      upgrade(db) {
+    this.db = await openDB('vault', 2, {
+      async upgrade(db, oldVersion, newVersion, transaction) {
+        if (await checkMigration(db, oldVersion, newVersion, transaction)) {
+          return;
+        }
         // Create a store of objects
         const storeAccounts = db.createObjectStore('accounts', {
           // The 'id' property of the object will be the key.
@@ -25,13 +28,13 @@ export class Vault {
         /*
         { address: "0:123",
           nickname: "main",
-          balance: {"https://main.ton.dev": 5000000000},
-          transactions: {"https://main.ton.dev": [{...}]},
+          balance: {"main.ton.dev": 5000000000},
+          transactions: {"main.ton.dev": [{...}]},
           updatedDate: 123123,
           createdDate: 123123,
-          contactList: {"https://main.ton.dev": ["0:11", "0:12"]},
-          contractList: {"https://main.ton.dev": ["0:21", "0:22"]},
-          tokenList: {"https://main.ton.dev": ["0:31", "0:32"]},
+          contactList: {"main.ton.dev": ["0:11", "0:12"]},
+          contractList: {"main.ton.dev": ["0:21", "0:22"]},
+          tokenList: {"main.ton.dev": ["0:31", "0:32"]},
           deployed: [], // server list on which was deployed
           encrypted: { //this object is encrypted
             privKey: "e3412345fcd",
@@ -53,8 +56,11 @@ export class Vault {
         /*
         { id: 1,
           name: "Main",
-          server: "https://main.ton.dev",
+          server: "main.ton.dev",
           explorer: "https://ton.live",
+          endpoints: ["https://main2.ton.dev",
+                      "https://main3.ton.dev",
+                      "https://main4.ton.dev"],
           test: false,
           giver: "",
           coinName: "CRYSTAL",
@@ -64,8 +70,11 @@ export class Vault {
         const networks = [
           { id: 1,
             name: "Main",
-            server: "https://main.ton.dev",
+            server: "main.ton.dev",
             explorer: "https://ton.live",
+            endpoints: ["https://main2.ton.dev",
+                        "https://main3.ton.dev",
+                        "https://main4.ton.dev"],
             test: false,
             giver: "",
             coinName: "CRYSTAL",
@@ -74,8 +83,10 @@ export class Vault {
           {
             id: 2,
             name: "Test",
-            server: "https://net.ton.dev",
+            server: "net.ton.dev",
             explorer: "https://net.ton.live",
+            endpoints: ["https://net1.ton.dev",
+                        "https://net5.ton.dev"],
             test: true,
             giver: "",
             coinName: "RUBY",
@@ -84,8 +95,9 @@ export class Vault {
           {
             id: 3,
             name: "Local",
-            server: "http://localhost:7777",
+            server: "localhost:7777",
             explorer: "http://localhost:7777/graphql",
+            endpoints: ["http://localhost:7777"],
             test: true,
             giver: "0:b5e9240fc2d2f1ff8cbb1d1dee7fb7cae155e5f6320e585fcc685698994a19a5",
             coinName: "MOONROCK",
@@ -243,7 +255,6 @@ export class Vault {
         const sortedTransactions = existingAccount.transactions[server].sort(function(a, b) {
           return b.now - a.now;
         });
-
         return sortedTransactions.slice((page - 1) * count, page * count);
       } else {
         return [];
@@ -366,4 +377,33 @@ export class Vault {
     const store = transaction.objectStore('networks');
     return await store.get(server);
   }
+}
+
+async function checkMigration(db, oldVersion, newVersion, transaction) {
+  if (oldVersion == 1 && newVersion == 2) {
+    const store = transaction.objectStore('networks');
+    const allNetworks = await store.getAll();
+    for (let i in allNetworks) {
+      if (typeof allNetworks[i].endpoints == "undefined") {
+        allNetworks[i].server = allNetworks[i].server.replace("https://", "");
+        switch(allNetworks[i].id) {
+          case 1:
+            allNetworks[i].endpoints = ["https://main2.ton.dev",
+                                        "https://main3.ton.dev",
+                                        "https://main4.ton.dev"];
+            break;
+          case 2:
+            allNetworks[i].endpoints = ["https://net1.ton.dev",
+                                        "https://net5.ton.dev"];
+            break;
+          case 3:
+            allNetworks[i].endpoints = ["http://localhost:7777"];
+            break;
+        }
+        await store.put(allNetworks[i]);
+      }
+    }
+    return true;
+  }
+  return false;
 }

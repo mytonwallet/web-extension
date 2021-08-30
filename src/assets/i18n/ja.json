@@ -237,5 +237,14 @@
   "Dismiss backup warning": "バックアップ警告を解除します",
   "Max": "max",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "要求された操作のバランスが不十分です。アカウント残高にいくらかの値を送信してください。",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "契約の実行はエラーで終了しました：Computeフェーズは成功しません。"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "契約の実行はエラーで終了しました：Computeフェーズは成功しません。",
+  "Warning": "警告",
+  "Warning text about restoring": "種句回復は古い方法です。最初の起動時にキーストアの復元のみをサポートします。最初の財布を作成した後、古い財布を種子句から輸出することが可能になるでしょう。 SEADフレーズが他のバージョンに属する場合は、SafeMultisigWalletバージョンのバージョンのみをサポートしていることに注意してください。すべての資金は、新しく作成され展開された財布に転送されなければなりません。",
+  "No matches": "一致なし",
+  "Select or enter a new one": "新しいものを選択または入力してください",
+  "Own addresses": "自分の住所",
+  "Retrieving transactions period (in minutes)": "トランザクション期間の取得（分単位）",
+  "Fee": "手数料",
+  "Total": "合計",
+  "Destination": "行き先"
 }

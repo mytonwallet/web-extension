@@ -88,7 +88,7 @@
       if (theme == "light") {
         body.classList.add("light");
       }
-      if (window.location.hash) {
+      if (window.location.hash && window.location.hash.substr(1) != $currentPage.name) {
         switchPage(window.location.hash.substr(1));
         window.location = window.location.href.split("#")[0];
       }

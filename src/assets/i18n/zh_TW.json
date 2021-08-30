@@ -237,5 +237,14 @@
   "Dismiss backup warning": "解僱備份警告",
   "Max": "最大限度",
   "Account has insufficient balance for the requested operation. Send some value to account balance": "帳戶對請求的操作餘額不足。向帳戶餘額發送一些值。",
-  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "契約執行已終止錯誤：計算階段未成功，退出代碼：107.有關退出代碼的更多信息，請檢查合同源代碼或詢問合同開發人員"
+  "Contract execution was terminated with error: compute phase isn't succeeded, exit code: 107. For more information about exit code check the contract source code or ask the contract developer": "契約執行已終止錯誤：計算階段未成功，退出代碼：107.有關退出代碼的更多信息，請檢查合同源代碼或詢問合同開發人員",
+  "Warning": "警告",
+  "Warning text about restoring": "種子短語恢復是一種過時的方法。我們只支持首次發佈時恢復密鑰庫。創建第一個錢包後，可以從種子短語出口舊錢包。請注意，我們只支持錢包的SafeMultisigwallet版本，因此如果種子短語屬於其他版本。必須將所有資金轉移到新創建和部署的錢包。",
+  "No matches": "無匹配",
+  "Select or enter a new one": "選擇或輸入一個新的",
+  "Own addresses": "自己的地址",
+  "Retrieving transactions period (in minutes)": "檢索交易期間（以分鐘為單位）",
+  "Fee": "費用",
+  "Total": "全部的",
+  "Destination": "目的地"
 }
