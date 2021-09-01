@@ -400,6 +400,7 @@ async function checkMigration(db, oldVersion, newVersion, transaction) {
             allNetworks[i].endpoints = ["http://localhost:7777"];
             break;
         }
+        await store.delete(allNetworks[i].server);
         await store.put(allNetworks[i]);
       }
     }

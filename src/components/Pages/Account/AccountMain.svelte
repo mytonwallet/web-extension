@@ -19,6 +19,7 @@
     mdiBriefcaseUpload,
     mdiArrowTopRight,
     mdiArrowBottomLeft,
+    mdiAlertCircle,
   } from "@mdi/js";
 
   import {
@@ -244,7 +245,7 @@
   }
   :global(.action-button) {
     background-color: var(--color-primary);
-    color: var(--color-black);
+    color: var(--color-white);
   }
   :global(.account-tabs) {
     margin-top: 1rem;
@@ -444,6 +445,13 @@
               <Icon
                 class="action-button"
                 src={mdiArrowBottomLeft}
+                size="2"
+                on:click={() => viewTransactionOnExplorer(tx.id)} />
+            {/if}
+            {#if tx.type == 'error'}
+              <Icon
+                class="action-button"
+                src={mdiAlertCircle}
                 size="2"
                 on:click={() => viewTransactionOnExplorer(tx.id)} />
             {/if}

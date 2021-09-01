@@ -87,7 +87,7 @@ export const accounts = () => {
       const txData = transactions[i];
       if (txData.orig_status === 0 && txData.end_status === 1) {
         txData.type = "deploy";
-      } else if (txData.aborted === true && txData.orig_status != 0) {
+      } else if (txData.aborted === true && txData.orig_status == 1) {
         txData.type = "error";
       } else {
         txData.type = (txData.balance_delta < 0 ? "transfer": "incoming");
