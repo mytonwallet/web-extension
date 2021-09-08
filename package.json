@@ -13,7 +13,7 @@
     "test-firstrun": "mocha --recursive --timeout 30000 tests/e2e/firstrun/*.js",
     "test-dapps": "mocha --recursive --timeout 30000 tests/e2e/dapp/*.js",
     "run-tonos": "docker run -d --name local-node -e USER_AGREEMENT=yes -p7777:80 tonlabs/local-node",
-    "version": "gulp patchVersion && auto-changelog -p -l 20"
+    "version": "gulp patchVersion && auto-changelog -p -l 20 -t keepachangelog"
   },
   "repository": {
     "type": "git",
