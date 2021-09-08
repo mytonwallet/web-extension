@@ -15,7 +15,7 @@ export class Vault {
       }
     });
 
-    this.db = await openDB('vault', 2, {
+    this.db = await openDB('vault', 3, {
       async upgrade(db, oldVersion, newVersion, transaction) {
         if (await checkMigration(db, oldVersion, newVersion, transaction)) {
           return;
@@ -403,6 +403,17 @@ async function checkMigration(db, oldVersion, newVersion, transaction) {
         await store.delete(allNetworks[i].server);
         await store.put(allNetworks[i]);
       }
+    }
+    return true;
+  }
+
+  // clean network db from old servers without endpoints
+  if (oldVersion == 2 && newVersion == 3) {
+    const store = transaction.objectStore('networks');
+    const allNetworks = await store.getAll();
+    const existedServers = [];
+    for (let i in allNetworks) {
+      await store.delete("https://" + allNetworks[i].server);
     }
     return true;
   }

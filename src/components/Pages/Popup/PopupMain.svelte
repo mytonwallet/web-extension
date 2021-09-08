@@ -261,7 +261,6 @@
   }
   .account-actions {
     width: 30rem;
-    justify-content: space-between;
   }
   :global(.account-settings .card) {
     left: -14rem !important;

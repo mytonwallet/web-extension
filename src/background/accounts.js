@@ -32,8 +32,14 @@ export const accounts = () => {
       const server           = networks[i].server;
 
       const TonLibClient     = await TonLib.getClient(server);
-      const transactions     = await TonLib.requestAccountsTransactions(allAddresses, retrievingTransactionsLastTime);
-      if (transactions.length === 0) {
+      //here can be case when network is not responded
+      try {
+        const transactions     = await TonLib.requestAccountsTransactions(allAddresses, retrievingTransactionsLastTime);
+        if (transactions.length === 0) {
+          continue;
+        }
+      } catch(e) {
+        //console.log(e);
         continue;
       }
       const transactionsAddresses = transactions.map((item) => {return item.account_addr}).filter((v, i, a) => a.indexOf(v) === i);
@@ -70,8 +76,14 @@ export const accounts = () => {
 
   const updateTransactionsList = async (address, server, fromStart = false) => {
     const TonLibClient     = await TonLib.getClient(server);
-    const transactions     = await TonLib.requestAccountsTransactions([address], fromStart ? 0: retrievingTransactionsLastTime);
-    if (transactions.length === 0) {
+    //here can be case when network is not responded
+    try {
+      const transactions     = await TonLib.requestAccountsTransactions([address], fromStart ? 0: retrievingTransactionsLastTime);
+      if (transactions.length === 0) {
+        return;
+      }
+    } catch(e) {
+      //console.log(e);
       return;
     }
     const network = await vault.getNetwork(server);
@@ -347,9 +359,14 @@ export const accounts = () => {
     for (let i in networks) {
       const network = networks[i];
       const TonLibClient = await TonLib.getClient(network.server);
-      const accountData = await TonLibClient.requestAccountData(account);
-      if (accountData && accountData.code_hash === SAFE_MULTISIG_WALLET_CODE_HASH) {
-        deployed.push(network.server);
+      //here can be case when network is not responded
+      try {
+        const accountData = await TonLibClient.requestAccountData(account);
+        if (accountData && accountData.code_hash === SAFE_MULTISIG_WALLET_CODE_HASH) {
+          deployed.push(network.server);
+        }
+      } catch(e) {
+        //console.log(e);
       }
     }
     return deployed;
