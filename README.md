@@ -170,7 +170,13 @@ If you are native speaker on any other language and can help with translation, p
 * Increase a version in package.json and manifest.json and update CHANGELOG file
 
 ```
-  npm run version
+  npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=<prerelease-id>] | from-git]
+```
+
+Usually after common commit needs to use `patch`
+
+```
+  npm version patch
 ```
 
 * Create builds for browsers
