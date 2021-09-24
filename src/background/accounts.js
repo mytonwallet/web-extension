@@ -33,8 +33,9 @@ export const accounts = () => {
 
       const TonLibClient     = await TonLib.getClient(server);
       //here can be case when network is not responded
+      let transactions = [];
       try {
-        const transactions     = await TonLib.requestAccountsTransactions(allAddresses, retrievingTransactionsLastTime);
+        transactions     = await TonLib.requestAccountsTransactions(allAddresses, retrievingTransactionsLastTime);
         if (transactions.length === 0) {
           continue;
         }
@@ -77,8 +78,9 @@ export const accounts = () => {
   const updateTransactionsList = async (address, server, fromStart = false) => {
     const TonLibClient     = await TonLib.getClient(server);
     //here can be case when network is not responded
+    let transactions = [];
     try {
-      const transactions     = await TonLib.requestAccountsTransactions([address], fromStart ? 0: retrievingTransactionsLastTime);
+      transactions     = await TonLib.requestAccountsTransactions([address], fromStart ? 0: retrievingTransactionsLastTime);
       if (transactions.length === 0) {
         return;
       }

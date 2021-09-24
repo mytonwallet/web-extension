@@ -10,11 +10,15 @@
   //Components
   import ErrorBox from "../../Elements/ErrorBox.svelte";
 
+  //Components
+  import Loading from "../../Elements/Loading.svelte";
+  
   //Context
   const { setKeys, changeStep } = getContext("functions");
 
   //DOM nodes
   let error, formObj, seed, nickname;
+  let loading;
 
   //Props
   onMount(() => {
@@ -29,7 +33,9 @@
   const handleSubmit = async () => {
     try {
       if (formObj.checkValidity()) {
+        loading = true;
         browser.runtime.sendMessage({type: "addAccountBySeed", data: {"nickname": nickname.value, "seed": seed.value}}).then((result) => {
+          loading = false;
           if (!result.error) {
             settingsStore.setLastChangeDate();
             accountStore.changeAccount(result);
@@ -86,6 +92,7 @@
       </div>
       <div class="flex-column flow-buttons">
         <Button
+          {loading}
           form="seed-form"
           class="button__solid button__primary submit-button submit-button-text submit"
           style="margin: 0 0 1rem;"
@@ -93,6 +100,7 @@
           {$_("Add wallet")}
         </Button>
         <Button
+          {loading}
           id="back"
           class="flex-row flex-center-centr button__solid button"
           style="margin: 0 0 1rem;"
@@ -102,7 +110,10 @@
       </div>
     </form>
   </div>
-  <div class="flex-column flow-content-right" >
+  <div class="flex-column flow-content-right">
+    {#if loading}
+      <Loading message={"Loading"} />
+    {/if}
     {#if error}
       <ErrorBox {error} header="Oops" buttonText="Back" buttonAction={() => goBack()}/>
     {/if}

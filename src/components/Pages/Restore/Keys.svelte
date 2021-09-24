@@ -13,8 +13,12 @@
   //Components
   import ErrorBox from "../../Elements/ErrorBox.svelte";
 
+  //Components
+  import Loading from "../../Elements/Loading.svelte";
+
   //DOM nodes
   let error, formObj, publicKey, secretKey, nickname;
+  let loading;
 
   onMount(() => {
     steps.update((current) => {
@@ -29,7 +33,9 @@
   const handleSubmit = async () => {
     try {
       if (formObj.checkValidity()) {
+        loading = true;
         browser.runtime.sendMessage({type: "addAccountByKeys", data: {"nickname": nickname.value, "keyPair": {"public": publicKey.value, "secret": secretKey.value}}}).then((result) => {
+          loading = false;
           if (!result.error) {
             settingsStore.setLastChangeDate();
             accountStore.changeAccount(result);
@@ -96,6 +102,7 @@
       </div>
       <div class="flex-column flow-buttons">
         <Button
+          {loading}
           form="keys-form"
           style="margin: 0 0 1rem;"
           class="button__solid button__primary submit-button submit-button-text submit"
@@ -103,6 +110,7 @@
           {$_("Add wallet")}
         </Button>
         <Button
+          {loading}
           id="back"
           class="flex-row flex-center-centr button__solid button"
           style="margin: 0 0 1rem;"
@@ -113,6 +121,9 @@
     </form>
   </div>
   <div class="flex-column flow-content-right">
+    {#if loading}
+      <Loading message={"Loading"} />
+    {/if}
     {#if error}
       <ErrorBox {error} header="Oops" buttonText="Back" buttonAction={() => goBack()}/>
     {/if}
