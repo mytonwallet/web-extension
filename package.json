@@ -1,6 +1,6 @@
 {
   "name": "mytonwallet",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "The browser extension for Free TON blockchain.",
   "author": "My TON wallet team <support@mytonwallet.com>",
   "license": "Apache-2.0",
