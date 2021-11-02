@@ -1,6 +1,6 @@
 import {
   lastActionTimestamp,
-  currentAutologout,
+  currentAutologout
 } from "./../common/stores.js";
 
 export const eventsHandler = (controller) => {
@@ -47,7 +47,7 @@ export const eventsHandler = (controller) => {
     const isFromPopup = fromPopup(sender);
 
     //Reject any messages not from the App itself of from the autorized Dapp List.
-    if (!isFromPopup && !isFromPage){
+    if (!isFromPopup && !isFromPage) {
       return Promise.resolve("Wrong origin");
     } else {
       if (isFromPage || isFromPopup) {
@@ -73,7 +73,7 @@ export const eventsHandler = (controller) => {
         }
 
         const walletIsLocked = controller.accounts.walletIsLocked();
-        if (!walletIsLocked) {
+        if (!walletIsLocked.locked) {
           // Account
           if (message.type === 'backupKeystore') return Promise.resolve(controller.accounts.createKeystore(message.data));
 
@@ -112,6 +112,8 @@ export const eventsHandler = (controller) => {
 
           // Settings
           if (message.type === 'setSettings') return Promise.resolve(controller.setSettings(message.data));
+
+          if (message.type === 'setPincode') return Promise.resolve(controller.accounts.setPincode(message.data));
         }
       }
     }

@@ -246,5 +246,11 @@
   "Retrieving transactions period (in minutes)": "Период получения транзакций (в минутах)",
   "Fee": "Комиссия",
   "Total": "Всего",
-  "Destination": "Назначение"
+  "Destination": "Назначение",
+  "Enter your pin code": "Введите Ваш пин код",
+  "Pin code (4-8 numbers)": "Пин код (4-8 чисел)",
+  "Pin code contains 4-8 numbers. After 1 failed attempt it will be dropped. Login will be carried out through the password entry form. Pin code can be set up again on the settings page.": "Пин код состоит из 4-8 чисел. После 1-ой неудачной попытки он будет сброшен. Вход будет осуществляться через форму ввода пароля. Пин код можно снова установить на странице настроек.",
+  "Clear": "Очистить",
+  "Incorrect pin code": "Неверный пин код",
+  "Submit": "Отправить"
 }

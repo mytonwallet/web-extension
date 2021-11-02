@@ -61,13 +61,15 @@
   let modalData;
 
   $: walletIsLocked = true;
+  $: enabledPinPad = false;
   $: firstRun = undefined;
 
   const walletIsLockedListener = (message) => {
     if (message.type === "walletIsLocked") {
       //Make sure the wallet was actually unlocked by the user
-      browser.runtime.sendMessage({ type: "walletIsLocked" }).then((locked) => {
-        walletIsLocked = locked;
+      browser.runtime.sendMessage({ type: "walletIsLocked" }).then((data) => {
+        walletIsLocked = data.locked;
+        enabledPinPad = data.enabledPinPad;
       });
     }
   };
@@ -75,8 +77,9 @@
   browser.runtime.onMessage.addListener(walletIsLockedListener);
 
   onMount(() => {
-    browser.runtime.sendMessage({ type: "walletIsLocked" }).then((locked) => {
-      walletIsLocked = locked;
+    browser.runtime.sendMessage({ type: "walletIsLocked" }).then((data) => {
+      walletIsLocked = data.locked;
+      enabledPinPad = data.enabledPinPad;
     });
     checkFirstRun();
   });
@@ -146,9 +149,19 @@
     if (theme == "dark") {
       body.classList.add("light");
       settingsStore.setThemeName("light");
+      // need to change storage on background
+      browser.runtime
+        .sendMessage({ type: "setSettings", data: {
+          "setThemeName": "light",
+        }});
     } else {
       body.classList.remove("light");
       settingsStore.setThemeName("dark");
+      // need to change storage on background
+      browser.runtime
+        .sendMessage({ type: "setSettings", data: {
+          "setThemeName": "dark",
+        }});
     }
   }
 </script>
@@ -241,7 +254,7 @@
         {/if}
       {/if}
       {#if walletIsLocked}
-        <svelte:component this={Pages['LockScreen']} {loaded} />
+        <svelte:component this={Pages['LockScreen']} {enabledPinPad} {loaded} />
       {/if}
     {/if}
   {:else}

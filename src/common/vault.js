@@ -126,6 +126,17 @@ export class Vault {
     return result;
   }
 
+  async removeMasterKey (id) {
+    const transaction = this.masterDb.transaction('keys', 'readwrite');
+    const store = transaction.objectStore('keys');
+    const existingKey = await store.get(id);
+    if (existingKey) {
+      store.delete(id);
+      return true;
+    }
+    return false;
+  }
+
   async addContact (accountAddress, server, contact) {
     const transaction = this.db.transaction('accounts', 'readwrite');
     const store = transaction.objectStore('accounts');

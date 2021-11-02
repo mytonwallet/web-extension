@@ -1,15 +1,23 @@
 import { accounts } from './accounts.js';
 import { networks } from './networks.js';
 import { broadcastMessage } from '../common/utils.js';
-import { settingsStore } from "../common/stores.js";
+import { settingsStore, currentEnabledPinPad } from "../common/stores.js";
 
 export const controller = () => {
   const accountsController = Object.freeze(accounts());
   const networksController = Object.freeze(networks());
 
-  const createPassword = (string) => {
+  const createPassword = async (string) => {
     let created = accountsController.createPassword(string);
-    if (created) broadcastMessage('walletIsLocked', created);
+    if (created) {
+      // get setting about enabled/disabled pin pad
+      const enabledPinPad = await new Promise((resolve) => {
+        currentEnabledPinPad.subscribe((value) => {
+          resolve(value);
+        });
+      });
+      broadcastMessage('walletIsLocked', {"locked": created, "enabledPinPad": enabledPinPad});
+    }
     return created;
   };
 
@@ -27,20 +35,41 @@ export const controller = () => {
     return true;
   };
 
-  const unlock = async (password) => {
-    const unlocked = await accountsController.unlock(password);
-    broadcastMessage('walletIsLocked', !unlocked);
+  const unlock = async (data) => {
+    const unlocked = await accountsController.unlock(data);
+
+    // get setting about enabled/disabled pin pad
+    const enabledPinPad = await new Promise((resolve) => {
+      currentEnabledPinPad.subscribe((value) => {
+        resolve(value);
+      });
+    });
+    broadcastMessage('walletIsLocked', {"locked": !unlocked, "enabledPinPad": enabledPinPad});
     return unlocked;
   };
 
-  const lock = () => {
+  const lock = async () => {
     accountsController.lock();
-    broadcastMessage('walletIsLocked', true);
+
+    // get setting about enabled/disabled pin pad
+    const enabledPinPad = await new Promise((resolve) => {
+      currentEnabledPinPad.subscribe((value) => {
+        resolve(value);
+      });
+    });
+    broadcastMessage('walletIsLocked', {"locked": true, "enabledPinPad": enabledPinPad});
     return true;
   };
 
+  /*
+  * Settings is array with key -> functionName to set value. This function must be existed in settingsStore
+  */
   const setSettings = async (settings) => {
-    await setStorageItem("settings", settings);
+    for(let i in settings) {
+      if (settingsStore[i]) {
+        settingsStore[i](settings[i]);
+      }
+    }
   };
 
   const deleteAccount = (data) => {

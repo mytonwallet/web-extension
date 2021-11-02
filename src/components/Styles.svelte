@@ -86,7 +86,7 @@
     --color-overlay: #fff;
     --color-accent: #4fb8ff;
 
-    --color-lightGrey: #262626;
+    --color-lightGrey: #d7d7d7;
     --color-grey: #383838;
     --color-darkGrey: #4a4a4a;
 

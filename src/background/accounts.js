@@ -5,7 +5,7 @@ import SafeMultisigWallet from "./solidity/SafeMultisigWallet/SafeMultisigWallet
 import Transfer from "./solidity/Transfer/Transfer.json";
 import GiverV2 from "./solidity/GiverV2/GiverV2.json";
 import giverkeyPair from "./solidity/GiverV2/GiverV2.keys.json";
-import { CURRENT_KS_PASSWORD, SAFE_MULTISIG_WALLET_CODE_HASH, currentRetrievingTransactionsPeriod, currentRetrievingTransactionsLastTime, settingsStore } from "../common/stores.js";
+import { CURRENT_KS_PASSWORD, SAFE_MULTISIG_WALLET_CODE_HASH, currentRetrievingTransactionsPeriod, currentRetrievingTransactionsLastTime, settingsStore, currentEnabledPinPad } from "../common/stores.js";
 
 export const accounts = () => {
   let currentPassword = "";
@@ -289,27 +289,71 @@ export const accounts = () => {
     return await vault.getTransactions(destination, server, count, page);
   };
 
-  const unlock = async (password) => {
-    const checkKey = await vault.getMasterKey(1);
-    try {
-      const encrypted = await decrypt(password, checkKey.encrypted);
-      if (checkKey.key == encrypted.key) {
-        currentPassword = password;
-        return true;
-      } else {
+  const unlock = async (data) => {
+    if (data.type == "password") {
+      const checkKeyPassword = await vault.getMasterKey(1);
+      try {
+        const encrypted = await decrypt(data.value, checkKeyPassword.encrypted);
+        if (checkKeyPassword.key == encrypted.key) {
+          currentPassword = data.value;
+          return true;
+        } else {
+          return false;
+        }
+      } catch (e) {
         return false;
       }
-    } catch (e) {
-      return false;
     }
+
+    /*
+     * This procedure has several steps. First of all we need to become sure that pincode is valid.
+     * After this moment we know secret to decrypt password.
+     */
+    if (data.type == "pincode") {
+      const checkKeyPassword = await vault.getMasterKey(1);
+      const checkKeyPinPad = await vault.getMasterKey(2);
+      let result = false;
+      try {
+        const encryptedPinpad = await decrypt(data.value, checkKeyPinPad.encrypted);
+        if (checkKeyPinPad.key == encryptedPinpad.key) {
+          const encryptedPassword = await decrypt(encryptedPinpad.password, checkKeyPassword.encrypted);
+          if (encryptedPassword.key == checkKeyPassword.key) {
+            currentPassword = encryptedPinpad.password;
+            result = true;
+          } else {
+            result = false;
+          }
+        } else {
+          result = false;
+        }
+      } catch (e) {
+        result = false;
+      }
+      // Failed attempt - drop pin code. We can't give another attempt, because counter stores in local database. It is possible to go round all variants just by reducing this counter in local storage after each attempt.
+      if (!result) {
+        if (await vault.removeMasterKey(2)) {
+          settingsStore.setEnabledPinPad(false);
+        }
+      }
+      return result;
+    }
+
+    //default case
+    return false;
   };
 
   const lock = () => {
     currentPassword = "";
   };
 
-  const walletIsLocked = () => {
-    return currentPassword == "";
+  const walletIsLocked = async () => {
+    // get setting about enabled/disabled pin pad
+    const enabledPinPad = await new Promise((resolve) => {
+      currentEnabledPinPad.subscribe((value) => {
+        resolve(value);
+      });
+    });
+    return {"locked": currentPassword == "", "enabledPinPad": enabledPinPad};
   };
 
   const createKeystore = async (info) => {
@@ -611,6 +655,12 @@ export const accounts = () => {
     }
   };
 
+  const setPincode = async (pincode) => {
+    const key = generateRandomHex(256);
+    const encrypted = await encrypt(pincode, {"key": key, "password": currentPassword});
+    await vault.addMasterKey(2, key, encrypted);
+  };
+
   return {
     createPassword,
     checkPassword,
@@ -628,6 +678,7 @@ export const accounts = () => {
     deleteAccount,
     unlock,
     lock,
+    setPincode,
     walletIsLocked,
     decryptKeys,
     addTransaction,

@@ -1,6 +1,6 @@
 import { writable} from 'svelte/store';
 
-export { settingsStore, currentPage, currentThemeName, currentLang, currentAutologout, currentRetrievingTransactionsPeriod, currentRetrievingTransactionsLastTime, needsBackup } from './stores/settings.js';
+export { settingsStore, currentPage, currentThemeName, currentLang, currentAutologout, currentRetrievingTransactionsPeriod, currentRetrievingTransactionsLastTime, needsBackup, currentEnabledPinPad } from './stores/settings.js';
 export { networksStore, currentNetwork } from './stores/networks.js';
 export { accountStore, currentAccount } from './stores/account.js';
 

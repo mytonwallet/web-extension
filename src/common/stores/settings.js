@@ -11,6 +11,7 @@ const defaultSettingsStore = {
   "themeName": "dark",
   "lang": getLocaleFromNavigator(),
   "autologout": 5,
+  "enabledPinPad": false,
   "retrievingTransactionsPeriod": 1,
   "retrievingTransactionsLastTime": 0
 };
@@ -98,6 +99,12 @@ const createSettingsStore = () => {
         return store;
       });
     },
+    setEnabledPinPad: (enabled) => {
+      settingsStore.update((store) => {
+        store.enabledPinPad = enabled;
+        return store;
+      });
+    },
     setLastBackupDate: () => {
       settingsStore.update((store) => {
         store.lastBackupDate = new Date().getTime();
@@ -158,6 +165,12 @@ export const currentRetrievingTransactionsLastTime = derived(
 export const currentThemeName = derived(
   settingsStore,
   ($settingsStore) => { return $settingsStore.themeName; }
+);
+
+//Derived Store to return state for pin pad - enabled or not
+export const currentEnabledPinPad = derived(
+  settingsStore,
+  ($settingsStore) => { return $settingsStore.enabledPinPad; }
 );
 
 //Derived Store to return if the user needs to make another backup

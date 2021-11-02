@@ -5,31 +5,29 @@
   import { _ } from "svelte-i18n";
 
   //Components
+  import Pinpad from "../../Elements/Pinpad.svelte";
   import Logo from "../../Elements/Popup/Logo.svelte";
   import { Field, Input, Button } from "svelte-chota";
   import { openPageWithPath } from "../../../common/utils.js";
 
   //DOM nodes
-  let formObj, pwdObj;
+  let formObj;
 
   export let loaded;
+  export let enabledPinPad = false;
 
   const handleSubmit = (event) => {
     if (formObj.checkValidity()) {
       browser.runtime
-        .sendMessage({ type: "unlockWallet", data: pwdObj.value })
+        .sendMessage({ type: "unlockWallet", data: {"type": "password", "value": document.getElementById("pwd-input").value} })
         .then((unlocked) => {
           if (!unlocked || browser.runtime.lastError) {
-            setValidity(pwdObj, $_("Incorrect password"));
+            setValidity(document.getElementById("pwd-input"), $_("Incorrect password"));
           }
         });
     }
     event.preventDefault();
   };
-
-  onMount(() => {
-    pwdObj = document.getElementById("pwd-input");
-  });
 
   const setValidity = (node, message) => {
     node.setCustomValidity(message);
@@ -37,11 +35,24 @@
   };
 
   const refreshValidityKeyup = (e) => {
-    if (e.detail.keyCode !== 13) setValidity(pwdObj, "");
+    if (e.detail.keyCode !== 13) setValidity(document.getElementById("pwd-input"), "");
   };
 
   const openPage = () => {
     openPageWithPath("restore");
+  };
+
+  let pinCode;
+  let pinCodeError;
+  const handlePinPadSubmit = () => {
+    browser.runtime
+      .sendMessage({ type: "unlockWallet", data: {"type": "pincode", "value": pinCode}})
+      .then((unlocked) => {
+        if (!unlocked || browser.runtime.lastError) {
+          pinCodeError = "Incorrect pin code";
+          pinCode = "";
+        }
+      });
   };
 </script>
 
@@ -102,37 +113,51 @@
     <Logo />
   </div>
   <div class="content">
-    <div
-      class="lockscreen"
-      in:fly={{ delay: 100, duration: 300, x: 0, y: -400, opacity: 0, easing: quintOut }}>
-      <h6 class="heading">{$_('Unlock')}</h6>
-      <div class="flow-text-box text-body1">{$_('Access your wallet')}</div>
+    {#if enabledPinPad}
+      <div class="lockscreen" in:fly={{ delay: 100, duration: 300, x: 0, y: -400, opacity: 0, easing: quintOut }}>
+        <Pinpad on:submit={handlePinPadSubmit} pinCodeMaxLength=8 bind:pinCode={pinCode} bind:pinCodeError={pinCodeError}/>
+        <a
+          class="flow-text-box footer text-body1"
+          href="{'#'}"
+          on:click={() => {
+            openPage();
+          }}>
+          {$_('Open page')}
+        </a>
+      </div>
+    {:else}
+      <div
+        class="lockscreen"
+        in:fly={{ delay: 100, duration: 300, x: 0, y: -400, opacity: 0, easing: quintOut }}>
+        <h6 class="heading">{$_('Unlock')}</h6>
+        <div class="flow-text-box text-body1">{$_('Access your wallet')}</div>
 
-      <form bind:this={formObj}>
-        <Field label={$_('Password')}>
-          <Input
-            id="pwd-input"
-            on:input={() => setValidity(pwdObj, '')}
-            on:keyup={refreshValidityKeyup}
-            password
-            autofocus={true}
-            required={true} />
-        </Field>
-        <Button
-          id="login-btn"
-          on:click={(event) => handleSubmit(event)}
-          class="button__solid button__primary submit submit-button submit-button-text">
-          {$_('Unlock')}
-        </Button>
-      </form>
-      <a
-        class="flow-text-box footer text-body1"
-        href="{'#'}"
-        on:click={() => {
-          openPage();
-        }}>
-        {$_('Open page')}
-      </a>
-    </div>
+        <form bind:this={formObj}>
+          <Field label={$_('Password')}>
+            <Input
+              id="pwd-input"
+              on:input={() => setValidity(document.getElementById("pwd-input"), '')}
+              on:keyup={refreshValidityKeyup}
+              password
+              autofocus={true}
+              required={true} />
+          </Field>
+          <Button
+            id="login-btn"
+            on:click={(event) => handleSubmit(event)}
+            class="button__solid button__primary submit submit-button submit-button-text">
+            {$_('Unlock')}
+          </Button>
+        </form>
+        <a
+          class="flow-text-box footer text-body1"
+          href="{'#'}"
+          on:click={() => {
+            openPage();
+          }}>
+          {$_('Open page')}
+        </a>
+      </div>
+    {/if}
   </div>
 </div>

@@ -19,15 +19,14 @@
   const { switchPage } = getContext("app_functions");
 
   //DOM nodes
-  let error, formObj, language, autologout, retrievingTransactionsPeriod;
+  let error, formObj, language, autologout, pincode, retrievingTransactionsPeriod;
 
   //Props
   onMount(() => {
     language = document.getElementById("language-input");
     autologout = document.getElementById("autologout-input");
-    retrievingTransactionsPeriod = document.getElementById(
-      "retrieving-transactions-period-input"
-    );
+    pincode = document.getElementById("pincode-input");
+    retrievingTransactionsPeriod = document.getElementById("retrieving-transactions-period-input");
   });
 
   const handleSubmit = async () => {
@@ -35,13 +34,25 @@
       if (formObj.checkValidity()) {
         settingsStore.setLang(language.value);
         settingsStore.setAutologout(autologout.value);
-        settingsStore.setRetrievingTransactionsPeriod(
-          retrievingTransactionsPeriod.value
-        );
+        settingsStore.setRetrievingTransactionsPeriod(retrievingTransactionsPeriod.value);
+        let settingEnabledPinPad;
+        if (pincode.value.length > 0 ) {
+          settingEnabledPinPad = true;
+          settingsStore.setEnabledPinPad(true);
+          browser.runtime.sendMessage({ type: "setPincode", data: pincode.value })
+        } else {
+          settingEnabledPinPad = false;
+          settingsStore.setEnabledPinPad(false);
+        }
 
         // need to change storage on background
         browser.runtime
-          .sendMessage({ type: "setSettings", data: $settingsStore })
+          .sendMessage({ type: "setSettings", data: {
+            "setLang": language.value,
+            "setAutologout": autologout.value,
+            "setRetrievingTransactionsPeriod": retrievingTransactionsPeriod.value,
+            "setEnabledPinPad": settingEnabledPinPad,
+          }})
           .then(() => {
             switchPage("AccountMain");
           });
@@ -53,6 +64,12 @@
 
   const goBack = () => {
     switchPage("AccountMain");
+  };
+
+  const pincodeKeyPress = (event) => {
+    if ((event.which != 8 && isNaN(String.fromCharCode(event.which))) || event.target.value.length == 8) {
+      event.preventDefault(); //stop character from entering input
+    }
   };
 </script>
 
@@ -83,12 +100,19 @@
         <Input id="autologout-input" type="number" value={$currentAutologout} />
       </Field>
     </div>
+  </Field>
+  <Field grouped>
     <div class="input-box-50">
       <Field label={$_('Retrieving transactions period (in minutes)')}>
         <Input
           id="retrieving-transactions-period-input"
           type="number"
           value={$currentRetrievingTransactionsPeriod} />
+      </Field>
+    </div>
+    <div class="input-box-50">
+      <Field label={$_('Pin code (4-8 numbers)')}>
+        <Input id="pincode-input" on:keypress={pincodeKeyPress} pattern="{String.raw`[0-9]{4,8}`}"/>
       </Field>
     </div>
   </Field>

@@ -246,5 +246,11 @@
   "Retrieving transactions period (in minutes)": "Retrieving transactions period (in minutes)",
   "Fee": "Fee",
   "Total": "Total",
-  "Destination": "Destination"
+  "Destination": "Destination",
+  "Enter your pin code": "Enter your pin code",
+  "Pin code (4-8 numbers)": "Pin code (4-8 numbers)",
+  "Pin code contains 4-8 numbers. After 1 failed attempt it will be dropped. Login will be carried out through the password entry form. Pin code can be set up again on the settings page.": "Pin code contains 4-8 numbers. After 1 failed attempt it will be dropped. Login will be carried out through the password entry form. Pin code can be set up again on the settings page.",
+  "Clear": "Clear",
+  "Incorrect pin code": "Incorrect pin code",
+  "Submit": "Submit"
 }
